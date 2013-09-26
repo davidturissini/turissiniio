@@ -16,17 +16,26 @@ module.exports = function(grunt) {
 		    	'vendor/google_maps.js', 
 		    	'vendor/underscore.js',
 		    	'vendor/backbone.js',
+		    	'vendor/mustache.js',
+		    	'config/traveladdict.js',
 		    	'src/*/**/*.js',
 		    	'src/main.js'
 		    ],
 		    // the location of the resulting JS file
 		    dest: './public/scripts/app.min.js'
 		  }
+		},
+		watch: {
+		  scripts: {
+		    files: ['./src/**/*.js'],
+		    tasks: ['default']
+		  },
 		}
 	});
 
 	
 	grunt.loadNpmTasks('grunt-contrib-concat');
+	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.registerTask('default', ['concat']);
 
 

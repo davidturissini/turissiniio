@@ -7,6 +7,7 @@
     "grunt": "x.x.x",
     "grunt-contrib-concat": "x.x.x",
     "grunt-contrib-copy": "x.x.x",
+    "grunt-contrib-watch":"x.x.x",
     "express": "3.0.6",
     "q": "0.8.12",
     "promised-io": "0.3.3",

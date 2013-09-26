@@ -6,7 +6,7 @@
 	var configRoutes = require('./config/routes').routes;
 
 
-	var port = process.env.PORT || 3001;
+	var port = process.env.PORT || 8888;
 
 	var app = express();
 
