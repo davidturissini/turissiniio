@@ -12,6 +12,7 @@ module.exports = function(grunt) {
 		    // the files to concatenate
 		    src: [
 		    	'vendor/require.js', 
+		    	'vendor/jquery-2.0.3.js',
 		    	'vendor/google_maps.js', 
 		    	'vendor/underscore.js',
 		    	'vendor/backbone.js',
@@ -19,7 +20,7 @@ module.exports = function(grunt) {
 		    	'src/main.js'
 		    ],
 		    // the location of the resulting JS file
-		    dest: './../Travel-Blog/public/scripts/traveladdict.min.js'
+		    dest: './public/scripts/app.min.js'
 		  }
 		}
 	});

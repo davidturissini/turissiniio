@@ -21,36 +21,38 @@ define(
 		var windowHeight = window.innerHeight;
 		var pageTitleElHeight = pageHeaderEl.offsetHeight;
 
-		return function (currentScroll) {
-			isTicking = false;
-			
+		return function (currentScroll, callback) {
 
-			parallax(200, 0, 100, 1000, currentScroll, function (value) {
-				pageHeaderEl.style.webkitTransform = 'translateY(' + value + 'px)';
-			});
+			window.requestAnimationFrame(function () {
+				parallax(200, 0, 100, 1000, currentScroll, function (value) {
+					pageHeaderEl.style.webkitTransform = 'translateY(' + value + 'px)';
+				});
 
-			parallax(120, 60, 100, 1000, currentScroll, function (value) {
-				pageHeaderEl.style.height = value + 'px';
-			});
+				parallax(120, 60, 100, 1000, currentScroll, function (value) {
+					pageHeaderEl.style.height = value + 'px';
+				});
 
-			parallax(0, 1, 1600, 1000, currentScroll, function (value) {
-				firstChapterEl.style.opacity = value;
-			});
+				parallax(0, 1, 1600, 1000, currentScroll, function (value) {
+					firstChapterEl.style.opacity = value;
+				});
 
-			parallax(90, 54, 3500, 1000, currentScroll, function (value) {
-				firstChapterGalleryEl.style.width = value + '%';
-			});
+				parallax(90, 54, 3500, 1000, currentScroll, function (value) {
+					firstChapterGalleryEl.style.width = value + '%';
+				});
 
-			parallax(50, 20, 3500, 1000, currentScroll, function (value) {
-				firstChapterTextEl.style.left = value + '%';
-			});
+				parallax(50, 20, 3500, 1000, currentScroll, function (value) {
+					firstChapterTextEl.style.left = value + '%';
+				});
 
-			parallax(0, -(firstChapterTextHeight - firstChapterContentHeight), 5000, 2000, currentScroll, function (value) {
-				firstChapterTextEl.style.webkitTransform = 'translateY(' + value + 'px)';
-			});
+				parallax(0, -(firstChapterTextHeight - firstChapterContentHeight), 5000, 2000, currentScroll, function (value) {
+					firstChapterTextEl.style.webkitTransform = 'translateY(' + value + 'px)';
+				});
 
-			parallax(0, -100, 7900, 1000, currentScroll, function (value) {
-				firstChapterEl.style.webkitTransform = 'translateX(' + value + '%)';
+				parallax(0, -100, 7900, 1000, currentScroll, function (value) {
+					firstChapterEl.style.webkitTransform = 'translateX(' + value + '%)';
+				});
+
+				callback();
 			});
 
 		};

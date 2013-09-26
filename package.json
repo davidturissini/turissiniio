@@ -1,12 +1,17 @@
 {
-  "name": "SummitPostMapClient",
-  "description": "Accomplishments app",
+  "name": "TravelAddict",
+  "description": "Personal blog",
   "version": "0.0.1",
   "private": true,
   "dependencies": {
     "grunt": "x.x.x",
     "grunt-contrib-concat": "x.x.x",
-    "grunt-contrib-copy": "x.x.x"
+    "grunt-contrib-copy": "x.x.x",
+    "express": "3.0.6",
+    "q": "0.8.12",
+    "promised-io": "0.3.3",
+    "mongodb": "1.1.11",
+    "mongoose": "x.x.x"
   },
   "engines": {
     "node": "0.8.2",
