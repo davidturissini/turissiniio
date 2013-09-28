@@ -11,8 +11,14 @@
 	var app = express();
 
 	app.configure(function () {
+
 	  	app.use(express.static(__dirname + '/public'));
-	  	app.use(express.bodyParser());
+	  	
+	  	// default html file (with any request)
+		app.use(function (req, res) {
+			var contents = fs.readFileSync(__dirname + '/public/index.html');
+			res.send(contents.toString());
+		});
 	});
 
 	configRoutes(app);

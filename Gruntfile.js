@@ -17,8 +17,9 @@ module.exports = function(grunt) {
 		    	'vendor/underscore.js',
 		    	'vendor/backbone.js',
 		    	'vendor/mustache.js',
+		    	'vendor/q.js',
 		    	'config/traveladdict.js',
-		    	'src/*/**/*.js',
+		    	'src/**/*.js',
 		    	'src/main.js'
 		    ],
 		    // the location of the resulting JS file

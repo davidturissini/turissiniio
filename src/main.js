@@ -2,22 +2,31 @@ define(
 	'main',
 
 	[
-		'jQuery',
-		'mustache',
-		'model/Trip'
+		'router/builder',
+		'observer/element/linkClick',
+		'layout/loadLayoutAndAppend'
 	], 
 
-	function (jQuery, Mustache, Trip) {
-		var trip = new Trip({slug:'new-york'});
+	function (routerBuilder, linkClick, loadLayoutAndAppend) {
+		var router = routerBuilder();
 		
-		trip.fetch()
 
-		.then(function (e) {
-			var htmlString = '<div>{{slug}}</div>';
-			console.log(Mustache.render(htmlString, trip.attributes))
+		router.on('route:home', function () {
+			loadLayoutAndAppend('/html/layout/main.html');
+		});
 
 
-		})
+		router.on('route:postShow', function () {
+			loadLayoutAndAppend('/html/layout/parallaxMap.html');
+		});
+
+
+		linkClick(router);
+		
+
+		Backbone.history.start({
+	    	pushState:true
+	    });
 
 	}
 
