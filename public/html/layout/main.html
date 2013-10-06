@@ -1,4 +1,60 @@
-<div>
-	<a href="/post/nashville/">Nashville</a>
-</div>
-<div></div>
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.12.0/build/cssreset/cssreset-min.css">
+		<link rel="stylesheet" type="text/css" href="/stylesheets/app.css" />
+	</head>
+	<body>
+		<header id="site-header" class="site-header pad">
+			<h1 id="site-title" class="site-title">TravelAddict</h1>
+			<nav id="site-nav" class="site-nav">
+				<ul class="horizontal">
+					<li class="pad"><a href="/" data-behavior="push">Home</a></li>
+					<li class="pad"><a href="/about" data-behavior="push">About</a></li>
+					<li class="pad"><a href="/contact" data-behavior="push">Contact</a></li>
+				</ul>
+			</nav>
+		</header>
+		<section id="content" class="content pad">
+			{{{content}}}
+		</section>
+		<footer></footer>
+
+		<script src="/scripts/vendor/require.js" data-main="browser.js"></script>
+		<script>
+			require.config({
+				baseUrl:'scripts',
+				paths: {
+    				backbone: 'vendor/backbone',
+    				underscore: 'vendor/underscore',
+    				jQuery: 'vendor/jQuery',
+    				cookies: 'vendor/cookies',
+    				mustache: 'vendor/mustache',
+    				Q: 'vendor/Q',
+    				google_maps: 'vendor/google_maps',
+    				'resource/fetch': 'resource/browserfetch'
+			    },
+			    shim: {
+				    'underscore': {
+				      exports: '_'
+				    },
+				    'backbone': {
+				      deps: ["underscore"],
+				      exports: 'Backbone'
+				    },
+				    'jQuery': {
+				    	exports:'jQuery'
+				    },
+				    'cookies': {
+				    	exports:'jaaulde.utils.cookies'
+				    },
+				    'Q': {
+				    	exports:'Q'
+				    }
+				}
+			})
+		</script>
+
+	</body>
+</html>

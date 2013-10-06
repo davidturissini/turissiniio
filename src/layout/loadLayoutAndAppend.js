@@ -2,42 +2,26 @@ define(
 	'layout/loadLayoutAndAppend',
 
 	[
-		'layout/Layout',
-		'layout/decorator/Cache'
+		'layout/append',
+		'html/fetch'
 	],
 
-	function (Layout, LayoutDecoratorCache) {
-		var currentPath;
-		var layoutEl;
-
-		var layout = new Layout();
-		layout = new LayoutDecoratorCache(layout);
-		
+	function (layoutAppend, htmlFetch) {
+		var isInitialLoad = true;
 
 		return function loadPathAndAppend(path) {
-			layout.setPath(path);
+			var promise;
+			
 
-			var promise = layout.loadHTMLString(path);
+			promise = htmlFetch(path, {});
 
-			promise.then(function (e) {
-				var html = jQuery(e);
+			if (isInitialLoad === false) {
+				promise = promise.then(layoutAppend);
+			}
 
-				if (layoutEl && layoutEl.length === 1) {
-					layoutEl.replaceWith(html);
-					
 
-				} else if (layoutEl) {
-					jQuery(layoutEl.get(0)).replaceWith(html);
-					layoutEl.remove();
+			isInitialLoad = false;
 
-				} else {
-					html.prependTo(document.body);
-
-				}
-
-				layoutEl = html;
-
-			});
 
 			return promise;
 

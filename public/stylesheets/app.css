@@ -1,0 +1,41 @@
+body {
+	font-family:Helvetica;
+}
+
+.block {
+	display:block;
+}
+
+.right {
+	float:right;
+}
+
+.horizontal > li {
+	display:inline-block;
+}
+
+.pad {
+	padding:20px;
+}
+
+.text-right {
+	text-align:right;
+}
+
+
+/* SECTIONS */
+.site-title {
+	font-size:2em;
+}
+
+.site-nav {
+	margin-top:20px;
+}
+
+.site-nav li { 
+	padding:0px 20px;
+}
+
+.site-nav li:first-child {
+	padding-left:0;
+}

@@ -1,0 +1,23 @@
+[{
+	"path":"",
+	"name":"home"
+},{
+	"path":"about",
+	"name":"about"
+},{
+	"path":"contact",
+	"name":"contact"
+},{
+	"path":"post/nashville",
+	"name":"post:show:nashville",
+	"template":"post/show/nashville.html"
+},{
+	"path":"post/:postSlug",
+	"name":"post:show"
+},{
+	"path":"config/routes",
+	"name":"configRoutes",
+	"template":"./config/routes.json",
+	"layout":false,
+	"contentType":"application/json"
+}]

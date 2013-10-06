@@ -2,28 +2,39 @@ define(
 	'router/builder',
 
 	[
-		'jQuery',
-		'Backbone'
+		
+		'Backbone',
+		'router/fetch'
 		
 	],
 
-	function (jQuery, Backbone, Layout) {
-
-		
-
-		var Router = Backbone.Router.extend({
-
-			routes: {
-
-				'' : 'home',
-				'post/:postSlug/' : 'postShow'
-
-			}
-
-		});
+	function (Backbone, routesFetch) {
 
 		return function () {
-		    return new Router();
+
+			var promise = routesFetch();
+
+			promise = promise.then(function (routes) {
+
+				var routesObj = {};
+
+				routes.forEach(function (route) {
+					routesObj[route.path] = route.name
+				});
+				
+
+				var Router = Backbone.Router.extend({
+					routes: routesObj
+				});
+
+
+				return new Router();
+
+
+			});
+
+			return promise;
+
 		}
 
 	}
