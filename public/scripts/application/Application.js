@@ -24,6 +24,29 @@ define(function (require) {
 	var proto = Application.prototype = _.extend({}, Backbone.Events);
 
 
+	proto._onRouteChange = function (req, res) {
+
+		application.trigger('route:change', {
+			target:route,
+			request:req,
+			response:res
+		});
+
+
+		htmlBuilder(route)
+			.then(function (htmlString) {
+				application.trigger('route:html:load', {
+					target:route,
+					data:htmlString,
+					request:req,
+					response:res
+				});
+			});
+
+		
+	};
+
+
 	proto.activate = function () {
 		var application = this;
 		var router = this._router;
@@ -37,26 +60,7 @@ define(function (require) {
 			routes.forEach(function (route) {
 				var routePath = routerFormatter ? routerFormatter(route.path) : route.path;
 
-		  		router.get(routePath, function (req, res) {
-
-		  			application.trigger('route:change', {
-		  				target:route,
-		  				request:req,
-		  				response:res
-		  			});
-
-		  			htmlBuilder(route)
-		  				.then(function (htmlString) {
-		  					application.trigger('route:html:load', {
-		  						target:route,
-		  						data:htmlString,
-		  						request:req,
-		  						response:res
-		  					});
-		  				});
-
-			  		
-		  		})
+		  		router.get(routePath, this._onRouteChange.bind(this));
 		  	});
 
 		  	application.trigger('route:load');

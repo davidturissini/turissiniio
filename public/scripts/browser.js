@@ -4,7 +4,7 @@ define(function (require) {
 	var linkClick = require('element/observer/linkClick');
 	var main = require('main');
 	var routerFactory = require('router/factory');
-
+	var jQuery = require('jQuery');
 
 	var router = routerFactory();
 	var application;
@@ -14,7 +14,9 @@ define(function (require) {
 	});
 
 	application.on('route:html:load', function (evt) {
-		console.log('html ready')
+
+		jQuery('#content').html(evt.data);
+
 	});
 
 	application.on('route:load', function (evt) {
