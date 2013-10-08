@@ -5,8 +5,6 @@ define(function (require) {
 
 	return function () {
 
-		
-
 		return {
 			get: function (path, handler) {
 				router.route(path, '', handler);

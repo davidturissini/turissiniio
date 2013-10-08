@@ -14,17 +14,17 @@ define(function (require) {
 	});
 
 	application.on('route:html:load', function (evt) {
-
 		jQuery('#content').html(evt.data);
-
 	});
 
+
 	application.on('route:load', function (evt) {
+
+		linkClick(router);
 		Backbone.history.start({
 	    	pushState:true
 	    });
-
-	    linkClick(router);
+	    
 	});
 
 	application.activate();

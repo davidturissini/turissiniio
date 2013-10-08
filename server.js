@@ -2,7 +2,7 @@ var require = require('requirejs');
 require.config({
 	baseUrl:'./public/scripts/',
 	paths:{
-		'resource/fetch':'./../../src/resource/fsfetch'
+		'resource':'./../../src/resource'
 	}
 })
 
