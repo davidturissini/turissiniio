@@ -1,19 +1,20 @@
 [{
 	"path":"",
-	"name":"home"
+	"name":"home:index",
+	"controller":"home/index"
 },{
 	"path":"about",
-	"name":"about"
+	"name":"about:index",
+	"controller":"about/index"
 },{
 	"path":"contact",
-	"name":"contact"
+	"name":"contact:index",
+	"controller":"contact/index"
 },{
-	"path":"post/nashville",
-	"name":"post:show:nashville",
-	"template":"post/show/nashville.html"
-},{
-	"path":"post/:postSlug",
-	"name":"post:show"
+	"path":"posts/:postSlug",
+	"name":"posts:show",
+	"template":"posts/show/index.html",
+	"controller":"posts/show"
 },{
 	"path":"config/routes",
 	"name":"configRoutes",

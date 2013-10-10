@@ -7,13 +7,12 @@ define(function (require) {
 
 	return function (route) {
 
-		var viewPath = route.template || route.name.split(':').join('/') + '/index.html';
+		var viewPath = route.template || route.name.split(':').join('/') + '.html';
 		var promises = [];
 
 		if (viewPath[0] !== '.') {
 			viewPath = '/html/views/' + viewPath;
 		}
-		
 
 		return resourceFetch(viewPath);
 		

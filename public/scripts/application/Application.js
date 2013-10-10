@@ -52,13 +52,13 @@ define(function (require) {
 			response:res
 		});
 
-
 		Q.all([
 			htmlBuilder(route),
 			dataBuilder(route)
 		])
 		
 		.spread(function (htmlString, data) {
+			
 			if (data) {
 				htmlString = Mustache.render(htmlString, data);
 			}

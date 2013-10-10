@@ -1,2 +1,6 @@
 <div>Home</div>
-<a href="/post/new-york">New York</a>
+<ul>
+	{{#posts}} 
+		<li><a href="/posts/{{slug}}" data-behavior="push">{{title}}</a></li>
+	{{/posts}} 
+</ul>
