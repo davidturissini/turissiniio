@@ -1,11 +1,10 @@
 var require = require('requirejs');
 require.config({
-	baseUrl:'./public/scripts/',
+	baseUrl:'./../../',
 	paths:{
 		'resource':'application/resource/server/'
 	}
-})
-
+});
 
 var express = require('express');
 var Mustache = require('mustache');
@@ -17,7 +16,7 @@ var resourceFetch = require('resource/fetch');
 var port = process.env.PORT || 8888;
 var app = express();
 
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/../../../../public'));
 
 application = main({
 	router:app,

@@ -5,7 +5,8 @@ define(function (require) {
 	var jQuery;
 
 	function nodeJSFetch (defer, path) {
-		var baseDir = './public';
+		var baseDir = './../../../../public';
+
 
 		var fileContents = fs.readFile(baseDir + path, 'utf-8', function (err, data) {
 			if (err) {

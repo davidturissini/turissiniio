@@ -26,7 +26,7 @@
 		</section>
 		<footer></footer>
 
-		<script src="/scripts/vendor/require.js" data-main="browser.js"></script>
+		<script src="/scripts/vendor/require.js" data-main="browser"></script>
 		<script>
 			require.config({
 				baseUrl:'/scripts',
@@ -38,6 +38,7 @@
     				mustache: 'vendor/mustache',
     				Q: 'vendor/Q',
     				google_maps: 'vendor/google_maps',
+    				browser: 'application/initializers/browser',
     				'resource/fetch': 'application/resource/browser/browserfetch'
 			    },
 			    shim: {

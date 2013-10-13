@@ -4,7 +4,7 @@ define(function (require) {
 	var urlfetch = require('resource/urlfetch');
 
 	return function resourceFetch (path) {
-
+		
 		if (/http\:\/\//.test(path)) {
 			return urlfetch(path);
 		} else {

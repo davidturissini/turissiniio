@@ -4,7 +4,7 @@ define(function (require) {
 	var Mustache = require('mustache');
 	var _ = require('underscore');
 	var Backbone = require('backbone');
-	var routesLoad = require('routes/load');
+	var routesLoad = require('application/routes/load');
 	var htmlBuilder = require('application/html/builder');
 	var dataBuilder = require('application/data/builder');
 
