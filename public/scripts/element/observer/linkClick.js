@@ -21,7 +21,7 @@ define(function (require) {
 	}
 
 	return function (router) {
-		jQuery('body').on('click', 'a', navigate.bind(undefined, router));
+		jQuery('body').on('click', 'a:not([href^=http])', navigate.bind(undefined, router));
 	}
 
 

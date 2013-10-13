@@ -3,7 +3,7 @@ define(function (require) {
 	var Backbone = require('backbone');
 	var linkClick = require('element/observer/linkClick');
 	var main = require('main');
-	var routerFactory = require('router/factory');
+	var routerFactory = require('application/router/factory');
 	var jQuery = require('jQuery');
 	var initialLoad = true;
 

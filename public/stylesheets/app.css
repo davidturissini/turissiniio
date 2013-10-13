@@ -2,6 +2,15 @@ body {
 	font-family:Helvetica;
 }
 
+a, a:visited {
+	color:#00a;
+	text-decoration:none;
+}
+
+a:hover {
+	text-decoration:underline;
+}
+
 .block {
 	display:block;
 }
