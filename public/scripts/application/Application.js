@@ -63,11 +63,13 @@ define(function (require) {
 				htmlString = Mustache.render(htmlString, data);
 			}
 
+			data.html = htmlString;
+
 			this.trigger('route:html:load', {
 				target:route,
-				data:htmlString,
 				request:req,
-				response:res
+				response:res,
+				data:data
 			});
 
 		}.bind(this));

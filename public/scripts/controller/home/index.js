@@ -12,6 +12,8 @@ define(function (require) {
 			var data = {};
 			data.posts = JSON.parse(e);
 
+			data.title = 'Home';
+
 			return data;
 		});
 

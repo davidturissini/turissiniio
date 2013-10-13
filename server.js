@@ -28,14 +28,16 @@ application = main({
 
 application.on('route:html:load', function (evt) {
 	var route = evt.target;
-	var htmlString = evt.data;
+	var htmlString = evt.html;
 	var req = evt.request;
 	var res = evt.response;
+	var data = evt.data;
 
 	if (route.layout !== false) {
 		resourceFetch('/html/layout/main.html')
 			.then(function (layout) {
-				var renderedTemplate = Mustache.render(layout, {content:htmlString});
+				
+				var renderedTemplate = Mustache.render(layout, data);
 
 				res.send(renderedTemplate);
 				res.end();

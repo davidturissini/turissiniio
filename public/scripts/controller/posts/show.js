@@ -13,6 +13,7 @@ define(function (require) {
 			data.post = JSON.parse(e);
 
 			data.image_panorama_url = data.post.photo_url;
+			data.title = data.post.title;
 
 			return data;
 		});

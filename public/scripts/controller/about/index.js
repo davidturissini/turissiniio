@@ -12,6 +12,8 @@ define(function (require) {
 			var data = {};
 			data.about = JSON.parse(e);
 
+			data.title = 'About';
+
 			return data;
 		});
 

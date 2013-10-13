@@ -5,6 +5,7 @@ define(function (require) {
 	var main = require('main');
 	var routerFactory = require('router/factory');
 	var jQuery = require('jQuery');
+	var initialLoad = true;
 
 	var router = routerFactory();
 	var application;
@@ -14,7 +15,13 @@ define(function (require) {
 	});
 
 	application.on('route:html:load', function (evt) {
-		jQuery('#content').html(evt.data);
+		if (initialLoad === true) {
+			initialLoad = false;
+			return;
+		}
+
+		jQuery('#content').html(evt.data.html);
+		document.title = evt.data.title;
 	});
 
 
