@@ -2,7 +2,6 @@ define(function (require) {
 
 	var Q = require('Q');
 	var resourceFetch = require('resource/fetch');
-	var resourceDomain = 'http://localhost:3000/dave-and-melissa/';
 
 	return function dataBuilder (route) {
 		var resourcePath = null;
@@ -13,27 +12,27 @@ define(function (require) {
 		
 		promise = defer.promise;
 
+		resourceFetch('/config/restDomains.json')
+			.then(function (restConfig) {
+				require(
+					['controller/' + route.controller],
 
+					function (controller) {
+						var controllerPromise = controller(route, JSON.parse(restConfig));
 
-		require(
-			['controller/' + route.controller],
+						if (typeof controllerPromise.then === 'function') {
+							controllerPromise.then(defer.resolve.bind(defer));
+						} else {
 
-			function (controller) {
-				var controllerPromise = controller(route, {
-					load:function (path) {
-						return resourceFetch(resourceDomain + path);
+							defer.resolve(controllerPromise);
+						}
+
 					}
-				});
+				);
+			})
 
-				if (typeof controllerPromise.then === 'function') {
-					controllerPromise.then(defer.resolve.bind(defer));
-				} else {
 
-					defer.resolve(controllerPromise);
-				}
-
-			}
-		);
+		
 
 		return promise;
 

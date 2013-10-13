@@ -1,11 +1,14 @@
 define(function (require) {
 
 
-	return function (route, util) {
+	var resourceFetch = require('resource/fetch');
+
+
+	return function (route, resourceConfig) {
 		var resourcePath = '/';
 
 		
-		var promise = util.load(resourcePath);
+		var promise = resourceFetch(resourceConfig.tripsDomain + resourcePath);
 
 
 		promise = promise.then(function (e) {
