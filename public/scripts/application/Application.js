@@ -58,12 +58,13 @@ define(function (require) {
 		])
 		
 		.spread(function (htmlString, data) {
-			
+			data.bodyCSSClass = route.name.split(':').join('-');
 			if (data) {
 				htmlString = Mustache.render(htmlString, data);
 			}
 
 			data.html = htmlString;
+			
 
 			this.trigger('route:html:load', {
 				target:route,

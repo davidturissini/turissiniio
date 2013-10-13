@@ -1,8 +1,8 @@
 <div>Home</div>
-<ul>
+<ul class="posts">
 	{{#posts}} 
 		<li>
-			<a href="/posts/{{slug}}" data-behavior="push">{{title}}</a>
+			<h2><a href="/posts/{{slug}}" data-behavior="push">{{title}}</a></h2>
 			<img src="{{#widescreen_photo_url}}{{/widescreen_photo_url}}" />
 		</li>
 	{{/posts}} 

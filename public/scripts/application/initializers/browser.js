@@ -22,6 +22,7 @@ define(function (require) {
 
 		jQuery('#content').html(evt.data.html);
 		document.title = evt.data.title;
+		document.body.className = evt.data.bodyCSSClass;
 	});
 
 

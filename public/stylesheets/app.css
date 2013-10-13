@@ -48,3 +48,9 @@ a:hover {
 .site-nav li:first-child {
 	padding-left:0;
 }
+
+
+/* PAGES */
+.home-index .posts img {
+	width:100%;
+}
