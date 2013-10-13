@@ -1,6 +1,6 @@
 var require = require('requirejs');
 require.config({
-	baseUrl:'./../../',
+	baseUrl:'./public/scripts',
 	paths:{
 		'resource':'application/resource/server/'
 	}
@@ -9,7 +9,7 @@ require.config({
 var express = require('express');
 var Mustache = require('mustache');
 var Q = require('Q');
-var main = require('main');
+var init = require('application/init');
 var resourceFetch = require('resource/fetch');
 
 
@@ -18,7 +18,7 @@ var app = express();
 
 app.use(express.static(__dirname + '/../../../../public'));
 
-application = main({
+application = init({
 	router:app,
 	routerFormatter:function (routeName) {
 		return '/' + routeName;
