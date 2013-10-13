@@ -2,7 +2,7 @@ var require = require('requirejs');
 require.config({
 	baseUrl:'./public/scripts/',
 	paths:{
-		'resource':'./../../src/resource'
+		'resource':'application/resource/server/'
 	}
 })
 

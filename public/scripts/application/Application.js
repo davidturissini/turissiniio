@@ -5,8 +5,8 @@ define(function (require) {
 	var _ = require('underscore');
 	var Backbone = require('backbone');
 	var routesLoad = require('routes/load');
-	var htmlBuilder = require('html/builder');
-	var dataBuilder = require('data/builder');
+	var htmlBuilder = require('application/html/builder');
+	var dataBuilder = require('application/data/builder');
 
 
 	function getRoutes() {
