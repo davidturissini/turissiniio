@@ -1,6 +1,7 @@
 define(function (require) {
 
 	var resourceFetch = require('resource/fetch');
+	var FlickrImage = require('model/FlickrImage');
 
 	return function (route, resourceConfig) {
 		var resourcePath = 'trips';
@@ -11,9 +12,25 @@ define(function (require) {
 
 		promise = promise.then(function (e) {
 			var data = {};
-			data.posts = JSON.parse(e);
+			var posts = JSON.parse(e);
 
-			data.title = 'Home';
+			posts.forEach(function (post) {
+
+				post.widescreen_photo_url = function () {
+					return function () {
+						if (!post.photo_url) {
+							return '';
+						}
+
+						var flickrImage = FlickrImage.fromUrl(post.photo_url);
+						return flickrImage.url('b');
+					}
+				}
+			});
+
+			data.posts = posts;
+
+			data.title = 'TravelAddict';
 
 			return data;
 		});
