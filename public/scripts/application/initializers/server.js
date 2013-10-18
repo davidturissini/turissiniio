@@ -18,12 +18,7 @@ var app = express();
 
 app.use(express.static(__dirname + '/../../../../public'));
 
-application = init({
-	router:app,
-	routerFormatter:function (routeName) {
-		return '/' + routeName;
-	}
-});
+application = init();
 
 application.on('route:html:load', function (evt) {
 	var route = evt.target;
@@ -33,17 +28,21 @@ application.on('route:html:load', function (evt) {
 	var data = evt.data;
 
 	if (route.layout !== false) {
+
 		resourceFetch('/html/layout/main.html')
 			.then(function (layout) {
 				
-				var renderedTemplate = Mustache.render(layout, data);
+				var renderedTemplate = Mustache.render(layout, {
+					html:htmlString,
+					title:data.title,
+					bodyCSSClass:evt.environment.bodyCSSClass
+				});
 
 				res.send(renderedTemplate);
 				res.end();
 			})
 
 	} else {
-
 		res.send(htmlString);
 		res.end();
 	}
@@ -51,7 +50,13 @@ application.on('route:html:load', function (evt) {
 
 });
 
-application.on('route:load', function () {
+application.on('route:load', function (evt) {
+
+	evt.routes.forEach(function (route) {
+		app.get('/' + route.path, application._onRouteChange.bind(application, route));
+  	});
+
+
 	app.use(function (req, res) {
 
 		Q.all([

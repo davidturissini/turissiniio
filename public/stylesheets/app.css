@@ -15,8 +15,30 @@ a:hover {
 	display:block;
 }
 
+.transparent {
+	opacity:0;
+	-webkit-transform:translateZ(0);
+}
+
+.layout-center {
+	margin:0 auto;
+	width:980px;
+}
+
+.left {
+	float:left;
+}
+
 .right {
 	float:right;
+}
+
+.clear-fix:after {
+	content:".";
+	visibility:hidden;
+	height:0;
+	clear:both;
+	display:block;
 }
 
 .horizontal > li {
@@ -24,21 +46,43 @@ a:hover {
 }
 
 .pad {
-	padding:20px;
+	padding:10px;
+}
+
+.pad-large {
+	padding:25px;
+}
+
+.text-center {
+	text-align:center;
 }
 
 .text-right {
 	text-align:right;
 }
 
-
-/* SECTIONS */
-.site-title {
-	font-size:2em;
+.text-white {
+	color:#fff;
 }
 
-.site-nav {
-	margin-top:20px;
+.text-big,
+.maps-label.text-big {
+	font-size:1.8em;
+}
+
+
+.translucent {
+	background:rgba(255, 255, 255, .8);
+}
+
+
+/* SECTIONS */
+.site-header {
+	background:rgba(255, 255, 255, .8);
+}
+
+.site-title {
+	display:inline;
 }
 
 .site-nav li { 
@@ -51,6 +95,78 @@ a:hover {
 
 
 /* PAGES */
-.home-index .posts img {
-	width:100%;
+.posts-show-nashville, 
+.posts-show-nashville body,
+.posts-show-nashville .content {
+	height:100%;
+}
+
+.posts-show-nashville .scroll {
+	height:1750%;
+}
+
+.posts-show-nashville body {
+	position:relative;
+}
+
+.posts-show-nashville .site-header {
+	position:relative;
+	z-index:100;
+}
+
+.posts-show-nashville .google-map {
+	position:fixed !important;
+	z-index:50;
+	top:0;
+	left:0;
+	bottom:0;
+	right:0;
+}
+
+.posts-show-nashville .blog-content .full-height {
+	height:100%;
+}
+
+.posts-show-nashville .blog-content .light-text {
+	color:#fff;
+}
+
+.posts-show-nashville .blog-content,
+.posts-show-nashville .blog-content .blog-section {
+	position:fixed;
+	top:0;
+	right:0;
+	bottom:0;
+	left:0;
+	z-index:60;
+}
+
+.posts-show-nashville .blog-content .vert-center {
+	position:absolute;
+	top:50%;
+	left:0;
+	right:0;
+	z-index:60;
+}
+
+
+
+.posts-show-nashville .blog-content .blog-title {
+	margin-bottom:20px;
+	font-size:2em;
+}
+
+.posts-show-nashville .card {
+	position:absolute;
+	left:5%;
+	top:10%;
+	width:35%;
+}
+
+.posts-show-nashville .card p {
+	font-size:0.8em;
+}
+
+.posts-show-nashville .card .image {
+	max-width:100%;
 }

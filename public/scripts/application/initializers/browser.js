@@ -9,24 +9,50 @@ define(function (require) {
 
 	var router = routerFactory();
 	var application;
+	var currentInteractiveController = null;
 
-	application = init({
-		router:router
-	});
+	application = init();
 
 	application.on('route:html:load', function (evt) {
-		if (initialLoad === true) {
+		var route = evt.target;
+
+		if (initialLoad === false) {
+			jQuery('#content').html(evt.html);
+			document.title = evt.data.title;
+			jQuery('html').attr({
+				class:evt.environment.bodyCSSClass
+			});
+			window.scrollTo(0, 0);
+		} else {
 			initialLoad = false;
-			return;
 		}
 
-		jQuery('#content').html(evt.data.html);
-		document.title = evt.data.title;
-		document.body.className = evt.data.bodyCSSClass;
+		require(
+			['interactive/' + route.controller],
+
+			function (interactiveController) {
+
+				if (currentInteractiveController) {
+					currentInteractiveController.unload();
+				}
+
+				interactiveController.load(evt.data);
+				currentInteractiveController = interactiveController;
+				
+			}
+		)
+
 	});
 
 
 	application.on('route:load', function (evt) {
+
+		evt.routes.reverse().forEach(function (route) {
+			var boundApplicationOnChange = application._onRouteChange.bind(application, route);
+			router.route(route.path, '', boundApplicationOnChange);
+			router.route(route.path + '/', '', boundApplicationOnChange);
+	  	}.bind(this));
+
 
 		linkClick(router);
 		Backbone.history.start({

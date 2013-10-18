@@ -58,18 +58,20 @@ define(function (require) {
 		])
 		
 		.spread(function (htmlString, data) {
-			data.bodyCSSClass = route.name.split(':').join('-');
+			
 			if (data) {
 				htmlString = Mustache.render(htmlString, data);
 			}
 
-			data.html = htmlString;
-			
 
 			this.trigger('route:html:load', {
 				target:route,
 				request:req,
 				response:res,
+				html:htmlString,
+				environment:{
+					bodyCSSClass:route.name.split(':').join('-')
+				},
 				data:data
 			});
 
@@ -87,15 +89,9 @@ define(function (require) {
 		promise = getRoutes();
 		
 		promise = promise.then(function (routes) {
-
-			routes.forEach(function (route) {
-				var routePath = routerFormatter ? routerFormatter(route.path) : route.path;
-
-		  		router.get(routePath, this._onRouteChange.bind(this, route));
-		  	}.bind(this));
-
-		  	this.trigger('route:load');
-
+			this.trigger('route:load', {
+				routes:routes
+			});
 
 		}.bind(this));
 

@@ -11,6 +11,11 @@
 	"name":"contact:index",
 	"controller":"contact/index"
 },{
+	"path":"posts/nashville",
+	"name":"posts:show:nashville",
+	"template":"posts/show/nashville.html",
+	"controller":"posts/nashville"
+},{
 	"path":"posts/:postSlug",
 	"name":"posts:show",
 	"template":"posts/show/index.html",
