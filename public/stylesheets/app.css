@@ -141,11 +141,17 @@ a:hover {
 	z-index:60;
 }
 
+.posts-show-nashville .blog-content .vert-one-quarter {
+	position:absolute;
+	top:25%;
+	width:100%;
+	z-index:60;
+}
+
 .posts-show-nashville .blog-content .vert-center {
 	position:absolute;
 	top:50%;
-	left:0;
-	right:0;
+	width:100%;
 	z-index:60;
 }
 

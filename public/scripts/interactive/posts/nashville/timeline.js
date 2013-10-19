@@ -2,6 +2,7 @@ define(function (require) {
 
 	var jQuery = require('jQuery');
 	var windowHeight = window.innerHeight;
+	var windowWidth = window.innerWidth;
 	var siteHeaderParallax = require('parallax/elements/siteHeader');
 	var calculateParallax = require('parallax/calculate');
 	var parallaxSection = require('interactive/posts/nashville/parallaxSection');
@@ -52,10 +53,76 @@ define(function (require) {
 		calculateParallax(
 
 			[{
-				name:'markers',
+				name:'opacity',
+				from:1, 
+				to:0, 
+				scrollStart:0, 
+				scrollDistance:windowHeight / 2.3,
+				fill:'both'
+			}], 
+
+			scrollY, 
+
+			function (e) {
+				blogHeader.css({
+					opacity:e.props.opacity.value
+				})
+			}
+
+		);
+
+
+		calculateParallax(
+
+			[{
+				name:'opacity',
 				from:0, 
 				to:1, 
 				scrollStart:windowHeight, 
+				scrollDistance:windowHeight,
+				fill:'both'
+			}], 
+
+			scrollY, 
+
+			function (e) {
+				jQuery('#data').css({
+					opacity:e.props.opacity.value
+				})
+			}
+
+		);
+
+
+		calculateParallax(
+
+			[{
+				name:'opacity',
+				from:1, 
+				to:0, 
+				scrollStart:windowHeight * 2, 
+				scrollDistance:windowHeight,
+				fill:'forwards'
+			}], 
+
+			scrollY, 
+
+			function (e) {
+				jQuery('#data').css({
+					opacity:e.props.opacity.value
+				})
+			}
+
+		);
+		
+
+		calculateParallax(
+
+			[{
+				name:'markers',
+				from:0, 
+				to:1, 
+				scrollStart:windowHeight * 3.5, 
 				scrollDistance:1,
 				fill:'both'
 			}], 
@@ -69,11 +136,11 @@ define(function (require) {
 						var label = location.label;
 
 						if (marker) {
-							marker.setAnimation(google.maps.Animation.DROP);
 							marker.setMap(map);
 						}
 
 						if (label) {
+							label.getElement().addClass('transparent');
 							label.setMap(map);
 						}
 					});
@@ -123,50 +190,112 @@ define(function (require) {
 			function (e) {
 				var center = new google.maps.LatLng(e.props.latitude.value, e.props.longitude.value);
 				map.setCenter(center);
+
+			}
+
+		);
+
+		calculateParallax(
+
+			[{
+				name:'opacity',
+				from:0, 
+				to:1, 
+				scrollStart:windowHeight * 5.5, 
+				scrollDistance:windowHeight,
+				fill:'both'
+			}], 
+
+			scrollY, 
+
+			function (e) {
+				jQuery('#odometer').css({
+					opacity:e.props.opacity.value
+				})
+			}
+
+		);
+
+
+		calculateParallax(
+
+			[{
+				name:'width',
+				from:windowWidth, 
+				to:106, 
+				scrollStart:windowHeight * 6.5, 
+				scrollDistance:windowHeight,
+				fill:'both'
+			},{
+				name:'top',
+				from:windowHeight / 4, 
+				to:20, 
+				scrollStart:windowHeight * 6.5, 
+				scrollDistance:windowHeight,
+				fill:'both'
+			},{
+				name:'right',
+				from:0, 
+				to:0, 
+				scrollStart:windowHeight * 6.5, 
+				scrollDistance:windowHeight,
+				fill:'both'
+			}], 
+
+			scrollY, 
+
+			function (e) {
+				jQuery('#odometer').css({
+					width:e.props.width.value + 'px',
+					top:e.props.top.value + 'px',
+					right:e.props.right.value + 'px'
+				})
+			}
+
+		);
+		
+
+		calculateParallax(
+
+			[{
+				name:'opacity',
+				from:0, 
+				to:1, 
+				scrollStart:windowHeight * 7.5, 
+				scrollDistance:windowHeight,
+				fill:'both'
+			}], 
+
+			scrollY, 
+
+			function (e) {
+
+				locations.forEach(function (location, index) {
+					var label = location.label;
+					
+					if (label && label._text.toLowerCase() === 'nashville') {
+
+						label.getElement().css({
+							opacity:e.props.opacity.value
+						})
+					}
+				});
 			}
 
 		);
 
 
 		parallaxSection(nashvilleEl, {
-			top:windowHeight * 5.5
+			top:windowHeight * 8.5
 		}, scrollY, windowHeight);
 
-
-		calculateParallax(
-
-			[{
-				name:'latitude',
-				from:locations[1].latLng.lat(), 
-				to:locations[2].latLng.lat(), 
-				scrollStart:windowHeight * 7.5, 
-				scrollDistance:windowHeight,
-				fill:'forwards'
-			},{
-				name:'longitude',
-				from:locations[1].latLng.lng(), 
-				to:locations[2].latLng.lng(), 
-				scrollStart:windowHeight * 7.5, 
-				scrollDistance:windowHeight,
-				fill:'forwards'
-			}], 
-
-			scrollY, 
-
-			function (e) {
-				if (e.props.latitude.value) {
-					var center = new google.maps.LatLng(e.props.latitude.value, e.props.longitude.value);
-					map.setCenter(center);
-				}
-			}
-
-		);
-		
+/*
+	
 
 		parallaxSection(jackDanielEl, {
 			top:windowHeight * 8.5
 		}, scrollY, windowHeight);
-/*
+
 		parallaxSection(lookOutMountainEl, {
 			top:windowHeight * 8.5
 		}, scrollY);
