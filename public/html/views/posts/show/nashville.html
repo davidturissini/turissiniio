@@ -2,34 +2,99 @@
 <div class="scroll"></div>
 <article id="blog-content" class="blog-content">
 	<header id="blog-header" class="full-height light-text blog-section">
-		<div class="vert-center">
+		<div class="vert-center text-shadow">
 			<h1 class="blog-title text-center">Southeast Music and Nature Roadtrip</h1>
 			<h2 class="blog-dates text-center">{{trip.start_date}} - {{trip.end_date}}</h2>
 		</div>
 	</header>
 	<section id="data" class="clear-fix full-height transparent blog-section text-big">
-		<div class="vert-center">
-			<h3 class="text-center text-white">3 States</h3>
-			<h3 class="text-center text-white">5 Destinations</h3>
-			<h3 class="text-center text-white">500 miles</h3>
+		<div class="vert-center text-shadow">
+			<h3 class="text-center text-white">{{numStates}} States</h3>
+			<h3 class="text-center text-white">{{numLocations}} Destinations</h3>
+			<h3 class="text-center text-white">{{tripDistance}} miles</h3>
+			<h3 class="text-center text-white">2 timezones</h3>
 		</div>
 	</section>
-	<div id="odometer" class="text-big transparent text-white text-center vert-one-quarter">Mile <span id="odometer-value">0</span></div>
+	<div id="odometer" class="text-big transparent text-white text-center vert-one-quarter nowrap text-shadow">Mile <span id="odometer-value">0</span></div>
 	<section id="nashville" class="clear-fix full-height transparent blog-section">
 		<div class="left translucent card">
-			<img src="http://farm3.staticflickr.com/2852/10305737353_03f87af181_b.jpg" class="image" alt="" />
+			<header class="relative header overflow-hidden">
+				<h1 class="text-translucent title text-big overlay text-white text-bold vert-bottom text-italic text-center text-shadow">Nashville, Tennessee</h1>
+				<img src="http://farm4.staticflickr.com/3667/10504848193_ce6c29c0db_z.jpg" class="image" alt="" />
+			</header>
 			<p class="pad-large">Nashville Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 		</div>
 	</section>
-	<div class="full-height transparent blog-section"></div>
-	<section id="jack-daniels" class="full-height transparent blog-section">
+	<section id="lynchburg" class="full-height transparent blog-section">
 		<div class="left translucent card">
-			<img src="http://farm3.staticflickr.com/2852/10305737353_03f87af181_b.jpg" class="image" alt="" />
-			<p class="pad-large">Jack Daniels Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			<header class="relative header overflow-hidden">
+				<h1 class="text-translucent title text-big overlay text-white text-bold vert-bottom text-italic text-center text-shadow">Lynchburg, Tennessee</h1>
+				<img src="http://farm3.staticflickr.com/2872/10504995864_cbe31ece2a_z.jpg" class="image" alt="" />
+			</header>
+			<p class="pad-large">Nashville Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 		</div>
 	</section>
-	<section id="lookout-mountain" class="full-height transparent blog-section">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</section>
-	<section id="mt-pisgah" class="full-height transparent blog-section">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</section>
-	<section id="blue-ridge-parkway" class="full-height transparent blog-section">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</section>
-	<section id="smokey-mountains" class="full-height transparent blog-section">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</section>
+	<section id="lookout-mountain" class="full-height transparent blog-section">
+		<div class="left translucent card">
+			<header class="relative header overflow-hidden">
+				<h1 class="text-translucent title text-big overlay text-white text-bold vert-bottom text-italic text-center text-shadow">Lookout Mountain, Georgia</h1>
+				<img src="http://farm4.staticflickr.com/3773/10505020355_9dde5abd3c_z.jpg" class="image" alt="" />
+			</header>
+			<p class="pad-large">Nashville Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		</div>
+	</section>
+	<section id="smokey-mountains" class="full-height transparent blog-section">
+		<div class="left translucent card">
+			<header class="relative header overflow-hidden">
+				<h1 class="text-translucent title text-big overlay text-white text-bold vert-bottom text-italic text-center text-shadow">Great Smokey Mountains NP</h1>
+				<img src="http://farm4.staticflickr.com/3689/10505513933_43bfdb21a2_z.jpg" class="image" alt="" />
+			</header>
+			<p class="pad-large">Nashville Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		</div>
+	</section>
+	<section id="mt-pisgah" class="full-height transparent blog-section">
+		<div class="left translucent card">
+			<header class="relative header overflow-hidden">
+				<h1 class="text-translucent title text-big overlay text-white text-bold vert-bottom text-italic text-center text-shadow">Mt. Pisgah, North Carolina</h1>
+				<img src="http://farm6.staticflickr.com/5505/10505711666_75b3475a5c_z.jpg" class="image" alt="" />
+			</header>
+			<p class="pad-large">Nashville Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		</div>
+	</section>
+	<section id="grandfather-mountain" class="full-height transparent blog-section">
+		<div class="left translucent card">
+			<header class="relative header overflow-hidden">
+				<h1 class="text-translucent title text-big overlay text-white text-bold vert-bottom text-italic text-center text-shadow">Grandfather Mountain, North Carolina</h1>
+				<img src="http://farm4.staticflickr.com/3682/10505698716_830fe213e5_z.jpg" class="image" alt="" />
+			</header>
+			<p class="pad-large">Nashville Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		</div>
+	</section>
+	<section id="blue-ridge-parkway" class="full-height transparent blog-section">
+		<div class="left translucent card">
+			<header class="relative header overflow-hidden">
+				<h1 class="text-translucent title text-big overlay text-white text-bold vert-bottom text-italic text-center text-shadow">Blue Ridge Parkway</h1>
+				<img src="http://farm6.staticflickr.com/5517/10506020573_b4a80b22c1_z.jpg" class="image" alt="" />
+			</header>
+			<p class="pad-large">Nashville Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		</div>
+	</section>
+	<section id="asheville" class="full-height transparent blog-section">
+		<div class="left translucent card">
+			<header class="relative header overflow-hidden">
+				<h1 class="text-translucent title text-big overlay text-white text-bold vert-bottom text-italic text-center text-shadow">Asheville, North Carolina</h1>
+				<img src="http://farm3.staticflickr.com/2845/10516429723_4f36bfdf00_z.jpg" class="image" alt="" />
+			</header>
+			<p class="pad-large">Nashville Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		</div>
+	</section>
+	<section id="grand-ole-opry" class="full-height transparent blog-section">
+		<div class="left translucent card">
+			<header class="relative header overflow-hidden">
+				<h1 class="text-translucent title text-big overlay text-white text-bold vert-bottom text-italic text-center text-shadow">Grand Ole Opry, Nashville, Tennessee</h1>
+				<img src="http://farm4.staticflickr.com/3715/10516302664_cf47a44470_z.jpg" class="image" alt="" />
+			</header>
+			<p class="pad-large">Nashville Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		</div>
+	</section>
 </article>

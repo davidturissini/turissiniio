@@ -2,9 +2,10 @@ define(function (require) {
 
 	var jQuery = require('jQuery');
 
-	function Label (text) {
+	function Label (text, options) {
 		this._text = text;
 		this._element = jQuery('<span class="maps-label"></span>');
+		this.options = options || {};
 		
 	};
 
@@ -35,13 +36,14 @@ define(function (require) {
 		var panes = this.getPanes();
 		var projection = this.getProjection();
 		var pixels = projection.fromLatLngToDivPixel(this.getPoint());
+		var offsetTop = this.options.offsetTop || 0;
+		var offsetLeft = this.options.offsetLeft || 0;
 
 		this._element.appendTo(panes.floatPane);
-
 		this._element.css({
 			position:'absolute',
-			left:pixels.x - this._element.width() / 2 + 'px',
-			top:pixels.y + 'px'
+			left:pixels.x - (this._element.width() / 2) + offsetLeft + 'px',
+			top:pixels.y + offsetTop + 'px'
 		});
 
 

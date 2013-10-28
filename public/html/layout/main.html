@@ -4,7 +4,6 @@
 		<title>{{title}}</title>
 		<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.12.0/build/cssreset/cssreset-min.css">
 		<link rel="stylesheet" type="text/css" href="/stylesheets/app.css" />
-		<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCY7Iz4DN0iYHwMgJCRp7pJQzIy3iG89Eo&sensor=false"></script>
 	</head>
 	<body>
 		<header id="site-header" class="site-header pad clear-fix">
@@ -21,9 +20,9 @@
 		</section>
 		<footer></footer>
 
+		<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCY7Iz4DN0iYHwMgJCRp7pJQzIy3iG89Eo&sensor=false"></script>
 		<script src="/scripts/vendor/require.js" data-main="browser"></script>
 		<script>
-			window.__initializeMaps = function () {}
 			require.config({
 				baseUrl:'/scripts',
 				paths: {

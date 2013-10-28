@@ -15,6 +15,18 @@ a:hover {
 	display:block;
 }
 
+.relative {
+	position:relative;
+}
+
+.overlay {
+	position:absolute;
+}
+
+.overflow-hidden {
+	overflow:hidden;
+}
+
 .transparent {
 	opacity:0;
 	-webkit-transform:translateZ(0);
@@ -65,14 +77,41 @@ a:hover {
 	color:#fff;
 }
 
-.text-big,
-.maps-label.text-big {
+.text-bold {
+	font-weight:bold;
+}
+
+.text-italic {
+	font-style:italic;
+}
+
+.text-shadow {
+	text-shadow:2px 1px 1px #333;
+}
+
+.text-big {
 	font-size:1.8em;
 }
 
+.text-translucent {
+	opacity:.8;
+}
+
+.img-small {
+	width:25px;
+}
+
+
+.nowrap {
+	white-space:nowrap;
+}
 
 .translucent {
 	background:rgba(255, 255, 255, .8);
+}
+
+.box-shadow {
+	box-shadow:3px 3px 10px #333;
 }
 
 
@@ -94,6 +133,14 @@ a:hover {
 }
 
 
+.fixed-nav {
+	position:fixed;
+	left:10px;
+	top:0;
+	bottom:0;
+	z-index:100;
+}
+
 /* PAGES */
 .posts-show-nashville, 
 .posts-show-nashville body,
@@ -102,7 +149,7 @@ a:hover {
 }
 
 .posts-show-nashville .scroll {
-	height:1750%;
+	height:10050%;
 }
 
 .posts-show-nashville body {
@@ -155,6 +202,12 @@ a:hover {
 	z-index:60;
 }
 
+.posts-show-nashville .blog-content .vert-bottom {
+	position:absolute;
+	bottom:5%;
+	width:100%;
+	z-index:60;
+}
 
 
 .posts-show-nashville .blog-content .blog-title {
@@ -166,13 +219,23 @@ a:hover {
 	position:absolute;
 	left:5%;
 	top:10%;
-	width:35%;
+	bottom:10%;
+	width:40%;
+	box-shadow:3px 3px 10px #333;
 }
+
+.posts-show-nashville .card .header {
+	height:70%;
+}
+
+.posts-show-nashville .card .header img {
+	position:absolute;
+	left:50%;
+	-webkit-transform:translateX(-50%);
+	min-height:100%;
+}
+
 
 .posts-show-nashville .card p {
 	font-size:0.8em;
-}
-
-.posts-show-nashville .card .image {
-	max-width:100%;
 }
