@@ -4,6 +4,8 @@ define(function (require) {
 	var calculateParallax = require('parallax/calculate');
 
 	var odomenterEl = jQuery('#odometer-value');
+	var stateEl = jQuery('#state');
+	var timezoneEl = jQuery('#timezone');
 
 	return function (map, from, to, scrollStart, scrollDistance, fill, scrollY, startDistance, distance) {
 
@@ -40,6 +42,20 @@ define(function (require) {
 
 					odometerValue = Math.round(startDistance + distance * latitudePercent);
 					odomenterEl.text(odometerValue);
+
+					if (odometerValue > 149 && odometerValue < 794) {
+						timezoneEl.text('Eastern Time Zone');
+					} else {
+						timezoneEl.text('Central Time Zone');
+					}
+
+					if (odometerValue > 149 && odometerValue < 160) {
+						stateEl.text('Georgia');
+					} else if (odometerValue > 360 && odometerValue < 661) {
+						stateEl.text('North Carolina');
+					} else {
+						stateEl.text('Tennessee');
+					}
 
 				}
 

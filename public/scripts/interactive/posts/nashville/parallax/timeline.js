@@ -5,14 +5,14 @@ define(function (require) {
 	var windowWidth = window.innerWidth;
 	var siteHeaderParallax = require('parallax/elements/siteHeader');
 	var calculateParallax = require('parallax/calculate');
-	var parallaxSection = require('interactive/posts/nashville/parallaxSection');
-	var panMap = require('interactive/posts/nashville/panMap');
+	var parallaxSection = require('interactive/posts/nashville/parallax/parallaxSection');
+	var panMap = require('interactive/posts/nashville/parallax/panMap');
 
 
 	var blogHeader = jQuery('#blog-header');
 	var blogHeaderOffset = blogHeader.offset();
 
-	var odometerEl = jQuery('#odometer');
+	var dashboardEl = jQuery('#dashboard');
 	
 	var nashvilleEl = jQuery('#nashville');
 	var lynchburgEl = jQuery('#lynchburg');
@@ -104,7 +104,7 @@ define(function (require) {
 			scrollY, 
 
 			function (e) {
-				jQuery('#data').css({
+				jQuery('#intro').css({
 					opacity:e.props.opacity.value
 				})
 			}
@@ -128,7 +128,7 @@ define(function (require) {
 			scrollY, 
 
 			function (e) {
-				jQuery('#data').css({
+				jQuery('#intro').css({
 					opacity:e.props.opacity.value
 				})
 			}
@@ -184,7 +184,7 @@ define(function (require) {
 			scrollY, 
 
 			function (e) {
-				odometerEl.css({
+				dashboardEl.css({
 					opacity:e.props.opacity.value
 				})
 			}
@@ -215,12 +215,20 @@ define(function (require) {
 				scrollStart:windowHeight * 6.5, 
 				scrollDistance:windowHeight,
 				fill:'both'
+			},{
+				name:'fontSize',
+				from:1.8, 
+				to:1, 
+				scrollStart:windowHeight * 6.5, 
+				scrollDistance:windowHeight,
+				fill:'both'
 			}], 
 
 			scrollY, 
 
 			function (e) {
-				odometerEl.css({
+				dashboardEl.css({
+					fontSize:e.props.fontSize.value + 'em',
 					transform:'translateX(' + e.props.x.value + '%)',
 					width:'auto',
 					top:e.props.top.value + 'px',

@@ -15,6 +15,10 @@ a:hover {
 	display:block;
 }
 
+.inline {
+	display:inline;
+}
+
 .relative {
 	position:relative;
 }
@@ -59,6 +63,10 @@ a:hover {
 
 .pad {
 	padding:10px;
+}
+
+.pad-em {
+	padding:3em;
 }
 
 .pad-large {
@@ -112,6 +120,19 @@ a:hover {
 
 .box-shadow {
 	box-shadow:3px 3px 10px #333;
+}
+
+.close {
+	position:absolute;
+	top:-10px;
+	right:-10px;
+	cursor:pointer;
+	background:#fff;
+	display:block;
+	padding:5px;
+	border:2px solid #333;
+	border-radius:10px;
+	z-index:1000;
 }
 
 
@@ -209,10 +230,18 @@ a:hover {
 	z-index:60;
 }
 
+.posts-show-nashville .blog-content .intro {
+	margin:0 auto;
+	width:80%;
+}
 
 .posts-show-nashville .blog-content .blog-title {
 	margin-bottom:20px;
 	font-size:2em;
+}
+
+.posts-show-nashville .blog-content .blog-section.expanded {
+	opacity: 1 !important;
 }
 
 .posts-show-nashville .card {
@@ -222,6 +251,30 @@ a:hover {
 	bottom:10%;
 	width:40%;
 	box-shadow:3px 3px 10px #333;
+	-webkit-transition:width 400ms ease;
+}
+
+.posts-show-nashville .card.right {
+	left:auto;
+	right:5%;
+}
+
+.posts-show-nashville .blog-section.expanded {
+	overflow:auto;
+}
+
+.posts-show-nashville .blog-section.expanded .card {
+	left:50%;
+	-webkit-transform:translateX(-50%);
+	bottom:auto;
+}
+
+.posts-show-nashville .card .close {
+	display:none;
+}
+
+.posts-show-nashville .blog-section.expanded .card .close {
+	display:block;
 }
 
 .posts-show-nashville .card .header {
@@ -229,10 +282,19 @@ a:hover {
 }
 
 .posts-show-nashville .card .header img {
+	cursor:pointer;
 	position:absolute;
 	left:50%;
 	-webkit-transform:translateX(-50%);
 	min-height:100%;
+}
+
+
+.posts-show-nashville .blog-section.expanded .card .header img {
+	position:static;
+	-webkit-transform:translateZ(0);
+	min-height:0;
+	width:auto;
 }
 
 

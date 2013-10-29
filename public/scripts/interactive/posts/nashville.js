@@ -3,7 +3,6 @@ define(function (require) {
 	var jQuery = require('jQuery');
 	var _ = require('underscore');
 	var GoogleMapsLabel = require('googleMaps/overlay/Label');
-	var lightbox = require('lightbox');
 	
 	var googleMapsBoundsFromLatLng = require('googleMaps/bounds/fromLatLngList');
 	var map;
@@ -16,7 +15,7 @@ define(function (require) {
 		disableDoubleClickZoom:true
 	};
 
-	var nashvilleTimeline = require('interactive/posts/nashville/timeline');
+	var nashvilleTimeline = require('interactive/posts/nashville/parallax/timeline');
 	var onScroll;
 	
 
@@ -94,6 +93,38 @@ define(function (require) {
 			onScroll = buildOnScroll(map, locationMarkers, distanceSegments);
 			jQuery(document).on('scroll', onScroll);
 
+
+			jQuery('.blog-section .header .image').css({
+				height:window.innerHeight * 0.8 + 'px'
+			});
+
+			jQuery(document).on('click', '.blog-section .header .image', function () {
+				jQuery('body').css({
+					overflow:'hidden'
+				});
+
+				jQuery(this).parents('.blog-section').addClass('expanded');
+
+
+
+				
+
+				jQuery(this).parents('.card').css({
+					width:jQuery(this).width() + 'px'
+				});
+			});
+
+			jQuery(document).on('click', '.blog-section.expanded .card .close', function (e) {
+
+				jQuery('body').css({
+					overflow:'auto'
+				});
+
+				jQuery(this).parents('.blog-section').removeClass('expanded');
+				jQuery(this).parents('.card').css({
+					width:'40%'
+				})
+			});
 
 		},
 

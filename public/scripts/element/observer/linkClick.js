@@ -21,7 +21,8 @@ define(function (require) {
 	}
 
 	return function (router) {
-		jQuery('body').on('click', 'a:not([href^=http])', navigate.bind(undefined, router));
+		var boundNavigate = navigate.bind(undefined, router);
+		jQuery(document).on('click', 'a:not([href^=http]), a:not([rel=nofollow])', boundNavigate);
 	}
 
 
