@@ -3,6 +3,7 @@ define(function (require) {
 	var jQuery = require('jQuery');
 	var _ = require('underscore');
 	var GoogleMapsLabel = require('googleMaps/overlay/Label');
+	var Card = require('interactive/posts/nashville/card/Card');
 	
 	var googleMapsBoundsFromLatLng = require('googleMaps/bounds/fromLatLngList');
 	var map;
@@ -14,6 +15,7 @@ define(function (require) {
 		disableDefaultUI:true,
 		disableDoubleClickZoom:true
 	};
+	var windowWidth = window.innerWidth;
 
 	var nashvilleTimeline = require('interactive/posts/nashville/parallax/timeline');
 	var onScroll;
@@ -48,6 +50,7 @@ define(function (require) {
 	return {
 
 		load: function (data) {
+			var cards = [];
 			var nashville = data.trip;
 			var distanceSegments = data.tripDistanceSegments;
 			var latLngArray = [];
@@ -98,32 +101,50 @@ define(function (require) {
 				height:window.innerHeight * 0.8 + 'px'
 			});
 
+			jQuery('.card').each(function (index, el) {
+				var element = jQuery(el).parents('.blog-section');
+				var card = new Card(element.attr('id'), element);
+				cards.push(card);
+			});
+
+			function getCardById (id) {
+				var match;
+				cards.forEach(function (card) {
+					if (card.id === id) {
+						match = card;
+					}
+				});
+
+				return match;
+			};
+
+
+
 			jQuery(document).on('click', '.blog-section .header .image', function () {
-				jQuery('body').css({
-					overflow:'hidden'
-				});
+				var blogSection = jQuery(this).parents('.blog-section');
+				var id = blogSection.attr('id');
+				var card = getCardById(id);
 
-				jQuery(this).parents('.blog-section').addClass('expanded');
+				window.requestAnimationFrame(function () {
+					if (!card.isExpanded()) {
+						card.expand(jQuery(this).width(), jQuery(this).height());
+					}
+				}.bind(this));
 
 
-
-				
-
-				jQuery(this).parents('.card').css({
-					width:jQuery(this).width() + 'px'
-				});
 			});
 
 			jQuery(document).on('click', '.blog-section.expanded .card .close', function (e) {
+				var blogSection = jQuery(this).parents('.blog-section');
+				var id = blogSection.attr('id');
+				var card = getCardById(id);
 
-				jQuery('body').css({
-					overflow:'auto'
+				window.requestAnimationFrame(function () {
+					if (card.isExpanded()) {
+						card.collapse();
+					}
 				});
-
-				jQuery(this).parents('.blog-section').removeClass('expanded');
-				jQuery(this).parents('.card').css({
-					width:'40%'
-				})
+				
 			});
 
 		},

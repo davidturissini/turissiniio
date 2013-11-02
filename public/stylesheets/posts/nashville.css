@@ -1,0 +1,183 @@
+/* 
+
+	CONTAINERS
+
+*/
+.posts-show-nashville, 
+.posts-show-nashville body,
+.posts-show-nashville .content {
+	height:100%;
+}
+
+.posts-show-nashville body {
+	position:relative;
+}
+
+.posts-show-nashville .scroll {
+	height:10050%;
+}
+
+.posts-show-nashville .site-header {
+	position:relative;
+	z-index:100;
+}
+
+.posts-show-nashville .google-map {
+	position:fixed !important;
+	z-index:50;
+	top:0;
+	left:0;
+	bottom:0;
+	right:0;
+}
+
+.posts-show-nashville .blog-content .full-height {
+	height:100%;
+}
+
+.posts-show-nashville .blog-content .light-text {
+	color:#fff;
+}
+
+
+/* 
+
+	POSITIONING
+	
+*/
+.posts-show-nashville .blog-content,
+.posts-show-nashville .blog-content .blog-section {
+	position:fixed;
+	top:0;
+	right:0;
+	bottom:0;
+	left:0;
+	z-index:60;
+}
+
+.posts-show-nashville .blog-content .vert-one-quarter {
+	position:absolute;
+	top:25%;
+	width:100%;
+	z-index:60;
+}
+
+.posts-show-nashville .blog-content .vert-center {
+	position:absolute;
+	top:50%;
+	width:100%;
+	z-index:60;
+}
+
+.posts-show-nashville .blog-content .vert-bottom {
+	position:absolute;
+	bottom:5%;
+	width:100%;
+	z-index:60;
+}
+
+
+/* 
+
+	BLOG CONTENT
+	
+*/
+.posts-show-nashville .blog-content .blog-title {
+	margin-bottom:20px;
+	font-size:2em;
+}
+
+.posts-show-nashville .blog-content .intro {
+	margin:0 auto;
+	width:80%;
+}
+
+
+.posts-show-nashville .blog-section {
+	display:none;
+}
+
+.posts-show-nashville .blog-section p {
+	display:none;
+}
+
+.posts-show-nashville .blog-section .summary {
+	display:block;
+}
+
+
+/*
+	
+	CARDS
+
+*/
+.posts-show-nashville .card {
+	position:relative;
+	height:100%;
+	width:40%;
+	box-shadow:3px 3px 10px #333;
+	background:#fff;
+	
+}
+
+.posts-show-nashville .card.use-transition {
+	-webkit-transition:-webkit-transform 400ms ease, width 400ms ease;
+}
+
+.posts-show-nashville .card.right {
+	left:auto;
+	right:5%;
+}
+
+
+.posts-show-nashville .card .header {
+	height:70%;
+	-webkit-transition:height 400ms ease;
+}
+
+.posts-show-nashville .card .header img {
+	cursor:pointer;
+	min-height:100%;
+}
+
+.posts-show-nashville .card p {
+	font-size:0.8em;
+}
+
+.posts-show-nashville .card .close {
+	display:none;
+}
+
+
+/* 
+
+	EXPANDED SECTIONS
+
+*/
+.posts-show-nashville .blog-section.expanded {
+	overflow:auto;
+	opacity: 1 !important;
+}
+
+
+.posts-show-nashville .blog-section.expanded .header img {
+	min-height:0;
+	width:auto;
+}
+
+.posts-show-nashville .blog-section.expanded p {
+	display:block;
+}
+
+.posts-show-nashville .blog-section.expanded .summary {
+	display:none;
+}
+
+.posts-show-nashville .blog-section.expanded .card {
+	height:auto;
+	padding-bottom:10%;
+}
+
+.posts-show-nashville .blog-section.expanded .card .close {
+	display:block;
+}

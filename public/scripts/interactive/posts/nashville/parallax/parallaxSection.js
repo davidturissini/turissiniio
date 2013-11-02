@@ -6,14 +6,14 @@ define(function (require) {
 	var renderOpacity = function (jqEl, marker, map, e) {
 		var opacity;
 		var styles = {
-			visibility:'visible'
+			display:'block'
 		};
 
 		if (e.props.opacity.value !== undefined) {
 			styles.opacity = e.props.opacity.value;
 
 			if (styles.opacity === 0) {
-				styles.visibility = 'hidden';
+				styles.display = 'none';
 				marker.setMap(null);
 			} else if (marker.getMap() === null) {
 				marker.setMap(map);
