@@ -1,25 +1,27 @@
 define(function (require) {
 
+	var jQuery = require('jQuery');
 	var _ = require('underscore');
 	var calculateParallax = require('parallax/calculate');
 
 	var renderOpacity = function (jqEl, marker, map, e) {
 		var opacity;
 		var styles = {
-			display:'block'
+			visibility:'visible'
 		};
 
 		if (e.props.opacity.value !== undefined) {
 			styles.opacity = e.props.opacity.value;
 
 			if (styles.opacity === 0) {
-				styles.display = 'none';
+				styles.visibility = 'hidden';
 				marker.setMap(null);
 			} else if (marker.getMap() === null) {
 				marker.setMap(map);
 			}
 
 			jqEl.css(styles);
+
 		}
 	};
 

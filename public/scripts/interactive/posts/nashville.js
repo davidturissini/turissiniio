@@ -4,6 +4,7 @@ define(function (require) {
 	var _ = require('underscore');
 	var GoogleMapsLabel = require('googleMaps/overlay/Label');
 	var Card = require('interactive/posts/nashville/card/Card');
+	var galleriaBuilder = require('interactive/posts/nashville/galleria/builder');
 	
 	var googleMapsBoundsFromLatLng = require('googleMaps/bounds/fromLatLngList');
 	var map;
@@ -16,6 +17,7 @@ define(function (require) {
 		disableDoubleClickZoom:true
 	};
 	var windowWidth = window.innerWidth;
+	var windowHeight = window.innerHeight;
 
 	var nashvilleTimeline = require('interactive/posts/nashville/parallax/timeline');
 	var onScroll;
@@ -60,8 +62,8 @@ define(function (require) {
 				center:centerLatLng,
 				mapTypeId:google.maps.MapTypeId.SATELLITE
 			});
-
-			
+			Galleria.loadTheme('../../vendor/galleria/themes/classic/galleria.classic.min.js');
+			galleriaBuilder(jQuery('.blog-section'));
 
 			nashville.locations.forEach(function (locationData) {
 				var latLng = new google.maps.LatLng(locationData.latitude, locationData.longitude);
@@ -97,10 +99,6 @@ define(function (require) {
 			jQuery(document).on('scroll', onScroll);
 
 
-			jQuery('.blog-section .header .image').css({
-				height:window.innerHeight * 0.8 + 'px'
-			});
-
 			jQuery('.card').each(function (index, el) {
 				var element = jQuery(el).parents('.blog-section');
 				var card = new Card(element.attr('id'), element);
@@ -118,16 +116,22 @@ define(function (require) {
 				return match;
 			};
 
+			
 
-
-			jQuery(document).on('click', '.blog-section .header .image', function () {
-				var blogSection = jQuery(this).parents('.blog-section');
+			jQuery(document).on('click', '.blog-section .header img', function () {
+				var imageEl = jQuery(this);
+				var blogSection = imageEl.parents('.blog-section');
 				var id = blogSection.attr('id');
 				var card = getCardById(id);
+				var galleria = jQuery('.images', blogSection).data('galleria');
+				var ratio = imageEl.width() / imageEl.height();
 
 				window.requestAnimationFrame(function () {
+					var height = windowHeight * 0.8;
+					var width = height * ratio;
+
 					if (!card.isExpanded()) {
-						card.expand(jQuery(this).width(), jQuery(this).height());
+						card.expand(width, height);
 					}
 				}.bind(this));
 
@@ -138,11 +142,14 @@ define(function (require) {
 				var blogSection = jQuery(this).parents('.blog-section');
 				var id = blogSection.attr('id');
 				var card = getCardById(id);
+				var height = card.minimizedImageHeight();
+				var width = windowWidth * 0.4;
 
 				window.requestAnimationFrame(function () {
 					if (card.isExpanded()) {
-						card.collapse();
+						card.collapse()
 					}
+
 				});
 				
 			});

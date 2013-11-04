@@ -14,7 +14,7 @@
 }
 
 .posts-show-nashville .scroll {
-	height:10050%;
+	height:6300%;
 }
 
 .posts-show-nashville .site-header {
@@ -93,10 +93,6 @@
 }
 
 
-.posts-show-nashville .blog-section {
-	display:none;
-}
-
 .posts-show-nashville .blog-section p {
 	display:none;
 }
@@ -113,11 +109,17 @@
 */
 .posts-show-nashville .card {
 	position:relative;
-	height:100%;
+	top:50%;
+	margin-left:5%;
 	width:40%;
 	box-shadow:3px 3px 10px #333;
 	background:#fff;
-	
+	-webkit-transform:translateY(-50%);
+}
+
+.posts-show-nashville .card.animating .header,
+.posts-show-nashville .card.animating p {
+	visibility:hidden;
 }
 
 .posts-show-nashville .card.use-transition {
@@ -125,19 +127,21 @@
 }
 
 .posts-show-nashville .card.right {
-	left:auto;
-	right:5%;
+	margin-right:5%;
 }
 
-
 .posts-show-nashville .card .header {
-	height:70%;
 	-webkit-transition:height 400ms ease;
 }
 
 .posts-show-nashville .card .header img {
 	cursor:pointer;
-	min-height:100%;
+	width:100%;
+	display:none;
+}
+
+.posts-show-nashville .card .header .hero {
+	display:block;
 }
 
 .posts-show-nashville .card p {
@@ -159,8 +163,20 @@
 	opacity: 1 !important;
 }
 
+.posts-show-nashville .blog-section.expanded .header {
+	margin-bottom:40px;
+}
 
-.posts-show-nashville .blog-section.expanded .header img {
+.posts-show-nashville .blog-section.expanded .header .title {
+	bottom:-50px;
+	left:20px;
+	width:auto;
+	color:#000;
+	text-shadow:none;
+	font-style:normal;
+}
+
+.posts-show-nashville .blog-section.expanded .header .image {
 	min-height:0;
 	width:auto;
 }
@@ -174,8 +190,15 @@
 }
 
 .posts-show-nashville .blog-section.expanded .card {
+	top:5%;
+	margin:0 auto 5%;
 	height:auto;
-	padding-bottom:10%;
+	-webkit-transform:translateY(0);
+}
+
+.posts-show-nashville .blog-section.expanded .card.right {
+	right:auto;
+	float:none;
 }
 
 .posts-show-nashville .blog-section.expanded .card .close {
