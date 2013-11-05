@@ -1,12 +1,12 @@
 define(function (require) {
 
 	var jQuery = require('jQuery');
-	var windowHeight = window.innerHeight;
-	var windowWidth = window.innerWidth;
 	var siteHeaderParallax = require('parallax/elements/siteHeader');
 	var calculateParallax = require('parallax/calculate');
 	var parallaxSection = require('interactive/posts/nashville/parallax/parallaxSection');
 	var panMap = require('interactive/posts/nashville/parallax/panMap');
+
+	var responsiveDimensions = require('element/responsive/windowDimensions');
 
 
 	var blogHeader = jQuery('#blog-header');
@@ -40,7 +40,7 @@ define(function (require) {
 		return sum;
 	};
 
-	return function advanceTimeline (scrollY, map, locations, distanceSegments, kml) {
+	function advanceTimeline (scrollY, map, locations, distanceSegments, kml) {
 		if (scrollY < 0) {
 			scrollY = 0;
 		}
@@ -52,9 +52,9 @@ define(function (require) {
 			[{
 				name:'y',
 				from:0, 
-				to:-windowHeight, 
+				to:-responsiveDimensions.windowHeight, 
 				scrollStart:0, 
-				scrollDistance:windowHeight,
+				scrollDistance:responsiveDimensions.windowHeight,
 				fill:'both'
 			}], 
 
@@ -75,7 +75,7 @@ define(function (require) {
 				from:1, 
 				to:0, 
 				scrollStart:0, 
-				scrollDistance:windowHeight / 2.3,
+				scrollDistance:responsiveDimensions.windowHeight / 2.3,
 				fill:'both'
 			}], 
 
@@ -96,8 +96,8 @@ define(function (require) {
 				name:'opacity',
 				from:0, 
 				to:1, 
-				scrollStart:windowHeight, 
-				scrollDistance:windowHeight,
+				scrollStart:responsiveDimensions.windowHeight, 
+				scrollDistance:responsiveDimensions.windowHeight,
 				fill:'both'
 			}], 
 
@@ -120,8 +120,8 @@ define(function (require) {
 				name:'opacity',
 				from:1, 
 				to:0, 
-				scrollStart:windowHeight * 2, 
-				scrollDistance:windowHeight,
+				scrollStart:responsiveDimensions.windowHeight * 2, 
+				scrollDistance:responsiveDimensions.windowHeight,
 				fill:'forwards'
 			}], 
 
@@ -141,7 +141,7 @@ define(function (require) {
 				name:'markers',
 				from:0, 
 				to:1, 
-				scrollStart:windowHeight * 3.5, 
+				scrollStart:responsiveDimensions.windowHeight * 3.5, 
 				scrollDistance:1,
 				fill:'both'
 			}], 
@@ -167,7 +167,7 @@ define(function (require) {
 		
 
 
-		panMap(map, locations[0], locations[1], windowHeight * 4.5, windowHeight, 'both', scrollY, 0, 0);
+		panMap(map, locations[0], locations[1], responsiveDimensions.windowHeight * 4.5, responsiveDimensions.windowHeight, 'both', scrollY, 0, 0);
 
 
 		calculateParallax(
@@ -176,8 +176,8 @@ define(function (require) {
 				name:'opacity',
 				from:0, 
 				to:1, 
-				scrollStart:windowHeight * 5.5, 
-				scrollDistance:windowHeight,
+				scrollStart:responsiveDimensions.windowHeight * 5.5, 
+				scrollDistance:responsiveDimensions.windowHeight,
 				fill:'both'
 			}], 
 
@@ -196,31 +196,31 @@ define(function (require) {
 
 			[{
 				name:'top',
-				from:windowHeight / 4, 
+				from:responsiveDimensions.windowHeight / 4, 
 				to:10, 
-				scrollStart:windowHeight * 6.5, 
-				scrollDistance:windowHeight,
+				scrollStart:responsiveDimensions.windowHeight * 6.5, 
+				scrollDistance:responsiveDimensions.windowHeight,
 				fill:'both'
 			},{
 				name:'right',
-				from:windowWidth / 2, 
+				from:responsiveDimensions.windowWidth / 2, 
 				to:10, 
-				scrollStart:windowHeight * 6.5, 
-				scrollDistance:windowHeight,
+				scrollStart:responsiveDimensions.windowHeight * 6.5, 
+				scrollDistance:responsiveDimensions.windowHeight,
 				fill:'both'
 			},{
 				name:'x',
 				from:50, 
 				to:0, 
-				scrollStart:windowHeight * 6.5, 
-				scrollDistance:windowHeight,
+				scrollStart:responsiveDimensions.windowHeight * 6.5, 
+				scrollDistance:responsiveDimensions.windowHeight,
 				fill:'both'
 			},{
 				name:'fontSize',
 				from:1.8, 
 				to:1, 
-				scrollStart:windowHeight * 6.5, 
-				scrollDistance:windowHeight,
+				scrollStart:responsiveDimensions.windowHeight * 6.5, 
+				scrollDistance:responsiveDimensions.windowHeight,
 				fill:'both'
 			}], 
 
@@ -240,82 +240,98 @@ define(function (require) {
 
 
 		parallaxSection(nashvilleEl, {
-			top:windowHeight * 8.5
-		}, scrollY, windowHeight, locations[1].marker, map);
+			top:responsiveDimensions.windowHeight * 8.5
+		}, scrollY, responsiveDimensions.windowHeight, locations[1].marker, map);
 
 
 		/* Lynchburg */
-		panMap(map, locations[1], locations[2], windowHeight * 14.5, windowHeight, 'forwards', scrollY, 0, distanceSegments[0]);
+		panMap(map, locations[1], locations[2], responsiveDimensions.windowHeight * 14.5, responsiveDimensions.windowHeight, 'forwards', scrollY, 0, distanceSegments[0]);
 
 
 		parallaxSection(lynchburgEl, {
-			top:windowHeight * 15.5
-		}, scrollY, windowHeight, locations[2].marker, map);
+			top:responsiveDimensions.windowHeight * 15.5
+		}, scrollY, responsiveDimensions.windowHeight, locations[2].marker, map);
 
 
 		/* Lookout Mountain */
-		panMap(map, locations[2], locations[3], windowHeight * 20.5, windowHeight, 'forwards', scrollY, distanceSegments[0], distanceSegments[1]);
+		panMap(map, locations[2], locations[3], responsiveDimensions.windowHeight * 20.5, responsiveDimensions.windowHeight, 'forwards', scrollY, distanceSegments[0], distanceSegments[1]);
 
 
 		parallaxSection(lookOutMountainEl, {
-			top:windowHeight * 21.5
-		}, scrollY, windowHeight, locations[3].marker, map);
+			top:responsiveDimensions.windowHeight * 21.5
+		}, scrollY, responsiveDimensions.windowHeight, locations[3].marker, map);
 
 
 		/* Smokey Mountains */
-		panMap(map, locations[3], locations[4], windowHeight * 26.5, windowHeight, 'forwards', scrollY, sumDistances(distanceSegments, 0, 1), distanceSegments[2]);
+		panMap(map, locations[3], locations[4], responsiveDimensions.windowHeight * 26.5, responsiveDimensions.windowHeight, 'forwards', scrollY, sumDistances(distanceSegments, 0, 1), distanceSegments[2]);
 
 
 		parallaxSection(smokeyMountainsEl, {
-			top:windowHeight * 27.5
-		}, scrollY, windowHeight, locations[4].marker, map);
+			top:responsiveDimensions.windowHeight * 27.5
+		}, scrollY, responsiveDimensions.windowHeight, locations[4].marker, map);
 
 
 		/* PISGAH */
-		panMap(map, locations[4], locations[5], windowHeight * 32.5, windowHeight, 'forwards', scrollY, sumDistances(distanceSegments, 0, 2), distanceSegments[3]);
+		panMap(map, locations[4], locations[5], responsiveDimensions.windowHeight * 32.5, responsiveDimensions.windowHeight, 'forwards', scrollY, sumDistances(distanceSegments, 0, 2), distanceSegments[3]);
 
 
 		parallaxSection(mtPisgahEl, {
-			top:windowHeight * 33.5
-		}, scrollY, windowHeight, locations[5].marker, map);
+			top:responsiveDimensions.windowHeight * 33.5
+		}, scrollY, responsiveDimensions.windowHeight, locations[5].marker, map);
 
 
 		/* Grandfather Mountain */
-		panMap(map, locations[5], locations[6], windowHeight * 38.5, windowHeight, 'forwards', scrollY, sumDistances(distanceSegments, 0, 3), distanceSegments[4]);
+		panMap(map, locations[5], locations[6], responsiveDimensions.windowHeight * 38.5, responsiveDimensions.windowHeight, 'forwards', scrollY, sumDistances(distanceSegments, 0, 3), distanceSegments[4]);
 
 
 		parallaxSection(grandfatherMountainEl, {
-			top:windowHeight * 39.5
-		}, scrollY, windowHeight, locations[6].marker, map);
+			top:responsiveDimensions.windowHeight * 39.5
+		}, scrollY, responsiveDimensions.windowHeight, locations[6].marker, map);
 
 
 		/* Blue Ridge Parkway */
-		panMap(map, locations[6], locations[7], windowHeight * 44.5, windowHeight, 'forwards', scrollY, sumDistances(distanceSegments, 0, 4), distanceSegments[5] / 2);
+		panMap(map, locations[6], locations[7], responsiveDimensions.windowHeight * 44.5, responsiveDimensions.windowHeight, 'forwards', scrollY, sumDistances(distanceSegments, 0, 4), distanceSegments[5] / 2);
 
 
 		parallaxSection(blueRidgeParkwayEl, {
-			top:windowHeight * 45.5
-		}, scrollY, windowHeight, locations[7].marker, map);
+			top:responsiveDimensions.windowHeight * 45.5
+		}, scrollY, responsiveDimensions.windowHeight, locations[7].marker, map);
 
 
 		/* Asheville */
-		panMap(map, locations[7], locations[8], windowHeight * 50.5, windowHeight, 'forwards', scrollY, sumDistances(distanceSegments, 0, 4) + distanceSegments[5] / 2, distanceSegments[5] / 2);
+		panMap(map, locations[7], locations[8], responsiveDimensions.windowHeight * 50.5, responsiveDimensions.windowHeight, 'forwards', scrollY, sumDistances(distanceSegments, 0, 4) + distanceSegments[5] / 2, distanceSegments[5] / 2);
 
 		parallaxSection(ashevilleEl, {
-			top:windowHeight * 51.5
-		}, scrollY, windowHeight, locations[8].marker, map);
+			top:responsiveDimensions.windowHeight * 51.5
+		}, scrollY, responsiveDimensions.windowHeight, locations[8].marker, map);
 
 
 		/* Grand Ole Opry */
-		panMap(map, locations[8], locations[9], windowHeight * 56.5, windowHeight, 'forwards', scrollY, sumDistances(distanceSegments, 0, 5), distanceSegments[6]);
+		panMap(map, locations[8], locations[9], responsiveDimensions.windowHeight * 56.5, responsiveDimensions.windowHeight, 'forwards', scrollY, sumDistances(distanceSegments, 0, 5), distanceSegments[6]);
 
 
 		parallaxSection(grandOleOpryEl, {
-			top:windowHeight * 57.5
-		}, scrollY, windowHeight, locations[9].marker, map);
+			top:responsiveDimensions.windowHeight * 57.5
+		}, scrollY, responsiveDimensions.windowHeight, locations[9].marker, map);
 
 
 		
-	}
+	};
+
+	function Timeline (map, locations, distanceSegments, kml) {
+		this.map = map;
+		this.locations = locations;
+		this.distanceSegments = distanceSegments;
+		this.kml = kml;
+	};
+
+
+	Timeline.prototype = {
+		advance: function (scrollY) {
+			advanceTimeline(scrollY, this.map, this.locations, this.distanceSegments, this.kml);
+		}
+	};
+
+	return Timeline;
 
 });

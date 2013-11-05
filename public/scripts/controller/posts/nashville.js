@@ -26,7 +26,7 @@ define(function (require) {
 				tripDistanceSegments: tripDistanceSegments
 			};
 
-			data.title = data.trip.title;
+			data.title = 'Trip report for Nashville, Tennessee and North Carolina Autumn';
 
 
 			return data;
