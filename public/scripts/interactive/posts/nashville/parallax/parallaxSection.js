@@ -4,7 +4,7 @@ define(function (require) {
 	var _ = require('underscore');
 	var calculateParallax = require('parallax/calculate');
 
-	var renderOpacity = function (jqEl, marker, map, e) {
+	var renderOpacity = function (jqEl, map, e) {
 		var opacity;
 		var styles = {
 			visibility:'visible'
@@ -15,9 +15,6 @@ define(function (require) {
 
 			if (styles.opacity === 0) {
 				styles.visibility = 'hidden';
-				marker.setMap(null);
-			} else if (marker.getMap() === null) {
-				marker.setMap(map);
 			}
 
 			jqEl.css(styles);
@@ -27,9 +24,9 @@ define(function (require) {
 
 	return function parallaxSection (jqEl, jqElOffset, scrollY, windowHeight, marker, map) {
 		var fadeInStart = jqElOffset.top;
-		var fadeDistance = windowHeight;
-		var contentFadeDistance = fadeDistance * 1.9;
-		var boundRenderOpacity = renderOpacity.bind(undefined, jqEl, marker, map);
+		var fadeDistance = windowHeight / 2;
+		var contentFadeDistance = fadeDistance;
+		var boundRenderOpacity = renderOpacity.bind(undefined, jqEl, map);
 
 		calculateParallax(
 
@@ -37,7 +34,7 @@ define(function (require) {
 				name:'opacity',
 				from:0, 
 				to:1, 
-				scrollStart:fadeInStart + fadeDistance * 1, 
+				scrollStart:fadeInStart + fadeDistance, 
 				scrollDistance:fadeDistance,
 				fill:'both'
 			}], 
@@ -54,7 +51,7 @@ define(function (require) {
 				name:'opacity',
 				from:1, 
 				to:0, 
-				scrollStart:fadeInStart + (fadeDistance * 2.5), 
+				scrollStart:fadeInStart + (fadeDistance * 2), 
 				scrollDistance:contentFadeDistance,
 				fill:'forwards'
 			}], 

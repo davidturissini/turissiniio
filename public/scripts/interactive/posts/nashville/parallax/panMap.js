@@ -7,6 +7,9 @@ define(function (require) {
 	var stateEl = jQuery('#state');
 	var timezoneEl = jQuery('#timezone');
 
+
+
+
 	return function (map, from, to, scrollStart, scrollDistance, fill, scrollY, startDistance, distance) {
 
 		var latitudeDistance = to.latLng.lat() - from.latLng.lat();
@@ -56,6 +59,7 @@ define(function (require) {
 					} else {
 						stateEl.text('Tennessee');
 					}
+
 
 				}
 
