@@ -5,6 +5,8 @@ define(function (require) {
 	var calculateParallax = require('parallax/calculate');
 	var parallaxSection = require('interactive/posts/nashville/parallax/parallaxSection');
 	var panMap = require('interactive/posts/nashville/parallax/panMap');
+
+	var Car = require('interactive/posts/nashville/map/Car');
 	var driveCar = require('interactive/posts/nashville/parallax/driveCar');
 
 	var responsiveDimensions = require('element/responsive/windowDimensions');
@@ -239,6 +241,29 @@ define(function (require) {
 
 		);
 
+		calculateParallax(
+
+			[{
+				name:'car',
+				from:0, 
+				to:1, 
+				scrollStart:responsiveDimensions.windowHeight * 7.5, 
+				scrollDistance:responsiveDimensions.windowHeight,
+				fill:'both'
+			}], 
+
+			scrollY, 
+
+			function (e) {
+				if(e.props.car.value > 0 && carMarker.getMap() === undefined) {
+					carMarker.setMap(map);
+				} else if (e.props.car.value <= 0 && carMarker.getMap() !== undefined) {
+					carMarker.setMap(undefined);
+				}
+			}
+
+		);
+
 
 		parallaxSection(nashvilleEl, {
 			top:responsiveDimensions.windowHeight * 7.5
@@ -246,74 +271,74 @@ define(function (require) {
 
 
 		/* Lynchburg */
-		panMap(map, locations[1], locations[2], responsiveDimensions.windowHeight * 8.5, responsiveDimensions.windowHeight, 'forwards', scrollY, 0, distanceSegments[0]);
-		driveCar(carSegments[0], carMarker, responsiveDimensions.windowHeight * 8.5, responsiveDimensions.windowHeight, 'both', scrollY);
+		panMap(map, locations[1], locations[2], responsiveDimensions.windowHeight * 8.5, responsiveDimensions.windowHeight * 4, 'forwards', scrollY, 0, distanceSegments[0]);
+		driveCar(carSegments[0], carMarker, responsiveDimensions.windowHeight * 8.5, responsiveDimensions.windowHeight * 4, 'both', scrollY);
 
 		parallaxSection(lynchburgEl, {
-			top:responsiveDimensions.windowHeight * 8.75
+			top:responsiveDimensions.windowHeight * 11.5
 		}, scrollY, responsiveDimensions.windowHeight, locations[2].marker, map);
 
 
 		/* Lookout Mountain */
-		panMap(map, locations[2], locations[3], responsiveDimensions.windowHeight * 10, responsiveDimensions.windowHeight, 'forwards', scrollY, distanceSegments[0], distanceSegments[1]);
-		driveCar(carSegments[1], carMarker, responsiveDimensions.windowHeight * 10, responsiveDimensions.windowHeight, 'forwards', scrollY);
+		panMap(map, locations[2], locations[3], responsiveDimensions.windowHeight * 12.5, responsiveDimensions.windowHeight * 4, 'forwards', scrollY, distanceSegments[0], distanceSegments[1]);
+		driveCar(carSegments[1], carMarker, responsiveDimensions.windowHeight * 12.5, responsiveDimensions.windowHeight * 4, 'forwards', scrollY);
 
 		parallaxSection(lookOutMountainEl, {
-			top:responsiveDimensions.windowHeight * 10.25
+			top:responsiveDimensions.windowHeight * 15.5
 		}, scrollY, responsiveDimensions.windowHeight, locations[3].marker, map);
 
 
 		/* Smokey Mountains */
-		panMap(map, locations[3], locations[4], responsiveDimensions.windowHeight * 11.5, responsiveDimensions.windowHeight, 'forwards', scrollY, sumDistances(distanceSegments, 0, 1), distanceSegments[2]);
-		driveCar(carSegments[2], carMarker, responsiveDimensions.windowHeight * 11.5, responsiveDimensions.windowHeight, 'forwards', scrollY);
+		panMap(map, locations[3], locations[4], responsiveDimensions.windowHeight * 16.5, responsiveDimensions.windowHeight * 4, 'forwards', scrollY, sumDistances(distanceSegments, 0, 1), distanceSegments[2]);
+		driveCar(carSegments[2], carMarker, responsiveDimensions.windowHeight * 16.5, responsiveDimensions.windowHeight * 4, 'forwards', scrollY);
 
 		parallaxSection(smokeyMountainsEl, {
-			top:responsiveDimensions.windowHeight * 11.75
+			top:responsiveDimensions.windowHeight * 19.5
 		}, scrollY, responsiveDimensions.windowHeight, locations[4].marker, map);
 
 
 		/* PISGAH */
-		panMap(map, locations[4], locations[5], responsiveDimensions.windowHeight * 13, responsiveDimensions.windowHeight, 'forwards', scrollY, sumDistances(distanceSegments, 0, 2), distanceSegments[3]);
-		driveCar(carSegments[3], carMarker, responsiveDimensions.windowHeight * 13, responsiveDimensions.windowHeight, 'forwards', scrollY);
+		panMap(map, locations[4], locations[5], responsiveDimensions.windowHeight * 20.5, responsiveDimensions.windowHeight * 4, 'forwards', scrollY, sumDistances(distanceSegments, 0, 2), distanceSegments[3]);
+		driveCar(carSegments[3], carMarker, responsiveDimensions.windowHeight * 20.5, responsiveDimensions.windowHeight * 4, 'forwards', scrollY);
 
 		parallaxSection(mtPisgahEl, {
-			top:responsiveDimensions.windowHeight * 13.25
+			top:responsiveDimensions.windowHeight * 23.5
 		}, scrollY, responsiveDimensions.windowHeight, locations[5].marker, map);
 
 
 		/* Grandfather Mountain */
-		panMap(map, locations[5], locations[6], responsiveDimensions.windowHeight * 15, responsiveDimensions.windowHeight, 'forwards', scrollY, sumDistances(distanceSegments, 0, 3), distanceSegments[4]);
-		driveCar(carSegments[4], carMarker, responsiveDimensions.windowHeight * 15, responsiveDimensions.windowHeight, 'forwards', scrollY);
+		panMap(map, locations[5], locations[6], responsiveDimensions.windowHeight * 24.5, responsiveDimensions.windowHeight * 4, 'forwards', scrollY, sumDistances(distanceSegments, 0, 3), distanceSegments[4]);
+		driveCar(carSegments[4], carMarker, responsiveDimensions.windowHeight * 24.5, responsiveDimensions.windowHeight * 4, 'forwards', scrollY);
 
 		parallaxSection(grandfatherMountainEl, {
-			top:responsiveDimensions.windowHeight * 15.25
+			top:responsiveDimensions.windowHeight * 27.5
 		}, scrollY, responsiveDimensions.windowHeight, locations[6].marker, map);
 
 
 		/* Blue Ridge Parkway */
-		panMap(map, locations[6], locations[7], responsiveDimensions.windowHeight * 16.5, responsiveDimensions.windowHeight, 'forwards', scrollY, sumDistances(distanceSegments, 0, 4), distanceSegments[5] / 2);
-		driveCar(carSegments[5], carMarker, responsiveDimensions.windowHeight * 16.5, responsiveDimensions.windowHeight, 'forwards', scrollY);
+		panMap(map, locations[6], locations[7], responsiveDimensions.windowHeight * 28.5, responsiveDimensions.windowHeight * 4, 'forwards', scrollY, sumDistances(distanceSegments, 0, 4), distanceSegments[5] / 2);
+		driveCar(carSegments[5], carMarker, responsiveDimensions.windowHeight * 28.5, responsiveDimensions.windowHeight * 4, 'forwards', scrollY);
 
 		parallaxSection(blueRidgeParkwayEl, {
-			top:responsiveDimensions.windowHeight * 16.75
+			top:responsiveDimensions.windowHeight * 31.5
 		}, scrollY, responsiveDimensions.windowHeight, locations[7].marker, map);
 
 
 		/* Asheville */
-		panMap(map, locations[7], locations[8], responsiveDimensions.windowHeight * 18, responsiveDimensions.windowHeight, 'forwards', scrollY, sumDistances(distanceSegments, 0, 4) + distanceSegments[5] / 2, distanceSegments[5] / 2);
-		driveCar(carSegments[6], carMarker, responsiveDimensions.windowHeight * 18, responsiveDimensions.windowHeight, 'forwards', scrollY);
+		panMap(map, locations[7], locations[8], responsiveDimensions.windowHeight * 32.5, responsiveDimensions.windowHeight * 4, 'forwards', scrollY, sumDistances(distanceSegments, 0, 4) + distanceSegments[5] / 2, distanceSegments[5] / 2);
+		driveCar(carSegments[6], carMarker, responsiveDimensions.windowHeight * 32.5, responsiveDimensions.windowHeight * 4, 'forwards', scrollY);
 
 		parallaxSection(ashevilleEl, {
-			top:responsiveDimensions.windowHeight * 18.25
+			top:responsiveDimensions.windowHeight * 35.5
 		}, scrollY, responsiveDimensions.windowHeight, locations[8].marker, map);
 
 
 		/* Grand Ole Opry */
-		panMap(map, locations[8], locations[9], responsiveDimensions.windowHeight * 19.5, responsiveDimensions.windowHeight, 'forwards', scrollY, sumDistances(distanceSegments, 0, 5), distanceSegments[6]);
-		driveCar(carSegments[7], carMarker, responsiveDimensions.windowHeight * 19.5, responsiveDimensions.windowHeight, 'forwards', scrollY);
+		panMap(map, locations[8], locations[9], responsiveDimensions.windowHeight * 36.5, responsiveDimensions.windowHeight * 16, 'forwards', scrollY, sumDistances(distanceSegments, 0, 5), distanceSegments[6]);
+		driveCar(carSegments[7], carMarker, responsiveDimensions.windowHeight * 36.5, responsiveDimensions.windowHeight * 16, 'forwards', scrollY);
 
 		parallaxSection(grandOleOpryEl, {
-			top:responsiveDimensions.windowHeight * 19.75
+			top:responsiveDimensions.windowHeight * 51.5
 		}, scrollY, responsiveDimensions.windowHeight, locations[9].marker, map);
 
 
@@ -326,10 +351,7 @@ define(function (require) {
 		this.distanceSegments = distanceSegments;
 		this.kml = kml;
 		this.carSegments = carSegments;
-		this.carMarker = window.carMarker = new google.maps.Marker({
-			icon:'/images/car.png',
-			map:map
-		});
+		this.carMarker = window.car = new Car('/images/car.png', map);
 	};
 
 

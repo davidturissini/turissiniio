@@ -4,7 +4,7 @@ define(function (require) {
 	var _ = require('underscore');
 	var GoogleMapsLabel = require('googleMaps/overlay/Label');
 	var googleMapsBoundsFromLatLng = require('googleMaps/bounds/fromLatLngList');
-	var carLoad = require('interactive/posts/nashville/map/car');
+	var loadCarData = require('interactive/posts/nashville/map/loadCarData');
 
 	var cardInitialize = require('interactive/posts/nashville/card/initialize');
 	var expandCardHandler = require('interactive/posts/nashville/card/expandHandler');
@@ -53,7 +53,7 @@ define(function (require) {
 			kml = kmlBuilder('https://maps.google.com/maps/ms?authuser=0&vps=2&ie=UTF8&msa=0&output=kml&msid=216638687529279736200.0004e9bd93e7f6902bd47');
 			cards = cardInitialize(jQuery('.card'));
 			
-			carLoad()
+			loadCarData()
 				.then(function (carSegments) {
 					galleriaBuilder(jQuery('.blog-section'), '../../vendor/galleria/themes/classic/galleria.classic.min.js');
 					timeline = new Timeline(map, locationMarkers, distanceSegments, kml, carSegments);

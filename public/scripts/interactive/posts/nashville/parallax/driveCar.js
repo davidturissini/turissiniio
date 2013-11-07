@@ -20,6 +20,9 @@ define(function (require) {
 			function (e) {
 				var index;
 				var carLatLng;
+				var length = carSegments.length;
+				var min = (length * 0.05);
+				var max = (length * 0.95);
 
 				if (e.props.car.value !== undefined) {
 					index = Math.round(e.props.car.value);
@@ -27,6 +30,11 @@ define(function (require) {
 
 					carMarker.setPosition(carLatLng);
 
+					if (e.props.car.value < min || e.props.car.value > max) {
+						carMarker.parked();
+					}
+
+					carMarker.driving();
 				}
 
 			}

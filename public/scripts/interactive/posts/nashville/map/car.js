@@ -1,45 +1,83 @@
 define(function (require) {
 
-	var resourceFetch = require('resource/fetch');
+	var jQuery = require('jQuery');
 
-	return function () {
-
-		return resourceFetch('/kml/nashvilletolynchburg.kml')
-
-			.then(function (e) {
-				var xml = jQuery(e);
-				var coordinateElems = jQuery('coordinates', xml);
-				var coords = [];
-
-				coordinateElems.each(function (index, elem) {
-					var tripLeg = [];
-					
-					var innerCoords = elem.innerHTML.split('\n');
-
-					innerCoords.forEach(function (innerCoord) {
-						var split = innerCoord.split(',');
-						var latitude = split[1];
-						var longitude = split[0];
-
-						if (!latitude || !longitude) {
-							return;
-						}
-
-						var latLng = new google.maps.LatLng(latitude, longitude);
-
-						tripLeg.push(latLng);
-
-					});
-
-					coords.push(tripLeg);
-
-				});
-
-
-				return coords;
-
-			});
+	function Car (imagePath, map) {
+		this._imagePath = imagePath;
+		this._map = map;
+		this._position = null;
 
 	};
+
+
+	var proto = Car.prototype = new google.maps.OverlayView();
+
+
+	proto.onAdd = function () {
+		this._element = jQuery('<img class="marker-car" />');
+		this._element.attr({
+			src:this._imagePath
+		});
+
+		this._element.css({
+			position:'absolute'
+		});
+
+		var panes = this.getPanes();
+		this._element.appendTo(panes.floatPane);
+
+	};
+
+
+	proto.setPosition = function (latLng) {
+		var overlayProjection = this.getProjection();
+		this._position = latLng;
+		if (!overlayProjection || !this._element) {
+			return;
+		}
+
+		var position = overlayProjection.fromLatLngToDivPixel(latLng);
+
+		var left = position.x - this._element.width() / 2;
+		var top = position.y - this._element.height() / 2;
+
+		this._element.css({
+			left:left + 'px',
+			top:top + 'px'
+		});
+	};
+
+
+	proto.driving = function () {
+		if (this._element) {
+			this._element.addClass('driving');
+		}
+	};
+
+
+	proto.parked = function () {
+		if (this._element) {
+			this._element.removeClass('driving');
+		}
+	};
+
+
+	proto.getPosition = function () {
+		return this._position;
+	};
+
+
+	proto.draw = function () {
+		var overlayProjection = this.getProjection();
+
+	};
+
+
+	proto.onRemove = function () {
+		this._element.remove();
+	};
+
+
+	return Car;
 
 });
