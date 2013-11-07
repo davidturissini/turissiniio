@@ -92,6 +92,18 @@
 	width:80%;
 }
 
+.posts-show-nashville .trip-location {
+	visibility:hidden;
+	-webkit-transform:translateX(-100px);
+	-webkit-transition:opacity 400ms ease, -webkit-transform 400ms ease;
+}
+
+.posts-show-nashville .trip-location.active {
+	visibility:visible;
+	-webkit-transform:translateX(0);
+	opacity:1;
+}
+
 
 .posts-show-nashville .blog-section p {
 	display:none;

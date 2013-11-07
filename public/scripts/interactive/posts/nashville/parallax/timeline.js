@@ -17,15 +17,15 @@ define(function (require) {
 
 	var dashboardEl = jQuery('#dashboard');
 	
-	var nashvilleEl = jQuery('#nashville');
-	var lynchburgEl = jQuery('#lynchburg');
-	var lookOutMountainEl = jQuery('#lookout-mountain');
-	var smokeyMountainsEl = jQuery('#smokey-mountains');
-	var mtPisgahEl = jQuery('#mt-pisgah');
-	var grandfatherMountainEl = jQuery('#grandfather-mountain');
+	var nashvilleEl = jQuery('#nashville-tennessee');
+	var lynchburgEl = jQuery('#lynchburg-tennessee');
+	var lookOutMountainEl = jQuery('#lookout-mountain-georgia');
+	var smokeyMountainsEl = jQuery('#great-smokey-mountains-national-park');
+	var mtPisgahEl = jQuery('#pisgah-inn-north-carolina');
+	var grandfatherMountainEl = jQuery('#grandfather-mountain-north-carolina');
 	var blueRidgeParkwayEl = jQuery('#blue-ridge-parkway');
-	var ashevilleEl = jQuery('#asheville');
-	var grandOleOpryEl = jQuery('#grand-ole-opry');
+	var ashevilleEl = jQuery('#asheville-north-carolina');
+	var grandOleOpryEl = jQuery('#grand-ole-opry-nashville-tennessee');
 
 
 	
@@ -266,7 +266,7 @@ define(function (require) {
 
 
 		parallaxSection(nashvilleEl, {
-			top:responsiveDimensions.windowHeight * 7.5
+			top:responsiveDimensions.windowHeight * 8
 		}, scrollY, responsiveDimensions.windowHeight, locations[1].marker, map);
 
 
@@ -275,7 +275,7 @@ define(function (require) {
 		driveCar(carSegments[0], carMarker, responsiveDimensions.windowHeight * 8.5, responsiveDimensions.windowHeight * 4, 'both', scrollY);
 
 		parallaxSection(lynchburgEl, {
-			top:responsiveDimensions.windowHeight * 11.5
+			top:responsiveDimensions.windowHeight * 12
 		}, scrollY, responsiveDimensions.windowHeight, locations[2].marker, map);
 
 
@@ -284,7 +284,7 @@ define(function (require) {
 		driveCar(carSegments[1], carMarker, responsiveDimensions.windowHeight * 12.5, responsiveDimensions.windowHeight * 4, 'forwards', scrollY);
 
 		parallaxSection(lookOutMountainEl, {
-			top:responsiveDimensions.windowHeight * 15.5
+			top:responsiveDimensions.windowHeight * 16
 		}, scrollY, responsiveDimensions.windowHeight, locations[3].marker, map);
 
 
@@ -293,7 +293,7 @@ define(function (require) {
 		driveCar(carSegments[2], carMarker, responsiveDimensions.windowHeight * 16.5, responsiveDimensions.windowHeight * 4, 'forwards', scrollY);
 
 		parallaxSection(smokeyMountainsEl, {
-			top:responsiveDimensions.windowHeight * 19.5
+			top:responsiveDimensions.windowHeight * 20
 		}, scrollY, responsiveDimensions.windowHeight, locations[4].marker, map);
 
 
@@ -302,7 +302,7 @@ define(function (require) {
 		driveCar(carSegments[3], carMarker, responsiveDimensions.windowHeight * 20.5, responsiveDimensions.windowHeight * 4, 'forwards', scrollY);
 
 		parallaxSection(mtPisgahEl, {
-			top:responsiveDimensions.windowHeight * 23.5
+			top:responsiveDimensions.windowHeight * 24
 		}, scrollY, responsiveDimensions.windowHeight, locations[5].marker, map);
 
 
@@ -311,7 +311,7 @@ define(function (require) {
 		driveCar(carSegments[4], carMarker, responsiveDimensions.windowHeight * 24.5, responsiveDimensions.windowHeight * 4, 'forwards', scrollY);
 
 		parallaxSection(grandfatherMountainEl, {
-			top:responsiveDimensions.windowHeight * 27.5
+			top:responsiveDimensions.windowHeight * 28
 		}, scrollY, responsiveDimensions.windowHeight, locations[6].marker, map);
 
 
@@ -320,7 +320,7 @@ define(function (require) {
 		driveCar(carSegments[5], carMarker, responsiveDimensions.windowHeight * 28.5, responsiveDimensions.windowHeight * 4, 'forwards', scrollY);
 
 		parallaxSection(blueRidgeParkwayEl, {
-			top:responsiveDimensions.windowHeight * 31.5
+			top:responsiveDimensions.windowHeight * 32
 		}, scrollY, responsiveDimensions.windowHeight, locations[7].marker, map);
 
 
@@ -329,7 +329,7 @@ define(function (require) {
 		driveCar(carSegments[6], carMarker, responsiveDimensions.windowHeight * 32.5, responsiveDimensions.windowHeight * 4, 'forwards', scrollY);
 
 		parallaxSection(ashevilleEl, {
-			top:responsiveDimensions.windowHeight * 35.5
+			top:responsiveDimensions.windowHeight * 36
 		}, scrollY, responsiveDimensions.windowHeight, locations[8].marker, map);
 
 
@@ -338,7 +338,7 @@ define(function (require) {
 		driveCar(carSegments[7], carMarker, responsiveDimensions.windowHeight * 36.5, responsiveDimensions.windowHeight * 16, 'forwards', scrollY);
 
 		parallaxSection(grandOleOpryEl, {
-			top:responsiveDimensions.windowHeight * 51.5
+			top:responsiveDimensions.windowHeight * 52
 		}, scrollY, responsiveDimensions.windowHeight, locations[9].marker, map);
 
 

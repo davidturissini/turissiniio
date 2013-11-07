@@ -24,41 +24,30 @@ define(function (require) {
 
 	return function parallaxSection (jqEl, jqElOffset, scrollY, windowHeight, marker, map) {
 		var fadeInStart = jqElOffset.top;
-		var fadeDistance = windowHeight / 2;
+		var fadeDistance = windowHeight;
 		var contentFadeDistance = fadeDistance;
 		var boundRenderOpacity = renderOpacity.bind(undefined, jqEl, map);
 
 		calculateParallax(
 
 			[{
-				name:'opacity',
+				name:'visible',
 				from:0, 
 				to:1, 
-				scrollStart:fadeInStart + fadeDistance, 
+				scrollStart:fadeInStart, 
 				scrollDistance:fadeDistance,
 				fill:'both'
 			}], 
 
 			scrollY, 
 
-			boundRenderOpacity
-
-		);
-
-		calculateParallax(
-
-			[{
-				name:'opacity',
-				from:1, 
-				to:0, 
-				scrollStart:fadeInStart + (fadeDistance * 2), 
-				scrollDistance:contentFadeDistance,
-				fill:'forwards'
-			}], 
-
-			scrollY, 
-
-			boundRenderOpacity
+			function (e) {
+				if (e.props.visible.value === 0 || e.props.visible.value === 1) {
+					jqEl.removeClass('active');
+				} else {
+					jqEl.addClass('active');
+				}
+			}
 
 		);
 		
