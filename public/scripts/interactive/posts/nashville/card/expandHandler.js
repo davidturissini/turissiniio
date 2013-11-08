@@ -5,8 +5,10 @@ define(function (require) {
 	var responsiveDimensions = require('element/responsive/windowDimensions');
 
 	return function (cards, evt) {
-		var imageEl = jQuery(evt.target);
-		var blogSection = imageEl.parents('.blog-section');
+		var target = jQuery(evt.target);
+		
+		var blogSection = target.parents('.blog-section');
+		var imageEl = jQuery('.header img', blogSection);
 		var id = blogSection.attr('id');
 		var card = getCardById(id, cards);
 		var galleria = jQuery('.images', blogSection).data('galleria');

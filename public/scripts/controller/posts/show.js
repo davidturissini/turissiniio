@@ -15,6 +15,7 @@ define(function (require) {
 			data.image_panorama_url = data.post.photo_url;
 			data.title = data.post.title;
 
+
 			return data;
 		});
 

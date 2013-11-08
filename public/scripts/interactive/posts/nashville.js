@@ -64,8 +64,8 @@ define(function (require) {
 
 
 					jQuery(document).on('scroll', onScroll);
-					jQuery(document).on('click', '.blog-section .header img', onClickExpand);
-					jQuery(document).on('click', '.blog-section.expanded .card .close', onClickCollapse);
+					jQuery(document).on('click', '.trip-location:not(.expanded)', onClickExpand);
+					jQuery(document).on('click', '.trip-location.expanded .card .close', onClickCollapse);
 
 
 				});

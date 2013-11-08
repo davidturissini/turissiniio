@@ -12,9 +12,6 @@ define(function (require) {
 		this._cardElement = jQuery('.card', this._element);
 		this._headerElement = jQuery('.header', this._element);
 		this._isExpanded = false;
-		this._responsiveImage = new ResponsiveImage(jQuery('.image', this._element), {
-			maxHeight:Math.floor(windowHeight * 0.8)
-		});
 
 		this._minimizedImageHeight = jQuery('.image', this._element).height();
 	};
@@ -30,14 +27,6 @@ define(function (require) {
 			return this._isExpanded;
 		},
 
-		__horizDistance: function () {
-			return (windowWidth / 2 - this._imageWidth / 2 );
-		},
-
-		__vertDistance: function () {
-			return (windowHeight * 0.1);
-		},
-
 		expand: function (imageWidth, imageHeight) {
 			var defer = Q.defer();
 			var galleria = jQuery('.images', this._element).data('galleria');
@@ -50,21 +39,15 @@ define(function (require) {
 
 			this._element.addClass('expanded');
 
-			
-			this._cardElement.css({
-				width:imageWidth + 'px'
-			});
-
-			this._responsiveImage.reflow();
-
+			galleria.setOptions('imageCrop', false);
+			galleria.refreshImage();
 			galleria.resize({
-				width:imageWidth,
+				width:this._cardElement.width(),
 				height:windowHeight * 0.8
 			});
 
-			galleria.setOptions('thumbnails', true);
-			galleria.setOptions('showImagenav', true);
 			galleria.refreshImage();
+
 
 			return defer.promise;
 
@@ -79,20 +62,16 @@ define(function (require) {
 			
 
 			this._element.removeClass('expanded');
-			this._cardElement.css({
-				width:'40%'
-			});
 
-			this._responsiveImage.reflow();
 
 			galleria.resize({
 				width:windowWidth * 0.4,
 				height:this.minimizedImageHeight()
 			});
 
-			galleria.setOptions('thumbnails', false);
-			galleria.setOptions('showImagenav', false);
+			galleria.setOptions('imageCrop', true);
 			galleria.refreshImage();
+
 
 			this._isExpanded = false;
 			defer.resolve();

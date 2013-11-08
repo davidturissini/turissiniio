@@ -93,13 +93,12 @@
 }
 
 .posts-show-nashville .trip-location {
-	visibility:hidden;
 	-webkit-transform:translateX(-100px);
 	-webkit-transition:opacity 400ms ease, -webkit-transform 400ms ease;
 }
 
 .posts-show-nashville .trip-location.active {
-	visibility:visible;
+	z-index:1000;
 	-webkit-transform:translateX(0);
 	opacity:1;
 }
@@ -124,9 +123,15 @@
 	top:50%;
 	margin-left:5%;
 	width:40%;
-	box-shadow:3px 3px 10px #333;
+	box-shadow:30px 30px 70px #000;
 	background:#fff;
 	-webkit-transform:translateY(-50%);
+	cursor:pointer;
+}
+
+.posts-show-nashville .card .galleria-thumbnails-container,
+.posts-show-nashville .card .galleria-image-nav {
+	display:none;
 }
 
 .posts-show-nashville .card.animating .header,
@@ -147,9 +152,12 @@
 }
 
 .posts-show-nashville .card .header img {
-	cursor:pointer;
 	width:100%;
 	display:none;
+}
+
+.posts-show-nashville .card .header img:first-child {
+	display:block;
 }
 
 .posts-show-nashville .card .header .hero {
@@ -164,6 +172,34 @@
 	display:none;
 }
 
+.posts-show-nashville .card .expand {
+	display:block;
+	position:absolute;
+	z-index:1000;
+	bottom:-2em;
+	right:10px;
+	color:#ccc;
+	font-size:0.8em;
+	line-height:2em;
+	-webkit-transform:translateZ(0);
+	-webkit-transition:opacity 200ms ease-out;
+	opacity:0.2;
+}
+
+.posts-show-nashville .card .expand:before {
+	margin-right:5px;
+	content:'[+]';
+	-webkit-transition:letter-spacing 200ms ease-out;
+}
+
+.posts-show-nashville .card:hover .expand {
+	opacity:1;
+}
+
+.posts-show-nashville .card:hover .expand:before {
+	letter-spacing:0.3em;
+}
+
 
 /* 
 
@@ -173,6 +209,26 @@
 .posts-show-nashville .blog-section.expanded {
 	overflow:auto;
 	opacity: 1 !important;
+}
+
+.posts-show-nashville .blog-section.expanded .card {
+	top:5%;
+	margin:0 auto 5%;
+	float:none;
+	height:auto;
+	width:80%;
+	-webkit-transform:translateY(0);
+	box-shadow:0 0 70px #000;
+	cursor:auto;
+}
+
+.posts-show-nashville .blog-section.expanded .card .galleria-thumbnails-container,
+.posts-show-nashville .blog-section.expanded .card .galleria-image-nav {
+	display:block;
+}
+
+.posts-show-nashville .blog-section.expanded .card .expand {
+	display:none;
 }
 
 .posts-show-nashville .blog-section.expanded .header {
@@ -201,16 +257,16 @@
 	display:none;
 }
 
-.posts-show-nashville .blog-section.expanded .card {
-	top:5%;
-	margin:0 auto 5%;
-	height:auto;
-	-webkit-transform:translateY(0);
+.posts-show-nashville .blog-section.expanded .card .header {
+	background:#000;
+}
+
+.posts-show-nashville .blog-section.expanded .card .header .galleria-container {
+	margin:0 auto;
 }
 
 .posts-show-nashville .blog-section.expanded .card.right {
 	right:auto;
-	float:none;
 }
 
 .posts-show-nashville .blog-section.expanded .card .close {

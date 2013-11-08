@@ -23,17 +23,31 @@ define(function (require) {
 
 			var options = {
 				imagePosition:'center',
-				showImagenav:false,
-				imageCrop:false,
+				imageCrop:true,
+				thumbnailCrop:false,
 				initialTransition:false,
-				showCounter:false,
-				thumbnails:false
+				showCounter:false
 			};
 
-			if (height !== 0 || height !== null) {
-				options.height = height;
-				Galleria.run(imagesEl, options);
-			}
+			var numLoaded = 0;
+			imagesEl.each(function (index, el) {
+
+				var img = document.createElement('img');
+
+				img.addEventListener('load', function () {
+					numLoaded += 1;
+					options.height = jQuery(el).height();
+					options.width = jQuery(el).width();
+					if (numLoaded === imagesEl.length) {
+						Galleria.run(imagesEl, options);
+					}
+				});
+
+				img.src = jQuery('img', el).get(0).getAttribute('src');
+
+			});
+
+
 		});
 
 	};

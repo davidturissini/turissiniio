@@ -6,12 +6,15 @@ define(function (require) {
 	var odomenterEl = jQuery('#odometer-value');
 	var stateEl = jQuery('#state');
 	var timezoneEl = jQuery('#timezone');
+	var mapStartingCenter = null;
 
 
 
 
 	return function (map, from, to, scrollStart, scrollDistance, fill, scrollY, startDistance, distance) {
-
+		if (mapStartingCenter === null) {
+			mapStartingCenter = map.getCenter();
+		}
 		var latitudeDistance = to.latLng.lat() - from.latLng.lat();
 
 		calculateParallax(
@@ -40,7 +43,13 @@ define(function (require) {
 					var latitudePercent = latitudeRelativeDistance / latitudeDistance;
 					var odometerValue;
 
-					var center = new google.maps.LatLng(e.props.latitude.value, e.props.longitude.value);
+					var latDistFromCenter = mapStartingCenter.lat() - e.props.latitude.value;
+					var lngDistFromCenter = mapStartingCenter.lng() - e.props.longitude.value;
+					
+					var lat = mapStartingCenter.lat() - (latDistFromCenter / 5);
+					var lng = mapStartingCenter.lng() - (lngDistFromCenter / 5);
+
+					var center = new google.maps.LatLng(lat, lng);
 					map.setCenter(center);
 
 					odometerValue = Math.round(startDistance + distance * latitudePercent);

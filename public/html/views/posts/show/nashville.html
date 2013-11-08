@@ -18,13 +18,15 @@
 	
 	{{#trip.locations}}
 	<section id="{{slug}}" class="clear-fix full-height transparent blog-section trip-location">
-		<div class="card">
-			<span class="close" rel="nofollow">Close</span>
+		<div class="card {{position}}">
+			<span class="close">Close</span>
+			<span class="expand">Expand</span>
 			<header class="relative header">
 				<h1 class="text-translucent title text-big overlay text-white text-bold vert-bottom text-italic text-center text-shadow">{{title}}</h1>
 				<div class="images overflow-hidden">
+					<img src="http://farm{{initialPhoto.flickr_farm}}.staticflickr.com/{{initialPhoto.flickr_server}}/{{initialPhoto.flickr_id}}_{{initialPhoto.flickr_secret}}_c.jpg" class="image block" alt="" />
 					{{#photos}}
-						<img src="http://farm{{flickr_farm}}.staticflickr.com/{{flickr_server}}/{{flickr_id}}_{{flickr_secret}}_b.jpg" class="image block" alt="" />
+						<img src="http://farm{{flickr_farm}}.staticflickr.com/{{flickr_server}}/{{flickr_id}}_{{flickr_secret}}_c.jpg" class="image block" alt="" />
 					{{/photos}}
 				</div>
 			</header>

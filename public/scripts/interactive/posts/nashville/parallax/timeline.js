@@ -280,7 +280,7 @@ define(function (require) {
 
 
 		/* Lookout Mountain */
-		panMap(map, locations[2], locations[3], responsiveDimensions.windowHeight * 12.5, responsiveDimensions.windowHeight * 4, 'forwards', scrollY, distanceSegments[0], distanceSegments[1]);
+		panMap(map, locations[2], locations[7], responsiveDimensions.windowHeight * 12.5, responsiveDimensions.windowHeight * 20, 'forwards', scrollY, distanceSegments[0], distanceSegments[1]);
 		driveCar(carSegments[1], carMarker, responsiveDimensions.windowHeight * 12.5, responsiveDimensions.windowHeight * 4, 'forwards', scrollY);
 
 		parallaxSection(lookOutMountainEl, {
@@ -289,7 +289,6 @@ define(function (require) {
 
 
 		/* Smokey Mountains */
-		panMap(map, locations[3], locations[4], responsiveDimensions.windowHeight * 16.5, responsiveDimensions.windowHeight * 4, 'forwards', scrollY, sumDistances(distanceSegments, 0, 1), distanceSegments[2]);
 		driveCar(carSegments[2], carMarker, responsiveDimensions.windowHeight * 16.5, responsiveDimensions.windowHeight * 4, 'forwards', scrollY);
 
 		parallaxSection(smokeyMountainsEl, {
@@ -298,7 +297,6 @@ define(function (require) {
 
 
 		/* PISGAH */
-		panMap(map, locations[4], locations[5], responsiveDimensions.windowHeight * 20.5, responsiveDimensions.windowHeight * 4, 'forwards', scrollY, sumDistances(distanceSegments, 0, 2), distanceSegments[3]);
 		driveCar(carSegments[3], carMarker, responsiveDimensions.windowHeight * 20.5, responsiveDimensions.windowHeight * 4, 'forwards', scrollY);
 
 		parallaxSection(mtPisgahEl, {
@@ -307,7 +305,6 @@ define(function (require) {
 
 
 		/* Grandfather Mountain */
-		panMap(map, locations[5], locations[6], responsiveDimensions.windowHeight * 24.5, responsiveDimensions.windowHeight * 4, 'forwards', scrollY, sumDistances(distanceSegments, 0, 3), distanceSegments[4]);
 		driveCar(carSegments[4], carMarker, responsiveDimensions.windowHeight * 24.5, responsiveDimensions.windowHeight * 4, 'forwards', scrollY);
 
 		parallaxSection(grandfatherMountainEl, {
@@ -316,7 +313,6 @@ define(function (require) {
 
 
 		/* Blue Ridge Parkway */
-		panMap(map, locations[6], locations[7], responsiveDimensions.windowHeight * 28.5, responsiveDimensions.windowHeight * 4, 'forwards', scrollY, sumDistances(distanceSegments, 0, 4), distanceSegments[5] / 2);
 		driveCar(carSegments[5], carMarker, responsiveDimensions.windowHeight * 28.5, responsiveDimensions.windowHeight * 4, 'forwards', scrollY);
 
 		parallaxSection(blueRidgeParkwayEl, {
