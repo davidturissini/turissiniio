@@ -1,4 +1,4 @@
-define(function (require, exports, module) {var __filename = module.uri || "", __dirname = __filename.substring(0, __filename.lastIndexOf("/") + 1); var Q = require('Q');
+define(function (require, exports, module) {var __filename = module.uri || "", __dirname = __filename.substring(0, __filename.lastIndexOf("/") + 1); var Q = require('q');
 	var Q = require('q');
 	var jQuery = require('jQuery');
 
