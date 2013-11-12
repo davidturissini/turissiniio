@@ -8,7 +8,7 @@ define(function (require) {
 		this._position = null;
 
 	};
-
+	
 
 	var proto = Car.prototype = new google.maps.OverlayView();
 
