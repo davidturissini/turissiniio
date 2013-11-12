@@ -16,7 +16,7 @@ define(function (require) {
 	var blogHeaderOffset = blogHeader.offset();
 
 	var dashboardEl = jQuery('#dashboard');
-	
+
 	var nashvilleEl = jQuery('#nashville-tennessee');
 	var lynchburgEl = jQuery('#lynchburg-tennessee');
 	var lookOutMountainEl = jQuery('#lookout-mountain-georgia');
