@@ -1,6 +1,6 @@
 define(function (require) {
 
-	var Q = require('Q');
+	var Q = require('q');
 	var fs = require('fs');
 
 	function nodeJSFetch (defer, path) {

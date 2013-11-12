@@ -1,6 +1,6 @@
 define(function (require) {
 
-	var Q = require('Q');
+	var Q = require('q');
 	var resourceFetch = require('resource/fetch');
 	var Mustache = require('mustache');
 

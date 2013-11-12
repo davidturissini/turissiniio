@@ -1,6 +1,6 @@
 define(function (require) {
 
-	var Q = require('Q');
+	var Q = require('q');
 	var Mustache = require('mustache');
 	var _ = require('underscore');
 	var Backbone = require('backbone');
