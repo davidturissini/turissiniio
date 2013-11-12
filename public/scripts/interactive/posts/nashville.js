@@ -50,7 +50,8 @@ define(function (require) {
 				center:center
 			});
 
-			kml = kmlBuilder('https://maps.google.com/maps/ms?authuser=0&vps=2&ie=UTF8&msa=0&output=kml&msid=216638687529279736200.0004e9bd93e7f6902bd47');
+
+			kml = kmlBuilder(nashville.maps[0].url);
 			cards = cardInitialize(jQuery('.card'));
 			
 			loadCarData()
@@ -62,9 +63,13 @@ define(function (require) {
 					onClickCollapse = collapseCardHandler.bind(undefined, cards);
 					onClickExpand = expandCardHandler.bind(undefined, cards);
 
+					google.maps.event.addListener(map, 'click', function (e) {
+						console.log(e.latLng().lat(), e.latLng().lng());
+					})
+
 
 					jQuery(document).on('scroll', onScroll);
-					jQuery(document).on('click', '.trip-location:not(.expanded)', onClickExpand);
+					jQuery(document).on('click', '.trip-location:not(.expanded) .card', onClickExpand);
 					jQuery(document).on('click', '.trip-location.expanded .card .close', onClickCollapse);
 
 

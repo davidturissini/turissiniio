@@ -8,7 +8,7 @@
 		</div>
 	</header>
 	<p id="intro" class="intro clear-fix full-height transparent blog-section text-big vert-center text-shadow text-white text-center">Our first venture into the South outside of New Orleans. There is no better place to go to experience country music and no better time to go to experience the rich fall colors the blanket the region every October.</p>
-	<section id="dashboard" class="text-big transparent text-white text-center vert-one-quarter nowrap text-shadow">
+	<section id="dashboard" class="pad transparent text-white text-center nowrap text-shadow translucent-dark">
 		<ul>
 			<li id="state" class="inline">Tennessee</li>
 			<li id="timezone" class="inline pad-em border-sides">Central Timezone</li>
@@ -30,9 +30,11 @@
 					{{/photos}}
 				</div>
 			</header>
-			
-			<p class="pad-large">To say Nashville is different from the West Coast is a bit of an understatement. If I were in San Jose or Seattle and you asked me where to go for country music I would have quite a bit of trouble coming up with a place to go. If I were in Nashville, however, you wouldn't even have to ask me because you couldn't walk 20 feet without running into some type of musician that is either playing Country music, or carrying a guitar en route to a gig they've booked in one of the city's famed Honkey Tonks on Broadway. The country music scene in Nashville is alive and well. I wasn't even a fan of country music, but it is a darn good time. All you need to experience is a good hollar and swollar in any of the Honkey Tonk's along Broadway. It'll be an experience you're not likely to forget.</p>
-			<p class="pad-large">While it is impossible to visit Nashville and not enjoy the live music on Broadway, it is equally impossible to visit Nashville and not explore the historical side of Country Music. Located a short walk from Broadway is the Country Music Hall of Fame, and it is a must see for any visit to the city. While visiting the Hall of Fame, it is recommended to get the hour long tour of Studio B, located in Music Row. A shuttle will take you from the Hall of Fame to the Studio for the tour. This was one of the highlights of our trip. We had the opportunity to see where artists like Elvis and Dolly Parton recorded many of their biggest hits. You even have the opportunity to sit at the original piano in the studio!</p>
+			<section class="posts clear-fix">
+				{{#posts}}
+					{{{body}}}
+				{{/posts}}
+			</section>
 		</div>
 	</section>
 	{{/trip.locations}}

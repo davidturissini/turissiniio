@@ -153,14 +153,17 @@ define(function (require) {
 
 			function (e) {
 				if (e.props.markers.value === 1 && markersAdded === false) {
+					map.setOptions({
+						mapTypeId:google.maps.MapTypeId.HYBRID
+					});
 					kml.setMap(map);
-
-
 
 					markersAdded = true;
 				} else if (e.props.markers.value === 0 && markersAdded === true) {
 					kml.setMap(null);
-					
+					map.setOptions({
+						mapTypeId:google.maps.MapTypeId.SATELLITE
+					});
 
 					markersAdded = false;
 				}
@@ -200,7 +203,7 @@ define(function (require) {
 			[{
 				name:'top',
 				from:responsiveDimensions.windowHeight / 4, 
-				to:10, 
+				to:0, 
 				scrollStart:responsiveDimensions.windowHeight * 6.5, 
 				scrollDistance:responsiveDimensions.windowHeight,
 				fill:'both'
@@ -219,7 +222,7 @@ define(function (require) {
 				scrollDistance:responsiveDimensions.windowHeight,
 				fill:'both'
 			},{
-				name:'fontSize',
+				name:'scale',
 				from:1.8, 
 				to:1, 
 				scrollStart:responsiveDimensions.windowHeight * 6.5, 
@@ -231,11 +234,7 @@ define(function (require) {
 
 			function (e) {
 				dashboardEl.css({
-					fontSize:e.props.fontSize.value + 'em',
-					transform:'translateX(' + e.props.x.value + '%)',
-					width:'auto',
-					top:e.props.top.value + 'px',
-					right:e.props.right.value + 'px'
+					transform:'scale(' + e.props.scale.value + ') translateY(' + e.props.top.value + 'px)'
 				})
 			}
 
@@ -255,10 +254,10 @@ define(function (require) {
 			scrollY, 
 
 			function (e) {
-				if(e.props.car.value > 0 && carMarker.getMap() === undefined) {
+				if(e.props.car.value > 0 && !carMarker.getMap()) {
 					carMarker.setMap(map);
-				} else if (e.props.car.value <= 0 && carMarker.getMap() !== undefined) {
-					carMarker.setMap(undefined);
+				} else if (e.props.car.value <= 0 && carMarker.getMap()) {
+					carMarker.setMap(null);
 				}
 			}
 

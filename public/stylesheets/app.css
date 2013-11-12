@@ -111,13 +111,16 @@ a:hover {
 	width:25px;
 }
 
-
 .nowrap {
 	white-space:nowrap;
 }
 
 .translucent {
 	background:rgba(255, 255, 255, .8);
+}
+
+.translucent-dark {
+	background:rgba(0, 0, 0, .8);
 }
 
 .box-shadow {
