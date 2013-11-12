@@ -3,7 +3,7 @@ define(function (require) {
 	var windowWidth = window.innerWidth;
 	var windowHeight = window.innerHeight;
 	var jqBody = jQuery(document.body);
-	var Q = require('Q');
+	var Q = require('q');
 	var ResponsiveImage = require('element/layout/ResponsiveImage');
 
 	function Card (id, el, options) {
