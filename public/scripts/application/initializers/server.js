@@ -8,7 +8,7 @@ require.config({
 
 var express = require('express');
 var Mustache = require('mustache');
-var Q = require('Q');
+var Q = require('q');
 var init = require('application/init');
 var resourceFetch = require('resource/fetch');
 
