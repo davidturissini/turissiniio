@@ -38,9 +38,7 @@ define(function (require) {
 					numLoaded += 1;
 					options.height = jQuery(el).height();
 					options.width = jQuery(el).width();
-					if (numLoaded === imagesEl.length) {
-						Galleria.run(imagesEl, options);
-					}
+					Galleria.run(jQuery(el), options);
 				});
 
 				img.src = jQuery('img', el).get(0).getAttribute('src');

@@ -92,15 +92,38 @@
 	width:80%;
 }
 
-.posts-show-nashville .trip-location {
+.posts-show-nashville .blog-content #dashboard {
+	position:relative;
+	z-index:100;
+}
+
+.posts-show-nashville .blog-content .trip-location {
+	width:50%;
+	top:500%;
 	-webkit-transform:translateX(-100px);
 	-webkit-transition:opacity 400ms ease, -webkit-transform 400ms ease;
 }
 
-.posts-show-nashville .trip-location.active {
+.posts-show-nashville .blog-content .trip-location.right {
+	left:50%;
+}
+
+.posts-show-nashville .blog-content .trip-location.left {
+	left:0%;
+	right:50%;
+}
+
+.posts-show-nashville .blog-content .trip-location.active {
+	top:0;
 	z-index:1000;
 	-webkit-transform:translateX(0);
 	opacity:1;
+}
+
+
+.posts-show-nashville .trip-location.active .card {
+	cursor:pointer;
+	pointer-events:auto;
 }
 
 
@@ -143,11 +166,11 @@
 	position:relative;
 	top:50%;
 	margin-left:5%;
-	width:40%;
+	max-height:80%;
+	width:80%;
 	box-shadow:30px 30px 70px #000;
 	background:#fff;
 	-webkit-transform:translateY(-50%);
-	cursor:pointer;
 }
 
 .posts-show-nashville .card .galleria-thumbnails-container,
@@ -166,10 +189,6 @@
 
 .posts-show-nashville .card.right {
 	margin-right:5%;
-}
-
-.posts-show-nashville .card .header {
-	-webkit-transition:height 400ms ease;
 }
 
 .posts-show-nashville .card .header img {
@@ -227,6 +246,14 @@
 	EXPANDED SECTIONS
 
 */
+
+.posts-show-nashville .blog-content .trip-location.expanded.right,
+.posts-show-nashville .blog-content .trip-location.expanded.left {
+	left:0 !important;
+	right:0 !important;
+	width:auto;
+}
+
 .posts-show-nashville .blog-section.expanded {
 	overflow:auto;
 	opacity: 1 !important;

@@ -1,6 +1,6 @@
-<div id="map" class="google-map"></div>
 <div class="scroll"></div>
 <article id="blog-content" class="blog-content">
+	<div id="map" class="google-map"></div>
 	<header id="blog-header" class="full-height light-text blog-section">
 		<div class="vert-center text-shadow">
 			<h1 class="blog-title text-center">Southeast Music and Fall Color Roadtrip</h1>
@@ -17,8 +17,8 @@
 	</section>
 	
 	{{#trip.locations}}
-	<section id="{{slug}}" class="clear-fix full-height transparent blog-section trip-location">
-		<div class="card {{position}}">
+	<section id="{{slug}}" class="clear-fix full-height transparent blog-section trip-location {{position}}">
+		<div class="card">
 			<span class="close">Close</span>
 			<span class="expand">Expand</span>
 			<header class="relative header">

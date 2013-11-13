@@ -63,11 +63,6 @@ define(function (require) {
 					onClickCollapse = collapseCardHandler.bind(undefined, cards);
 					onClickExpand = expandCardHandler.bind(undefined, cards);
 
-					google.maps.event.addListener(map, 'click', function (e) {
-						console.log(e.latLng().lat(), e.latLng().lng());
-					})
-
-
 					jQuery(document).on('scroll', onScroll);
 					jQuery(document).on('click', '.trip-location:not(.expanded) .card', onClickExpand);
 					jQuery(document).on('click', '.trip-location.expanded .card .close', onClickCollapse);
