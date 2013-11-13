@@ -5,6 +5,7 @@ define(function (require) {
 	var calculateParallax = require('parallax/calculate');
 	var parallaxSection = require('interactive/posts/nashville/parallax/parallaxSection');
 	var panMap = require('interactive/posts/nashville/parallax/panMap');
+	var updateOdometer = require('interactive/posts/nashville/parallax/updateOdometer');
 	var addMarkerClick = require('interactive/posts/nashville/map/addMarkerClick');
 
 	var Car = require('interactive/posts/nashville/map/Car');
@@ -302,6 +303,7 @@ define(function (require) {
 		panMap(map, locations[1], locations[2], responsiveDimensions.windowHeight * 8.5, responsiveDimensions.windowHeight * 4, 'forwards', scrollY, 0, distanceSegments[0]);
 		driveCar(carSegments[0], carMarker, responsiveDimensions.windowHeight * 8.5, responsiveDimensions.windowHeight * 4, 'both', scrollY);
 		addMarkerClick(locations[2], responsiveDimensions.windowHeight * 12.5);
+		updateOdometer(map, locations[1], locations[2], responsiveDimensions.windowHeight * 8.5, responsiveDimensions.windowHeight * 4, 'both', scrollY, 0, distanceSegments[0]);
 
 
 		parallaxSection(lynchburgEl, {
@@ -313,6 +315,7 @@ define(function (require) {
 		panMap(map, locations[2], locations[7], responsiveDimensions.windowHeight * 12.5, responsiveDimensions.windowHeight * 20, 'forwards', scrollY, distanceSegments[0], distanceSegments[1]);
 		driveCar(carSegments[1], carMarker, responsiveDimensions.windowHeight * 12.5, responsiveDimensions.windowHeight * 4, 'forwards', scrollY);
 		addMarkerClick(locations[3], responsiveDimensions.windowHeight * 16.5);
+		updateOdometer(map, locations[2], locations[3], responsiveDimensions.windowHeight * 12.5, responsiveDimensions.windowHeight * 4, 'forwards', scrollY, distanceSegments[0], distanceSegments[1]);
 
 		parallaxSection(lookOutMountainEl, {
 			top:responsiveDimensions.windowHeight * 16
@@ -322,6 +325,7 @@ define(function (require) {
 		/* Smokey Mountains */
 		driveCar(carSegments[2], carMarker, responsiveDimensions.windowHeight * 16.5, responsiveDimensions.windowHeight * 4, 'forwards', scrollY);
 		addMarkerClick(locations[4], responsiveDimensions.windowHeight * 20.5);
+		updateOdometer(map, locations[3], locations[4], responsiveDimensions.windowHeight * 16.5, responsiveDimensions.windowHeight * 4, 'forwards', scrollY, sumDistances(distanceSegments, 0, 1), distanceSegments[2]);
 
 		parallaxSection(smokeyMountainsEl, {
 			top:responsiveDimensions.windowHeight * 20
@@ -331,6 +335,7 @@ define(function (require) {
 		/* PISGAH */
 		driveCar(carSegments[3], carMarker, responsiveDimensions.windowHeight * 20.5, responsiveDimensions.windowHeight * 4, 'forwards', scrollY);
 		addMarkerClick(locations[5], responsiveDimensions.windowHeight * 24.5);
+		updateOdometer(map, locations[4], locations[5], responsiveDimensions.windowHeight * 20.5, responsiveDimensions.windowHeight * 4, 'forwards', scrollY, sumDistances(distanceSegments, 0, 2), distanceSegments[3]);
 
 		parallaxSection(mtPisgahEl, {
 			top:responsiveDimensions.windowHeight * 24
@@ -340,6 +345,7 @@ define(function (require) {
 		/* Grandfather Mountain */
 		driveCar(carSegments[4], carMarker, responsiveDimensions.windowHeight * 24.5, responsiveDimensions.windowHeight * 4, 'forwards', scrollY);
 		addMarkerClick(locations[6], responsiveDimensions.windowHeight * 28.5);
+		updateOdometer(map, locations[5], locations[6], responsiveDimensions.windowHeight * 24.5, responsiveDimensions.windowHeight * 4, 'forwards', scrollY, sumDistances(distanceSegments, 0, 3), distanceSegments[4]);
 
 		parallaxSection(grandfatherMountainEl, {
 			top:responsiveDimensions.windowHeight * 28
@@ -349,6 +355,7 @@ define(function (require) {
 		/* Blue Ridge Parkway */
 		driveCar(carSegments[5], carMarker, responsiveDimensions.windowHeight * 28.5, responsiveDimensions.windowHeight * 4, 'forwards', scrollY);
 		addMarkerClick(locations[7], responsiveDimensions.windowHeight * 32.5);
+		updateOdometer(map, locations[6], locations[7], responsiveDimensions.windowHeight * 28.5, responsiveDimensions.windowHeight * 4, 'forwards', scrollY, sumDistances(distanceSegments, 0, 4), distanceSegments[5]);
 
 		parallaxSection(blueRidgeParkwayEl, {
 			top:responsiveDimensions.windowHeight * 32
@@ -359,6 +366,7 @@ define(function (require) {
 		panMap(map, locations[7], locations[8], responsiveDimensions.windowHeight * 32.5, responsiveDimensions.windowHeight * 4, 'forwards', scrollY, sumDistances(distanceSegments, 0, 4) + distanceSegments[5] / 2, distanceSegments[5] / 2);
 		driveCar(carSegments[6], carMarker, responsiveDimensions.windowHeight * 32.5, responsiveDimensions.windowHeight * 4, 'forwards', scrollY);
 		addMarkerClick(locations[8], responsiveDimensions.windowHeight * 36.5);
+		updateOdometer(map, locations[7], locations[8], responsiveDimensions.windowHeight * 32.5, responsiveDimensions.windowHeight * 4, 'forwards', scrollY, sumDistances(distanceSegments, 0, 4) + distanceSegments[5] / 2, distanceSegments[5] / 2);
 
 		parallaxSection(ashevilleEl, {
 			top:responsiveDimensions.windowHeight * 36
@@ -369,6 +377,7 @@ define(function (require) {
 		panMap(map, locations[8], locations[9], responsiveDimensions.windowHeight * 36.5, responsiveDimensions.windowHeight * 16, 'forwards', scrollY, sumDistances(distanceSegments, 0, 5), distanceSegments[6]);
 		driveCar(carSegments[7], carMarker, responsiveDimensions.windowHeight * 36.5, responsiveDimensions.windowHeight * 16, 'forwards', scrollY);
 		addMarkerClick(locations[9], responsiveDimensions.windowHeight * 52.5);
+		updateOdometer(map, locations[8], locations[9], responsiveDimensions.windowHeight * 36.5, responsiveDimensions.windowHeight * 16, 'forwards', scrollY, sumDistances(distanceSegments, 0, 5), distanceSegments[6]);
 
 		parallaxSection(grandOleOpryEl, {
 			top:responsiveDimensions.windowHeight * 52

@@ -129,22 +129,34 @@
 
 .posts-show-nashville .blog-section .posts {
 	display:none;
+	margin:0 auto;
 	padding-top:20px;
+	width:50%;
+}
+
+.posts-show-nashville .blog-section .posts aside {
+
 }
 
 .posts-show-nashville .blog-section .posts p {
 	margin-bottom:3em;
-	padding:0 20px;
 	line-height:1.6em;
-	font-size:0.9em;
 }
 
 
 .posts-show-nashville .blog-section .posts figure {
 	margin:0 30px 30px;
+	padding:20px 0 10px;
+	border-top:1px solid #ccc;
+	border-bottom:1px solid #ccc;
+}
+
+.posts-show-nashville .blog-section .posts figure img {
+	width:100%;
 }
 
 .posts-show-nashville .blog-section .posts figcaption {
+	padding-top:10px;
 	font-size:0.8em;
 }
 
@@ -166,7 +178,6 @@
 	position:relative;
 	top:50%;
 	margin-left:5%;
-	max-height:80%;
 	width:80%;
 	box-shadow:30px 30px 70px #000;
 	background:#fff;
@@ -191,6 +202,14 @@
 	margin-right:5%;
 }
 
+.posts-show-nashville .card .header .title {
+	position:absolute;
+	bottom:10px;
+	left:10px;
+	right:10px;
+	z-index:100;
+}
+
 .posts-show-nashville .card .header img {
 	width:100%;
 	display:none;
@@ -204,10 +223,6 @@
 	display:block;
 }
 
-.posts-show-nashville .card p {
-	font-size:0.8em;
-}
-
 .posts-show-nashville .card .close {
 	display:none;
 }
@@ -216,7 +231,7 @@
 	display:block;
 	position:absolute;
 	z-index:1000;
-	bottom:-2em;
+	bottom:-2.5em;
 	right:10px;
 	color:#ccc;
 	font-size:0.8em;
@@ -279,17 +294,12 @@
 	display:none;
 }
 
-.posts-show-nashville .blog-section.expanded .header {
-	margin-bottom:40px;
-}
-
 .posts-show-nashville .blog-section.expanded .header .title {
-	bottom:-50px;
-	left:20px;
 	width:auto;
 	color:#000;
 	text-shadow:none;
 	font-style:normal;
+	font-size:2.7em;
 }
 
 .posts-show-nashville .blog-section.expanded .header .image {
@@ -301,12 +311,16 @@
 	display:block;
 }
 
+
 .posts-show-nashville .blog-section.expanded .summary {
 	display:none;
 }
 
-.posts-show-nashville .blog-section.expanded .card .header {
-	background:#000;
+.posts-show-nashville .blog-section.expanded .card .header .title {
+	position:static;
+	margin:20px auto 0;
+	width:50%;
+	text-align:left;
 }
 
 .posts-show-nashville .blog-section.expanded .card .header .galleria-container {
