@@ -11,7 +11,7 @@
 	"name":"contact:index",
 	"controller":"contact/index"
 },{
-	"path":"posts/nashville",
+	"path":"posts/nashville-tennessee-north-carolina-fall-road-trip",
 	"name":"posts:show:nashville",
 	"template":"posts/show/nashville.html",
 	"controller":"posts/nashville"

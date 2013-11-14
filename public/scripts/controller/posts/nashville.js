@@ -3,7 +3,7 @@ define(function (require) {
 	var resourceFetch = require('resource/fetch');
 
 	return function (route, resourceConfig) {
-		var resourcePath = 'trips/nashville';
+		var resourcePath = 'trips/nashville-tennessee-north-carolina-fall-road-trip';
 
 		var promise = resourceFetch(resourceConfig.tripsDomain + resourcePath);
 
