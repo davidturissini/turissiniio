@@ -51,7 +51,7 @@ define(function (require) {
 			});
 
 
-			kml = kmlBuilder('https://maps.google.com/maps/ms?authuser=0&vps=2&ie=UTF8&msa=0&output=kml&msid=216638687529279736200.0004eb1d930670f824b67');
+			kml = kmlBuilder(nashville.maps[0].url);
 			cards = cardInitialize(jQuery('.card'));
 			
 			loadCarData()

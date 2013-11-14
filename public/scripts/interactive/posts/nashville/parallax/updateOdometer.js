@@ -46,7 +46,7 @@ define(function (require) {
 					odometerValue = Math.round(startDistance + distance * latitudePercent);
 					odomenterEl.text(odometerValue);
 
-					if (odometerValue > 149 && odometerValue < 794) {
+					if (odometerValue > 145 && odometerValue < 836) {
 						timezoneEl.text('Eastern Time Zone');
 					} else {
 						timezoneEl.text('Central Time Zone');
