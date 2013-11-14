@@ -28,7 +28,10 @@ define(function (require) {
 					index = Math.round(e.props.car.value);
 					carLatLng = carSegments[index];
 
-					carMarker.setPosition(carLatLng);
+					if (carMarker.getElement()) {
+						carMarker.setPosition(carLatLng);
+					}
+
 
 					if (e.props.car.value < min || e.props.car.value > max) {
 						carMarker.parked();

@@ -52,9 +52,9 @@ define(function (require) {
 						timezoneEl.text('Central Time Zone');
 					}
 
-					if (odometerValue > 149 && odometerValue < 180) {
+					if (odometerValue > 155 && odometerValue < 180) {
 						stateEl.text('Georgia');
-					} else if (odometerValue > 360 && odometerValue < 661) {
+					} else if (odometerValue > 346 && odometerValue < 661) {
 						stateEl.text('North Carolina');
 					} else {
 						stateEl.text('Tennessee');

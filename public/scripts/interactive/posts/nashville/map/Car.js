@@ -29,6 +29,11 @@ define(function (require) {
 	};
 
 
+	proto.getElement = function () {
+		return this._element;
+	};
+
+
 	proto.setPosition = function (latLng) {
 		var overlayProjection = this.getProjection();
 		this._position = latLng;
