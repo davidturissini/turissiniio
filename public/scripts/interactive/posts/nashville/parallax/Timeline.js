@@ -30,6 +30,8 @@ define(function (require) {
 	var ashevilleEl = jQuery('#asheville-north-carolina');
 	var grandOleOpryEl = jQuery('#grand-ole-opry-nashville-tennessee');
 
+	var markersAdded;
+
 
 	function fetchElements() {
 		blogHeader = jQuery('#blog-header');
@@ -47,9 +49,9 @@ define(function (require) {
 		blueRidgeParkwayEl = jQuery('#blue-ridge-parkway');
 		ashevilleEl = jQuery('#asheville-north-carolina');
 		grandOleOpryEl = jQuery('#grand-ole-opry-nashville-tennessee');
-	}
 
-	var markersAdded = false;
+		markersAdded = false;
+	}
 
 
 	function sumDistances (distanceSegments, startIndex, stopIndex) {
