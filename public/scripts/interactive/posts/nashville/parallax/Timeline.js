@@ -31,7 +31,23 @@ define(function (require) {
 	var grandOleOpryEl = jQuery('#grand-ole-opry-nashville-tennessee');
 
 
-	
+	function fetchElements() {
+		blogHeader = jQuery('#blog-header');
+		blogHeaderOffset = blogHeader.offset();
+
+		dashboardEl = jQuery('#dashboard');
+		introEl = jQuery('#intro');
+
+		nashvilleEl = jQuery('#nashville-tennessee');
+		lynchburgEl = jQuery('#lynchburg-tennessee');
+		lookOutMountainEl = jQuery('#lookout-mountain-georgia');
+		smokeyMountainsEl = jQuery('#great-smokey-mountains-national-park');
+		mtPisgahEl = jQuery('#pisgah-inn-north-carolina');
+		grandfatherMountainEl = jQuery('#grandfather-mountain-north-carolina');
+		blueRidgeParkwayEl = jQuery('#blue-ridge-parkway');
+		ashevilleEl = jQuery('#asheville-north-carolina');
+		grandOleOpryEl = jQuery('#grand-ole-opry-nashville-tennessee');
+	}
 
 	var markersAdded = false;
 
@@ -395,6 +411,7 @@ define(function (require) {
 		this.kml = kml;
 		this.carSegments = carSegments;
 		this.carMarker = window.car = new Car('/images/car.png', map);
+		fetchElements();
 	};
 
 

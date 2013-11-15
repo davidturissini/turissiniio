@@ -5,7 +5,7 @@ body {
 }
 
 a, a:visited {
-	color:#069;
+	color:#1D9D87;
 	text-decoration:none;
 }
 
@@ -101,6 +101,10 @@ a:hover {
 
 .text-big {
 	font-size:1.8em;
+}
+
+.text-small {
+	font-size:0.8em;
 }
 
 .text-translucent {

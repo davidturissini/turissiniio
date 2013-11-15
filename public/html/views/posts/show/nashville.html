@@ -30,6 +30,14 @@
 				</div>
 				<h1 class="text-translucent title text-big text-white text-bold text-italic text-center text-shadow">{{title}}</h1>
 			</header>
+			<aside class="location-facts right text-small">
+				<h4 class="title">Fun Facts</h4>
+				<ul>
+					{{#facts}}
+						<li class="fact">{{text}}</li>
+					{{/facts}}
+				</ul>
+			</aside>
 			<section class="posts clear-fix">
 				{{#posts}}
 					{{{body}}}
