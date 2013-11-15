@@ -74,33 +74,57 @@ define(function (require) {
 
 			//pisgah inn
 			trip.locations[4].initialPhoto = trip.locations[4].photos.splice(2, 1)[0];
-			trip.locations[4].facts = [
-
-			];
+			trip.locations[4].facts = [{
+				text:'Elevation: 5,721 ft'
+			},{
+				text:'Atop of mountain is the highest television antenna east of the Mississippi River (6,023 ft)'
+			}];
 
 			//grandfather mountain
 			trip.locations[5].initialPhoto = trip.locations[5].photos.splice(0, 1)[0];
-			trip.locations[5].facts = [
-
-			];
+			trip.locations[5].facts = [{
+				text:'Elevation: 5,946 ft'
+			},{
+				text:'Four peaks are located on the mountain\s main ridge: Calloway Peak (5,964 ft.), Attic Window Peak (5,949 ft.), MacRae Peak (5,844 ft.), and Linville Peak (5,295 ft.)'
+			},{
+				text:'Part of Forrest Gump was filmed on the road to the summit.'
+			}];
 
 			//blue ridge parkway
 			trip.locations[6].initialPhoto = trip.locations[6].photos.splice(11, 1)[0];
-			trip.locations[6].facts = [
-
-			];
+			trip.locations[6].facts = [{
+				text:'Road length: 469 miles'
+			},{
+				text:'Number of counties: 29 (2 States, North Carolina and Virginia)'
+			},{
+				text:'Connects Great Smokey Mountains National Park and Shenandoah National Park'
+			},{
+				text:'Annual number of visitors: over 17,000,000'
+			}];
 
 			//asheville
 			trip.locations[7].initialPhoto = trip.locations[7].photos.splice(0, 1)[0];
-			trip.locations[7].facts = [
-
-			];
+			trip.locations[7].facts = [{
+				text:'Population: 83,393'
+			},{
+				text:'Incorporated: 1797'
+			},{
+				text:'Demonym: Ashevillian'
+			},{
+				text:'County: Buncombe'
+			}];
 
 			//grand old opry
 			trip.locations[8].initialPhoto = trip.locations[8].photos.splice(0, 1)[0];
-			trip.locations[8].facts = [
-
-			];
+			trip.locations[8].facts = [{
+				text:'Longest running radio show in United States (88 years)'
+			},{
+				text:'Broadcast on 650/WSM, WSM website, Sirius-XM Radio'
+			},{
+				text:'First broadcast was November 28, 1925'
+			},{
+				text:'Show was performed in the Ryman Auditorium until 1974, where it was moved to the Gaylord Opryland Resort.'
+			}];
 
 			trip.locations.forEach(function (location, index) {
 				if (index < 3 || index === trip.locations.length - 1) {

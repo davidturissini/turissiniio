@@ -13,7 +13,7 @@ define(function (require) {
 
 	var responsiveDimensions = require('element/responsive/windowDimensions');
 
-
+	var blogContent = jQuery('#blog-content');
 	var blogHeader = jQuery('#blog-header');
 	var blogHeaderOffset = blogHeader.offset();
 
@@ -34,6 +34,7 @@ define(function (require) {
 
 
 	function fetchElements() {
+		blogContent = jQuery('#blog-content');
 		blogHeader = jQuery('#blog-header');
 		blogHeaderOffset = blogHeader.offset();
 
@@ -402,6 +403,27 @@ define(function (require) {
 			top:responsiveDimensions.windowHeight * 52
 		}, scrollY, responsiveDimensions.windowHeight, locations[9].marker, map);
 
+
+		calculateParallax(
+
+			[{
+				name:'footer',
+				from:0, 
+				to:-responsiveDimensions.windowHeight, 
+				scrollStart:(responsiveDimensions.windowHeight * 53), 
+				scrollDistance:responsiveDimensions.windowHeight,
+				fill:'both'
+			}], 
+
+			scrollY, 
+
+			function (e) {
+				blogContent.css({
+					transform:'translateY(' + e.props.footer.value + 'px)'
+				})
+			}
+
+		);
 
 		
 	};
