@@ -6,22 +6,27 @@ define(function (require) {
 	var routerFactory = require('application/router/factory');
 	var jQuery = require('jQuery');
 	var initialLoad = true;
+	var previousClassName = '';
 
 	var router = routerFactory();
 	var application;
 	var currentInteractiveController = null;
+	jQuery('html').addClass('mobile');
 
 	application = init();
 
 	application.on('route:html:load', function (evt) {
 		var route = evt.target;
+		var className;
+		
 
 		if (initialLoad === false) {
+
 			jQuery('#content').html(evt.html);
 			document.title = evt.data.title;
-			jQuery('html').attr({
-				class:evt.environment.bodyCSSClass
-			});
+			jQuery('html').removeClass(previousClassName);
+			jQuery('html').addClass(evt.environment.bodyCSSClass);
+			previousClassName = evt.environment.bodyCSSClass;
 			window.scrollTo(0, 0);
 		} else {
 			initialLoad = false;

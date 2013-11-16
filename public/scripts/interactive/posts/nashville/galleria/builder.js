@@ -5,7 +5,7 @@ define(function (require) {
 	var loadedThemes = {};
 
 
-	return function (sectionEls, themeUrl) {
+	return function (sectionEls, themeUrl, isMobile) {
 		if (loadedThemes[themeUrl] !== true) {
 			Galleria.loadTheme(themeUrl);
 			loadedThemes[themeUrl] = true;
@@ -28,6 +28,10 @@ define(function (require) {
 				initialTransition:false,
 				showCounter:false
 			};
+
+			if (isMobile === true) {
+				options.imageCrop = false;
+			}
 
 			var numLoaded = 0;
 			imagesEl.each(function (index, el) {

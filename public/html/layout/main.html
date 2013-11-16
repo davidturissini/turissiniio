@@ -8,7 +8,7 @@
 	<body>
 		<header id="site-header" class="site-header pad clear-fix">
 			<h1 id="site-title" class="site-title"><a href="/">TravelAddict</a></h1>
-			<nav id="site-nav" class="site-nav text-right right">
+			<nav id="site-nav" class="site-nav text-right fl-right">
 				<ul class="horizontal">
 					<li class="pad"><a href="/about/" data-behavior="push">About</a></li>
 					<li class="pad"><a href="/contact/" data-behavior="push">Contact</a></li>
@@ -19,16 +19,18 @@
 			{{{html}}}
 		</section>
 		<footer></footer>
-
+		<script src="/scripts/vendor/polyfills.js" data-main="browser"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+		<script src="/scripts/vendor/detect_mobile.js"></script>
 		<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCY7Iz4DN0iYHwMgJCRp7pJQzIy3iG89Eo&sensor=false"></script>
 		<script src="/scripts/vendor/require.js" data-main="browser"></script>
+		<script>define('jQuery', [], function () { return window.jQuery; });</script>
 		<script>
 			require.config({
 				baseUrl:'/scripts',
 				paths: {
     				backbone: 'vendor/backbone',
     				underscore: 'vendor/underscore',
-    				jQuery: 'vendor/jQuery',
     				cookies: 'vendor/cookies',
     				mustache: 'vendor/mustache',
     				q: 'vendor/Q',
