@@ -62,7 +62,7 @@ define(function (require) {
 			galleriaOptions.height = height;
 
 			this._resize = function () {
-				console.log('resize')
+				
 				this._cardElement.get(0).offsetHeight;
 				var width = this._cardElement.width();
 				var height = width * ratio;

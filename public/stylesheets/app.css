@@ -169,7 +169,6 @@ a:hover {
 
 .content {
 	margin:0 auto;
-	width:1024px;
 }
 
 .blog-header {
@@ -185,6 +184,7 @@ a:hover {
 	right:0;
 	bottom:0;
 	z-index:50;
+	width:100%;
 }
 
 .blog-header .text {
@@ -206,7 +206,7 @@ a:hover {
 
 .trip-location {
 	margin:40px auto 0;
-	width:700px;
+	padding:0 40px;
 	font-size:1.1em;
 }
 
@@ -241,7 +241,8 @@ a:hover {
 }
 
 .location-facts {
-	margin-right:-60px;
+	margin-right:-300px;
+	padding-left:30px;
 	width:250px;
 }
 
