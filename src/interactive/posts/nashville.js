@@ -113,6 +113,10 @@ define(function (require) {
 			timeline = null;
 			cards = null;
 			jQuery('html').removeClass('map').removeClass('static');
+
+			cards.forEach(function (card) {
+				card.collapse();
+			});
 		}
 
 	};

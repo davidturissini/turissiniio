@@ -7,9 +7,9 @@
 		<link rel="stylesheet" type="text/css" href="/stylesheets/posts/nashville.css" />
 		<meta name="viewport" content="width=1024">
 	</head>
-	<body class="static">
+	<body>
 		<header id="site-header" class="site-header pad clear-fix">
-			<h1 id="site-title" class="site-title"><a href="/">TravelAddict</a></h1>
+			<h1 id="site-title" class="site-title"><a href="/">turissini.io</a></h1>
 			<nav id="site-nav" class="site-nav text-right fl-right">
 				<ul class="horizontal">
 					<li class="pad"><a href="/about/" data-behavior="push">About</a></li>
@@ -74,7 +74,6 @@
 
 			jQuery(document).ready(function () {
 				if (jQuery.browser.handheld !== true) {
-					jQuery('body').removeClass('static');
 					require(['application/initializers/browser'], function () {});
 				} else {
 					jQuery('#content').removeClass('loading dynamic');

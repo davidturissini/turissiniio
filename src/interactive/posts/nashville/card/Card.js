@@ -1,10 +1,19 @@
 define(function (require) {
 
-	var windowWidth = window.innerWidth;
-	var windowHeight = window.innerHeight;
+	var Galleria = require('Galleria');
+	var dimensions = require('element/responsive/windowDimensions');
 	var jqBody = jQuery(document.body);
 	var Q = require('q');
 	var ResponsiveImage = require('element/layout/ResponsiveImage');
+
+	var galleriaOptions = {
+		imagePosition:'center',
+		imageCrop:false,
+		thumbnailCrop:false,
+		initialTransition:false,
+		showCounter:false,
+		debug:false
+	};
 
 	function Card (id, el, options) {
 		this._element = el;
@@ -19,6 +28,8 @@ define(function (require) {
 
 	var proto = Card.prototype = {
 
+		_resize:null,
+
 		minimizedImageHeight: function () {
 			return this._minimizedImageHeight;
 		},
@@ -29,7 +40,9 @@ define(function (require) {
 
 		expand: function (imageWidth, imageHeight) {
 			var defer = Q.defer();
-			var galleria = jQuery('.images', this._element).data('galleria');
+			//var galleria = jQuery('.images', this._element).data('galleria');
+			var ratio = 531 / 800;
+			
 
 			this._isExpanded = true;
 			this._imageWidth = imageWidth;
@@ -38,15 +51,40 @@ define(function (require) {
 			});
 
 			this._element.addClass('expanded');
+			var width = this._cardElement.width();
+			var height = width * ratio;
 
-			galleria.setOptions('imageCrop', false);
-			galleria.refreshImage();
-			galleria.resize({
-				width:this._cardElement.width(),
-				height:windowHeight * 0.8
-			});
+			if (height > dimensions.windowHeight * 0.8) {
+				height = dimensions.windowHeight * 0.8;
+			}
 
-			galleria.refreshImage();
+			galleriaOptions.width = width;
+			galleriaOptions.height = height;
+
+			this._resize = function () {
+				console.log('resize')
+				this._cardElement.get(0).offsetHeight;
+				var width = this._cardElement.width();
+				var height = width * ratio;
+
+				if (height > dimensions.windowHeight * 0.8) {
+					height = dimensions.windowHeight * 0.8;
+				}
+
+				var galleria = jQuery('.images', this._element).data('galleria');
+
+				window.setTimeout(function () {
+					galleria.resize({
+						width:width,
+						height:height
+					})
+				}, 100);
+
+			}.bind(this);
+			jQuery(window).on('resize', this._resize);
+
+
+			Galleria.run(jQuery('.images', this._element), galleriaOptions);
 
 
 			return defer.promise;
@@ -62,15 +100,10 @@ define(function (require) {
 			
 
 			this._element.removeClass('expanded');
+			jQuery(window).off('resize', this._resize);
 
 
-			galleria.resize({
-				width:windowWidth * 0.4,
-				height:this.minimizedImageHeight()
-			});
-
-			galleria.setOptions('imageCrop', true);
-			galleria.refreshImage();
+			galleria.destroy();
 
 
 			this._isExpanded = false;

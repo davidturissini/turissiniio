@@ -29,7 +29,8 @@ define(function (require) {
 				imageCrop:true,
 				thumbnailCrop:false,
 				initialTransition:false,
-				showCounter:false
+				showCounter:false,
+				debug:false
 			};
 
 			var numLoaded = 0;
@@ -39,14 +40,8 @@ define(function (require) {
 
 				img.addEventListener('load', function () {
 					numLoaded += 1;
-					options.height = jQuery(el).height();
-					options.width = jQuery(el).width();
 
-					if (options.height > dimensions.windowHeight * 0.8) {
-						options.height = dimensions.windowHeight * 0.8;
-					}
-
-					Galleria.run(jQuery(el), options);
+					//Galleria.run(jQuery(el), options);
 				});
 
 				img.src = jQuery('img', el).get(0).getAttribute('src');

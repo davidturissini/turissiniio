@@ -140,7 +140,6 @@ a:hover {
 
 
 .content.dynamic.loading {
-	height:0;
 	overflow:hidden;
 }
 
@@ -168,49 +167,64 @@ a:hover {
 
 */
 
-.static .content {
+.content {
 	margin:0 auto;
 	width:1024px;
 }
 
-.static .blog-header {
+.blog-header {
+	height:470px;
 	position:relative;
 	overflow:hidden;
-	padding:200px 0;
-	background:url(http://farm3.staticflickr.com/2824/10505814516_5040c94c1c_b.jpg) bottom center no-repeat;
 	color:#fff;
 }
 
-.static .blog-title {
+.blog-header .hero {
+	position:absolute;
+	left:0;
+	right:0;
+	bottom:0;
+	z-index:50;
+}
+
+.blog-header .text {
+	position:absolute;
+	left:0;
+	right:0;
+	top:200px;
+	z-index:100;
+}
+
+.blog-title {
 	font-size:2.7em;
 }
 
-.static .intro {
+.intro {
 	margin:80px;
 	font-size:1.6em;
 }
 
-.static .trip-location {
+.trip-location {
 	margin:40px auto 0;
 	width:700px;
 	font-size:1.1em;
 }
 
-.static .trip-location .header {
+.trip-location .header {
 	margin:0 -20px;
 	padding:50px 20px;
 	border-top:2px solid #ccc;
 }
 
-.static .trip-location .title {
+.trip-location .title {
 	margin:20px 0;
 }
 
-.static .posts {
+.posts {
 	width:66%;
 }
 
-.static .posts figure {
+.posts figure {
 	clear:right;
 	width:250px;
 	float:right;
@@ -218,20 +232,20 @@ a:hover {
 	margin-right:-300px;
 }
 
-.static .posts figure img {
+.posts figure img {
 	max-width:100%;
 }
 
-.static .posts figure figcaption {
+.posts figure figcaption {
 	font-size:0.7em;
 }
 
-.static .location-facts {
+.location-facts {
 	margin-right:-60px;
 	width:250px;
 }
 
-.static .youtube iframe {
+.youtube iframe {
 	width:100%;
 	height:350px;
 }

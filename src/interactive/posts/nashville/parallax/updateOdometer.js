@@ -3,15 +3,17 @@ define(function (require) {
 	var jQuery = require('jQuery');
 	var calculateParallax = require('parallax/calculate');
 
-	var odomenterEl = jQuery('#odometer-value');
-	var stateEl = jQuery('#state');
-	var timezoneEl = jQuery('#timezone');
+	
 	var mapStartingCenter = null;
 
 	return function (map, from, to, scrollStart, scrollDistance, fill, scrollY, startDistance, distance) {
 		if (mapStartingCenter === null) {
 			mapStartingCenter = map.getCenter();
 		}
+
+		var odomenterEl = jQuery('#odometer-value');
+		var stateEl = jQuery('#state');
+		var timezoneEl = jQuery('#timezone');
 		var latitudeDistance = to.latLng.lat() - from.latLng.lat();
 
 		calculateParallax(
