@@ -3,33 +3,17 @@ module.exports = function(grunt) {
 	// Project configuration.
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
-		concat: {
-		  options: {
-		    // define a string to put between each file in the concatenated output
-		    separator: ''
-		  },
-		  dist: {
-		    // the files to concatenate
-		    src: [
-		    	'./dist/**/*.js',
-		    	'./public/scripts/application/initializers/browser.js',
-		    ],
-		    // the location of the resulting JS file
-		    dest: './public/app.min.js'
-		  }
-		},
 		watch: {
 		  scripts: {
-		    files: ['./public/scripts/**/*.js'],
+		    files: ['./src/**/*.js'],
 		    tasks: ['default']
 		  },
 		},
-		foo: {
+		'foo': {
 			scripts: {
 				src: [
-					'public/scripts/**/*.js',
-					'!public/scripts/vendor/**/*.js',
-					'!public/scripts/application/initializers/server.js'
+					'src/**/*.js',
+					'!src/application/initializers/server.js'
 				]
 			}
 		}
@@ -42,13 +26,12 @@ module.exports = function(grunt) {
 		this.files.forEach(function (filePair) {
 			
 			filePair.src.forEach(function (src) {
-				var moduleName = src.replace('public/scripts/', '').replace('.js', '');
+				var moduleName = src.replace('src/', '').replace('.js', '');
 				var str = 'define(\'' + moduleName + '\', ';
 				var variableNames = [];
 				var variableValues = [];
 				
 				var fileContents = grunt.file.read(src);
-
 
 
 
@@ -76,9 +59,6 @@ module.exports = function(grunt) {
 
 				fileContents = fileContents.replace('define(function (require) {', str);
 
-
-				
-
 				concat += fileContents;
 
 
@@ -87,12 +67,10 @@ module.exports = function(grunt) {
 
 		});
 
-		grunt.file.write('./public/app.min.js', concat);
+		grunt.file.write('./public/scripts/app.min.js', concat);
 		
 	});
 
-	
-	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-text-replace');
 	grunt.registerTask('default', ['foo']);

@@ -40,8 +40,7 @@
     				cookies: 'vendor/cookies',
     				mustache: 'vendor/mustache',
     				q: 'vendor/Q',
-    				Galleria: 'vendor/galleria-1.3.1.min',
-    				'resource/fetch': 'application/resource/browser/browserfetch'
+    				Galleria: 'vendor/galleria-1.3.1.min'
 			    },
 			    shim: {
 				    'underscore': {
@@ -67,8 +66,12 @@
 			})
 
 		</script>
-		<script src="/app.min.js"></script>
+		<script src="/scripts/app.min.js"></script>
 		<script>
+			define('resource/fetch', ['application/resource/browser/browserfetch'], function (f) {
+				return f;
+			});
+
 			jQuery(document).ready(function () {
 				if (jQuery.browser.handheld !== true) {
 					jQuery('body').removeClass('static');

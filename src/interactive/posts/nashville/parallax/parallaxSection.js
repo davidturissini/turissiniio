@@ -29,7 +29,9 @@ define(function (require) {
 					if (jqEl.hasClass('active')) {
 						jqEl.one('transitionend', function () {
 							jqEl.css({
-								display:'none'
+								display:'none',
+								zIndex:0,
+								top:'500%'
 							})
 						});
 
@@ -40,7 +42,9 @@ define(function (require) {
 
 					if (!jqEl.hasClass('active')) {
 						jqEl.css({
-							display:'block'
+							display:'block',
+							zIndex:1000,
+							top:0
 						});
 						jqEl.get(0).offsetHeight;
 

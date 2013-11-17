@@ -139,6 +139,7 @@ body {
 	top:50%;
 	margin-left:5%;
 	width:80%;
+	max-height:80%;
 	box-shadow:30px 30px 70px #000;
 	-webkit-transform:translateY(-50%);
 }

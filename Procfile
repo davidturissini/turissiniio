@@ -1,1 +1,1 @@
-web: node public/scripts/application/initializers/server.js
+web: node src/application/initializers/server.js

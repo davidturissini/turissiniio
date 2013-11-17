@@ -1,6 +1,6 @@
 define(function (require) {
 
-	
+	var Q = require('q');
 	var jQuery = require('jQuery');
 	var _ = require('underscore');
 	var GoogleMapsLabel = require('googleMaps/overlay/Label');
@@ -50,6 +50,8 @@ define(function (require) {
 
 
 		afterAppend: function (data, htmlContext) {
+			var promises = [];
+			var defer = Q.defer();
 
 			var nashville = data.trip;
 			var distanceSegments = data.tripDistanceSegments;
@@ -67,6 +69,11 @@ define(function (require) {
 			});
 
 
+			google.maps.event.addListenerOnce(map, 'tilesloaded', function () {
+				defer.resolve();
+			});
+
+
 			locationMarkers = mapDataMerge(markers, center);
 				
 
@@ -75,7 +82,7 @@ define(function (require) {
 			cards = cardInitialize(jQuery('.card', htmlContext));
 			galleriaBuilder(jQuery('.blog-section', htmlContext), '../../vendor/galleria/themes/classic/galleria.classic.min.js', jQuery.browser.mobile);
 		
-			loadCarData().then(function (carSegments) {
+			var carPromise = loadCarData().then(function (carSegments) {
 				timeline = new Timeline(map, locationMarkers, distanceSegments, kml, carSegments);
 
 				onScroll = scrollHandlerBuilder(timeline);
@@ -88,6 +95,9 @@ define(function (require) {
 
 
 			});
+
+
+			return defer.promise;
 
 		},
 
