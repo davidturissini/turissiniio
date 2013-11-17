@@ -4,8 +4,10 @@
 		<title>{{title}}</title>
 		<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.12.0/build/cssreset/cssreset-min.css">
 		<link rel="stylesheet" type="text/css" href="/stylesheets/app.css" />
+		<link rel="stylesheet" type="text/css" href="/stylesheets/posts/nashville.css" />
+		<meta name="viewport" content="width=1024">
 	</head>
-	<body>
+	<body class="static">
 		<header id="site-header" class="site-header pad clear-fix">
 			<h1 id="site-title" class="site-title"><a href="/">TravelAddict</a></h1>
 			<nav id="site-nav" class="site-nav text-right fl-right">
@@ -15,17 +17,21 @@
 				</ul>
 			</nav>
 		</header>
-		<section id="content" class="content">
+		<section id="content" class="content dynamic loading">
 			{{{html}}}
 		</section>
 		<footer></footer>
-		<script src="/scripts/vendor/polyfills.js" data-main="browser"></script>
+
+		<script src="/scripts/vendor/polyfills.js"></script>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 		<script src="/scripts/vendor/detect_mobile.js"></script>
 		<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCY7Iz4DN0iYHwMgJCRp7pJQzIy3iG89Eo&sensor=false"></script>
-		<script src="/scripts/vendor/require.js" data-main="browser"></script>
-		<script>define('jQuery', [], function () { return window.jQuery; });</script>
+		<script src="/scripts/vendor/require.js"></script>
 		<script>
+			define('jQuery', [], function () {
+				return window.jQuery;
+			});
+
 			require.config({
 				baseUrl:'/scripts',
 				paths: {
@@ -34,7 +40,6 @@
     				cookies: 'vendor/cookies',
     				mustache: 'vendor/mustache',
     				q: 'vendor/Q',
-    				browser: 'application/initializers/browser',
     				Galleria: 'vendor/galleria-1.3.1.min',
     				'resource/fetch': 'application/resource/browser/browserfetch'
 			    },
@@ -60,6 +65,19 @@
 				   	}
 				}
 			})
+
+		</script>
+		<script src="/app.min.js"></script>
+		<script>
+			jQuery(document).ready(function () {
+				if (jQuery.browser.handheld !== true) {
+					jQuery('body').removeClass('static');
+					require(['application/initializers/browser'], function () {});
+				} else {
+					jQuery('#content').removeClass('loading dynamic');
+				}
+			});
+				
 		</script>
 
 	</body>

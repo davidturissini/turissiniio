@@ -30,11 +30,27 @@ define(function (require) {
 	var onClickCollapse;
 	var timeline;
 	var cards;
+	var jqBody;
 
 
 	return {
 
-		load: function (data) {
+		load: function (data, htmlContext) {
+			jqBody = jQuery(document);
+			
+			jQuery('html').addClass('map');
+			jQuery('#blog-content', htmlContext).prepend('<div id="map" class="google-map"></div>');
+			jQuery('<div class="scroll"></div>').insertBefore(jQuery('#blog-content', htmlContext));
+
+			jQuery('.trip-location .card', htmlContext).each(function (idx, elem) {
+				jQuery('<span class="close">Close</span><span class="expand">Expand</span>').prependTo(elem);
+			});
+
+		},
+
+
+		afterAppend: function (data, htmlContext) {
+
 			var nashville = data.trip;
 			var distanceSegments = data.tripDistanceSegments;
 			var locationMarkers = [];
@@ -46,46 +62,29 @@ define(function (require) {
 			var bounds = googleMapsBoundsFromLatLng(latLngs);
 			var center = bounds.getCenter();
 
+			map = mapBuilder(jQuery('#map', htmlContext).get(0), {
+				center:center
+			});
 
-			return loadStylesheet('/stylesheets/posts/nashville.css').then(function () {
-				if (jQuery.browser.mobile === true) {
-					jQuery('html').addClass('static');
-					galleriaBuilder(jQuery('.blog-section'), '../../vendor/galleria/themes/classic/galleria.classic.min.js', true);
-					return;
-				}
 
-				jQuery('html').addClass('map');
-				jQuery('#blog-content').prepend('<div id="map" class="google-map"></div>');
-				jQuery('<div class="scroll"></div>').insertBefore('#blog-content');
-
-				jQuery('.trip-location .card').each(function (idx, elem) {
-					jQuery('<span class="close">Close</span><span class="expand">Expand</span>').prependTo(elem);
-				});
-
+			locationMarkers = mapDataMerge(markers, center);
 				
-				locationMarkers = mapDataMerge(markers, center);
-				map = mapBuilder(document.querySelector('#map'), {
-					center:center
-				});
 
 
-				kml = kmlBuilder(nashville.maps[0].url);
-				cards = cardInitialize(jQuery('.card'));
-				
-				return loadCarData()
-			})
-			
-			.then(function (carSegments) {
-				galleriaBuilder(jQuery('.blog-section'), '../../vendor/galleria/themes/classic/galleria.classic.min.js');
+			kml = kmlBuilder(nashville.maps[0].url);
+			cards = cardInitialize(jQuery('.card', htmlContext));
+			galleriaBuilder(jQuery('.blog-section', htmlContext), '../../vendor/galleria/themes/classic/galleria.classic.min.js', jQuery.browser.mobile);
+		
+			loadCarData().then(function (carSegments) {
 				timeline = new Timeline(map, locationMarkers, distanceSegments, kml, carSegments);
 
 				onScroll = scrollHandlerBuilder(timeline);
 				onClickCollapse = collapseCardHandler.bind(undefined, cards);
 				onClickExpand = expandCardHandler.bind(undefined, cards);
 
-				jQuery(document).on('scroll', onScroll);
-				jQuery(document).on('click', '.trip-location:not(.expanded) .card', onClickExpand);
-				jQuery(document).on('click', '.trip-location.expanded .card .close', onClickCollapse);
+				jqBody.on('scroll', onScroll);
+				jqBody.on('click', '.trip-location:not(.expanded) .card', onClickExpand);
+				jqBody.on('click', '.trip-location.expanded .card .close', onClickCollapse);
 
 
 			});
@@ -93,18 +92,17 @@ define(function (require) {
 		},
 
 		unload: function () {
-			map = undefined;
-			jQuery(document).off('scroll', onScroll);
-			jQuery(document).off('click', onClickCollapse);
-			jQuery(document).off('click', onClickExpand);
-			onScroll = undefined;
-			onClickCollapse = undefined;
-			onClickExpand = undefined;
-			kml = undefined;
-			timeline = undefined;
-			cards = undefined;
-			jQuery('html').removeClass('map');
-			jQuery('html').removeClass('static');
+			map = null;
+			jqBody.off('scroll', onScroll);
+			jqBody.off('click', onClickCollapse);
+			jqBody.off('click', onClickExpand);
+			onScroll = null;
+			onClickCollapse = null;
+			onClickExpand = null;
+			kml = null;
+			timeline = null;
+			cards = null;
+			jQuery('html').removeClass('map').removeClass('static');
 		}
 
 	};

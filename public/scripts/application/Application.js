@@ -63,7 +63,6 @@ define(function (require) {
 				htmlString = Mustache.render(htmlString, data);
 			}
 
-
 			this.trigger('route:html:load', {
 				target:route,
 				request:req,

@@ -13,7 +13,6 @@ define(function (require) {
 
 		var mapOptions = _.extend(defaultMapOptions, options);
 
-
 		return new google.maps.Map(el, mapOptions);
 	}
 

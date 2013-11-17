@@ -192,6 +192,7 @@ define(function (require) {
 					map.setOptions({
 						mapTypeId:google.maps.MapTypeId.HYBRID
 					});
+					
 					kml.setMap(map);
 
 					locations.forEach(function (location) {

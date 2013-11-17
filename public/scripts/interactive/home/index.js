@@ -32,7 +32,7 @@ define(function (require) {
 
 	return {
 		load: function (data) {
-			
+			/*
 			jQuery.ajax({
 				url:'http://api.flickr.com/services/rest/',
 				data: {
@@ -89,6 +89,8 @@ define(function (require) {
 					});
 				}
 			})
+
+			*/
 
 		},
 

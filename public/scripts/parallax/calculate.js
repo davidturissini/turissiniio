@@ -1,4 +1,4 @@
-define(function () {
+define(function (require) {
 
 	// time, beginning, change, duration
 	Math.linearTween = function (t, b, c, d) {

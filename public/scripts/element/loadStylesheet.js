@@ -1,4 +1,4 @@
-define(function () {
+define(function (require) {
 
 	var Q = require('q');
 	var jQuery = require('jQuery');
