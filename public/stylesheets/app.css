@@ -221,7 +221,8 @@ a:hover {
 }
 
 .posts {
-	width:66%;
+	padding:0 40px;
+	margin-right:320px;
 }
 
 .posts figure {
@@ -249,4 +250,15 @@ a:hover {
 .youtube iframe {
 	width:100%;
 	height:350px;
+}
+
+@media (max-width:880px) {
+	.posts {
+		margin-right:0;
+	}
+
+	.posts figure,
+	.location-facts {
+		display:none;
+	}
 }

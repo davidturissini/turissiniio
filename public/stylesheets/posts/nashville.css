@@ -340,8 +340,8 @@ body {
 
 .posts-show-nashville .blog-section.expanded {
 	margin:38px auto 0;
+	padding:0 40px;
 	overflow:auto;
-	opacity: 1 !important;
 }
 
 .posts-show-nashville .blog-section.expanded .card,
@@ -398,6 +398,7 @@ body {
 .posts-show-nashville .blog-section.expanded .card .header .title {
 	position:static;
 	margin:20px auto;
+	padding:0 40px;
 	text-align:center;
 }
 
@@ -411,4 +412,15 @@ body {
 
 .posts-show-nashville .blog-section.expanded .card .close {
 	display:block;
+}
+
+@media (max-width:880px) {
+	.map .posts {
+		margin:0;
+	}
+
+	.map .posts figure,
+	.map .location-facts {
+		display:none !important;
+	}
 }
