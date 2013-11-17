@@ -103,7 +103,7 @@ define(function (require) {
 			}];
 
 			//asheville
-			trip.locations[7].initialPhoto = trip.locations[7].photos.splice(0, 1)[0];
+			trip.locations[7].initialPhoto = trip.locations[7].photos.splice(1, 1)[0];
 			trip.locations[7].facts = [{
 				text:'Population: 83,393'
 			},{

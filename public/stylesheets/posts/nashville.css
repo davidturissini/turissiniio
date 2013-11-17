@@ -158,10 +158,6 @@ body {
 	-webkit-transform:translateY(-50%);
 }
 
-.map #asheville-north-carolina .card {
-	height:80%;
-}
-
 .map .card .header .title {
 	position:absolute;
 	bottom:10px;
@@ -344,10 +340,9 @@ body {
 	overflow:auto;
 }
 
-.posts-show-nashville .blog-section.expanded .card,
-.map #asheville-north-carolina.expanded .card {
-	top:5%;
-	margin:0 auto 5%;
+.posts-show-nashville .blog-section.expanded .card {
+	top:40px;
+	margin:0 auto 120px;
 	float:none;
 	height:auto;
 	width:auto;
