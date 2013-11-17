@@ -81,7 +81,15 @@ define(function (require) {
 			kml = kmlBuilder(nashville.maps[0].url);
 			cards = cardInitialize(jQuery('.card', htmlContext));
 			galleriaBuilder(jQuery('.blog-section', htmlContext), '../../vendor/galleria/themes/classic/galleria.classic.min.js', jQuery.browser.mobile);
-		
+
+			if (responsiveDimensions.windowWidth < 700) {
+				google.maps.event.addListenerOnce(kml, 'defaultviewport_changed', function () {
+					if (kml.getStatus() === 'OK') {
+						map.fitBounds(kml.getDefaultViewport());
+					}
+				});
+			}
+
 			var carPromise = loadCarData().then(function (carSegments) {
 				timeline = new Timeline(map, locationMarkers, distanceSegments, kml, carSegments);
 

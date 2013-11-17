@@ -2,6 +2,7 @@ define(function (require) {
 
 	var jQuery = require('jQuery');
 	var calculateParallax = require('parallax/calculate');
+	var dimensions = require('element/responsive/windowDimensions');
 
 	var mapStartingCenter = null;
 
@@ -39,9 +40,12 @@ define(function (require) {
 
 					var latDistFromCenter = mapStartingCenter.lat() - e.props.latitude.value;
 					var lngDistFromCenter = mapStartingCenter.lng() - e.props.longitude.value;
+					var divisor = (dimensions.windowWidth < 900) ? 2 : 5;
+
 					
-					var lat = mapStartingCenter.lat() - (latDistFromCenter / 5);
-					var lng = mapStartingCenter.lng() - (lngDistFromCenter / 5);
+					var lat = mapStartingCenter.lat() - (latDistFromCenter / divisor);
+					var lng = mapStartingCenter.lng() - (lngDistFromCenter / divisor);
+
 
 					var center = new google.maps.LatLng(lat, lng);
 					map.setCenter(center);

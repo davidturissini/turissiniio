@@ -343,6 +343,7 @@ body {
 .posts-show-nashville .blog-section.expanded .card {
 	top:40px;
 	margin:0 auto 120px;
+	padding-bottom:30px;
 	float:none;
 	height:auto;
 	width:auto;
@@ -417,5 +418,11 @@ body {
 	.map .posts figure,
 	.map .location-facts {
 		display:none !important;
+	}
+}
+
+@media (max-width:584px) {
+	.map .card .header .title {
+		font-size:1.5em;
 	}
 }
