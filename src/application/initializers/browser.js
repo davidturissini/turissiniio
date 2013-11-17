@@ -45,7 +45,7 @@ define(function (require) {
 
 				var html = jQuery('<div></div>');
 				html.html(evt.html);
-				if (currentInteractiveController) {
+				if (currentInteractiveController && typeof currentInteractiveController.unload === 'function') {
 					currentInteractiveController.unload();
 				}
 
@@ -61,6 +61,10 @@ define(function (require) {
 					
 					contentEl.empty().append(html.children());
 
+					if (currentInteractiveController && typeof currentInteractiveController.afterRemove === 'function') {
+						currentInteractiveController.afterRemove();
+					}
+
 					if (typeof interactiveController.afterAppend === 'function') {
 						return interactiveController.afterAppend(evt.data, contentEl);
 					}
@@ -71,9 +75,12 @@ define(function (require) {
 					if (contentEl.hasClass('loading') === true) {
 						contentEl.removeClass('loading');
 					}
+
+					currentInteractiveController = interactiveController;
+
 				});
 
-				currentInteractiveController = interactiveController;
+				
 				
 			}
 		)

@@ -134,7 +134,7 @@ define(function (require) {
 				}
 			});
 
-			data.title = 'Trip report for Nashville, Tennessee and North Carolina Autumn';
+			data.title = 'Trip report for Nashville, Tennessee and North Carolina Autumn - turissini.io';
 
 
 			return data;

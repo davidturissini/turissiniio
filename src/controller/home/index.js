@@ -5,7 +5,7 @@ define(function (require) {
 
 	return function (route, resourceConfig) {
 		var data = {
-			title: 'TravelAddict'
+			title: 'turissini.io'
 		};
 		
 

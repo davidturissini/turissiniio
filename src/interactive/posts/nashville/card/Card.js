@@ -102,8 +102,9 @@ define(function (require) {
 			this._element.removeClass('expanded');
 			jQuery(window).off('resize', this._resize);
 
-
-			galleria.destroy();
+			if(galleria !== undefined) {
+				galleria.destroy();
+			}
 
 
 			this._isExpanded = false;

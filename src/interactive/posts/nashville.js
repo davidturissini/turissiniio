@@ -119,12 +119,17 @@ define(function (require) {
 			onClickExpand = null;
 			kml = null;
 			timeline = null;
-			cards = null;
-			jQuery('html').removeClass('map').removeClass('static');
+
 
 			cards.forEach(function (card) {
 				card.collapse();
 			});
+
+			cards = null;
+		},
+
+		afterRemove: function () {
+			jQuery('html').removeClass('map');
 		}
 
 	};

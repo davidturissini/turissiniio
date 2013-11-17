@@ -73,7 +73,7 @@
 			});
 
 			jQuery(document).ready(function () {
-				if (jQuery.browser.handheld !== true) {
+				if (jQuery.browser.handheld !== true && (window.history && window.history.pushState)) {
 					require(['application/initializers/browser'], function () {});
 				} else {
 					jQuery('#content').removeClass('loading dynamic');
