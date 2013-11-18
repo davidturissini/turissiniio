@@ -6,7 +6,7 @@ define(function (require) {
 		var cards = [];
 
 		elements.each(function (index, el) {
-			var element = jQuery(el).parents('.blog-section');
+			var element = jQuery(el);
 			var card = new Card(element.attr('id'), element);
 			cards.push(card);
 		});

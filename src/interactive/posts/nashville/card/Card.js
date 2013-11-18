@@ -40,12 +40,10 @@ define(function (require) {
 
 		expand: function (imageWidth, imageHeight) {
 			var defer = Q.defer();
-			//var galleria = jQuery('.images', this._element).data('galleria');
 			var ratio = 531 / 800;
 			
 
 			this._isExpanded = true;
-			this._imageWidth = imageWidth;
 			jqBody.css({
 				overflow:'hidden'
 			});
@@ -102,7 +100,7 @@ define(function (require) {
 			this._element.removeClass('expanded');
 			jQuery(window).off('resize', this._resize);
 
-			if(galleria !== undefined) {
+			if(galleria && typeof galleria.destroy === 'function') {
 				galleria.destroy();
 			}
 

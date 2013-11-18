@@ -1,12 +1,12 @@
-<article id="blog-content" class="blog-content fixed">
-	<header id="blog-header" class="blog-header full-height blog-section fixed">
+<article id="blog-content" class="blog takeover">
+	<header id="blog-header" class="blog-header">
 		<img src="http://farm3.staticflickr.com/2824/10505814516_5040c94c1c_b.jpg" class="hero" alt="" />
-		<div class="text vert-center text-shadow">
+		<div class="text">
 			<h1 class="blog-title text-center">Southeast Music and Fall Color Roadtrip</h1>
 			<h2 class="blog-dates text-center">October 19 - 26, 2013</h2>
 		</div>
 	</header>
-	<p id="intro" class="intro clear-fix full-height transparent blog-section fixed text-big vert-center text-shadow text-center">Our first venture into the South outside of New Orleans. There is no better place to go to experience country music and no better time to go to experience the rich fall colors the blanket the region every October.</p>
+	<p id="intro" class="intro clear-fix text-big text-center">Our first venture into the South outside of New Orleans. There is no better place to go to experience country music and no better time to go to experience the rich fall colors the blanket the region every October.</p>
 	<section id="dashboard" class="dashboard pad transparent text-white text-center nowrap text-shadow translucent-dark">
 		<ul>
 			<li id="state" class="inline">Tennessee</li>
@@ -16,32 +16,30 @@
 	</section>
 	
 	{{#trip.locations}}
-	<section id="{{slug}}" class="clear-fix full-height transparent blog-section fixed trip-location {{position}}">
-		<div class="card">
-			<header class="relative header">
-				<div class="images overflow-hidden">
-					<img src="http://farm{{initialPhoto.flickr_farm}}.staticflickr.com/{{initialPhoto.flickr_server}}/{{initialPhoto.flickr_id}}_{{initialPhoto.flickr_secret}}_c.jpg" class="image block" alt="" />
-					{{#photos}}
-						<img src="http://farm{{flickr_farm}}.staticflickr.com/{{flickr_server}}/{{flickr_id}}_{{flickr_secret}}_c.jpg" class="image block" alt="" />
-					{{/photos}}
-				</div>
-				<h1 class="text-translucent title text-big text-bold text-italic text-center text-shadow">{{title}}</h1>
-			</header>
-			
-			<section class="posts clear-fix">
-				<aside class="location-facts fl-right text-small aside">
-					<h4 class="title">Fun Facts</h4>
-					<ul>
-						{{#facts}}
-							<li class="fact">{{text}}</li>
-						{{/facts}}
-					</ul>
-				</aside>
-				{{#posts}}
-					{{{body}}}
-				{{/posts}}
-			</section>
-		</div>
+	<section id="{{slug}}" class="clear-fix post trip-location {{position}}">
+		<header class="relative post-header">
+			<div class="images overflow-hidden">
+				<img src="http://farm{{initialPhoto.flickr_farm}}.staticflickr.com/{{initialPhoto.flickr_server}}/{{initialPhoto.flickr_id}}_{{initialPhoto.flickr_secret}}_c.jpg" class="image block" alt="" />
+				{{#photos}}
+					<img src="http://farm{{flickr_farm}}.staticflickr.com/{{flickr_server}}/{{flickr_id}}_{{flickr_secret}}_c.jpg" class="image block" alt="" />
+				{{/photos}}
+			</div>
+			<h1 class="title text-big text-bold text-italic text-center">{{title}}</h1>
+		</header>
+		
+		<section class="post-body clear-fix">
+			<aside class="location-facts fl-right text-small aside">
+				<h4 class="title">Fun Facts</h4>
+				<ul>
+					{{#facts}}
+						<li class="fact">{{text}}</li>
+					{{/facts}}
+				</ul>
+			</aside>
+			{{#posts}}
+				{{{body}}}
+			{{/posts}}
+		</section>
 	</section>
 	{{/trip.locations}}
 	

@@ -37,13 +37,26 @@ define(function (require) {
 
 		load: function (data, htmlContext) {
 			jqBody = jQuery(document);
+			var blogContent = jQuery('#blog-content', htmlContext);
 			
 			jQuery('html').addClass('map');
-			jQuery('#blog-content', htmlContext).prepend('<div id="map" class="google-map"></div>');
-			jQuery('<div class="scroll"></div>').insertBefore(jQuery('#blog-content', htmlContext));
+			blogContent.prepend('<div id="map" class="google-map"></div>');
+			blogContent.addClass('fixed-full');
 
-			jQuery('.trip-location .card', htmlContext).each(function (idx, elem) {
-				jQuery('<span class="close">Close</span><span class="expand">Expand</span>').prependTo(elem);
+			jQuery('#blog-header', htmlContext).addClass('full-height fixed-full');
+			jQuery('#blog-header .text', htmlContext).addClass('vert-center text-shadow');
+
+			jQuery('#intro', htmlContext).addClass('full-height vert-center text-shadow transparent fixed-full');
+			jQuery('.trip-location .post-header .title', htmlContext).addClass('text-shadow');
+
+			jQuery('<div class="scroll"></div>').insertBefore(blogContent);
+
+			jQuery('.trip-location', htmlContext).each(function (idx, elem) {
+				var cardEl = jQuery('<div class="card"></div>');
+				var el = jQuery(elem);
+				el.addClass('full-height transparent fixed-full');
+				cardEl.append(el.children()).appendTo(el);
+				jQuery('<span class="close">Close</span><span class="expand">Expand</span>').prependTo(cardEl);
 			});
 
 		},
@@ -79,7 +92,7 @@ define(function (require) {
 
 
 			kml = kmlBuilder(nashville.maps[0].url);
-			cards = cardInitialize(jQuery('.card', htmlContext));
+			cards = cardInitialize(jQuery('.trip-location', htmlContext));
 			galleriaBuilder(jQuery('.blog-section', htmlContext), '../../vendor/galleria/themes/classic/galleria.classic.min.js', jQuery.browser.mobile);
 
 			if (responsiveDimensions.windowWidth < 700) {
@@ -98,8 +111,8 @@ define(function (require) {
 				onClickExpand = expandCardHandler.bind(undefined, cards);
 
 				jqBody.on('scroll', onScroll);
-				jqBody.on('click', '.trip-location:not(.expanded) .card', onClickExpand);
-				jqBody.on('click', '.trip-location.expanded .card .close', onClickCollapse);
+				jqBody.on('click', '.trip-location:not(.expanded)', onClickExpand);
+				jqBody.on('click', '.trip-location.expanded .close', onClickCollapse);
 
 
 			});
