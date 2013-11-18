@@ -181,9 +181,6 @@ define(function (require) {
 					display:'block'
 				};
 
-				if (styles.opacity === 0) {
-					styles.display = 'none;'
-				}
 
 				blogHeader.css(styles);
 			}

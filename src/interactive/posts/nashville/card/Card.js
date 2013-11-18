@@ -60,6 +60,10 @@ define(function (require) {
 			galleriaOptions.width = width;
 			galleriaOptions.height = height;
 
+			jQuery('#blog-content').css({
+				overflow:'auto'
+			});
+
 			this._resize = function () {
 				
 				this._cardElement.get(0).offsetHeight;
@@ -96,6 +100,9 @@ define(function (require) {
 				overflow:'auto'
 			});
 			
+			jQuery('#blog-content').css({
+				overflow:'inherit'
+			});
 
 			this._element.removeClass('expanded');
 			jQuery(window).off('resize', this._resize);
