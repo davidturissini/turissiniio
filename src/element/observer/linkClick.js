@@ -17,7 +17,7 @@ define(function (require) {
 
 		navigationOptions[behavior] = true;
 		
-		router.navigate(e.target.getAttribute('href'), navigationOptions)
+		router.navigate(e.currentTarget.getAttribute('href'), navigationOptions)
 	}
 
 	return function (router) {

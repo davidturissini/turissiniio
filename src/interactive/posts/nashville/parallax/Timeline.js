@@ -15,6 +15,7 @@ define(function (require) {
 
 	var blogContent = jQuery('#blog-content');
 	var blogHeader = jQuery('#blog-header');
+	var blogHeaderText;
 	var blogHeaderOffset = blogHeader.offset();
 
 	var dashboardEl = jQuery('#dashboard');
@@ -37,6 +38,7 @@ define(function (require) {
 		blogContent = jQuery('#blog-content');
 		blogHeader = jQuery('#blog-header');
 		blogHeaderOffset = blogHeader.offset();
+		blogHeaderText = jQuery('.text', blogHeader);
 
 		dashboardEl = jQuery('#dashboard');
 		introEl = jQuery('#intro');
@@ -75,9 +77,9 @@ define(function (require) {
 		calculateParallax(
 
 			[{
-				name:'y',
-				from:0, 
-				to:-responsiveDimensions.windowHeight, 
+				name:'opacity',
+				from:1, 
+				to:0, 
 				scrollStart:0, 
 				scrollDistance:responsiveDimensions.windowHeight,
 				fill:'both'
@@ -86,33 +88,13 @@ define(function (require) {
 			scrollY, 
 
 			function (e) {
-				blogHeader.css({
-					transform:'translate3d(0, ' + e.props.y.value + 'px, 0)'
-				})
-			}
-
-		);
-
-		calculateParallax(
-
-			[{
-				name:'opacity',
-				from:1, 
-				to:0, 
-				scrollStart:0, 
-				scrollDistance:responsiveDimensions.windowHeight / 2.3,
-				fill:'both'
-			}], 
-
-			scrollY, 
-
-			function (e) {
-				blogHeader.css({
+				blogHeaderText.css({
 					opacity:e.props.opacity.value
 				})
 			}
 
 		);
+
 
 
 		calculateParallax(
@@ -168,8 +150,38 @@ define(function (require) {
 				if (e.props.opacity.value === 0) {
 					styles.display = 'none';
 				}
+				
 
 				introEl.css(styles);
+			}
+
+		);
+
+
+		calculateParallax(
+
+			[{
+				name:'opacity',
+				from:1, 
+				to:0, 
+				scrollStart:responsiveDimensions.windowHeight * 3.5, 
+				scrollDistance:responsiveDimensions.windowHeight,
+				fill:'both'
+			}], 
+
+			scrollY, 
+
+			function (e) {
+				var styles = {
+					opacity:e.props.opacity.value,
+					display:'block'
+				};
+
+				if (styles.opacity === 0) {
+					styles.display = 'none;'
+				}
+
+				blogHeader.css(styles);
 			}
 
 		);
@@ -240,6 +252,7 @@ define(function (require) {
 			scrollY, 
 
 			function (e) {
+
 				dashboardEl.css({
 					opacity:e.props.opacity.value
 				})
