@@ -5,6 +5,7 @@ define(function (require) {
 	var jqBody = jQuery(document.body);
 	var Q = require('q');
 	var ResponsiveImage = require('element/layout/ResponsiveImage');
+	var galleriaBuilder = require('interactive/posts/nashville/galleria/builder');
 
 	var galleriaOptions = {
 		imagePosition:'center',
@@ -81,8 +82,7 @@ define(function (require) {
 			}.bind(this);
 			jQuery(window).on('resize', this._resize);
 
-
-			Galleria.run(jQuery('.images', this._element), galleriaOptions);
+			galleriaBuilder(jQuery('.images', this._element), galleriaOptions, '../../vendor/galleria/themes/classic/galleria.classic.min.js')
 
 
 			return defer.promise;

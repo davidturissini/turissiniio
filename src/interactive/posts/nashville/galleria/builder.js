@@ -8,47 +8,14 @@ define(function (require) {
 
 
 
-	return function (sectionEls, themeUrl) {
+	return function (sectionEls, options, themeUrl) {
 		if (loadedThemes[themeUrl] !== true) {
 			Galleria.loadTheme(themeUrl);
 			loadedThemes[themeUrl] = true;
 		}
 
 		sectionEls.each(function (idx, el) {
-			var imageEl = jQuery('img', el);
-			var height = imageEl.height();
-			var ratio = imageEl.width() / height;
-			var imagesEl = jQuery('.images', el);
-
-			if (imagesEl.length === 0) {
-				return;
-			}
-
-			var options = {
-				imagePosition:'center',
-				imageCrop:true,
-				thumbnailCrop:false,
-				initialTransition:false,
-				showCounter:false,
-				debug:false
-			};
-
-			var numLoaded = 0;
-			imagesEl.each(function (index, el) {
-
-				var img = document.createElement('img');
-
-				img.addEventListener('load', function () {
-					numLoaded += 1;
-
-					//Galleria.run(jQuery(el), options);
-				});
-
-				img.src = jQuery('img', el).get(0).getAttribute('src');
-
-			});
-
-
+			Galleria.run(jQuery(el), options);
 		});
 
 	};

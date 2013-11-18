@@ -405,28 +405,6 @@ define(function (require) {
 		}, scrollY, responsiveDimensions.windowHeight, locations[9].marker, map);
 
 
-		calculateParallax(
-
-			[{
-				name:'footer',
-				from:0, 
-				to:-responsiveDimensions.windowHeight, 
-				scrollStart:(responsiveDimensions.windowHeight * 53), 
-				scrollDistance:responsiveDimensions.windowHeight,
-				fill:'both'
-			}], 
-
-			scrollY, 
-
-			function (e) {
-				blogContent.css({
-					transform:'translateY(' + e.props.footer.value + 'px)'
-				})
-			}
-
-		);
-
-		
 	};
 
 	function Timeline (map, locations, distanceSegments, kml, carSegments) {

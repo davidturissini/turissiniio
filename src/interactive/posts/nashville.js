@@ -12,7 +12,6 @@ define(function (require) {
 	var expandCardHandler = require('interactive/posts/nashville/card/expandHandler');
 	var collapseCardHandler = require('interactive/posts/nashville/card/collapseHandler');
 	
-	var galleriaBuilder = require('interactive/posts/nashville/galleria/builder');
 	var responsiveDimensions = require('element/responsive/windowDimensions');
 	var mapBuilder = require('interactive/posts/nashville/map/builder');
 	var kmlBuilder = require('interactive/posts/nashville/map/kmlBuilder');
@@ -93,7 +92,6 @@ define(function (require) {
 
 			kml = kmlBuilder(nashville.maps[0].url);
 			cards = cardInitialize(jQuery('.trip-location', htmlContext));
-			galleriaBuilder(jQuery('.blog-section', htmlContext), '../../vendor/galleria/themes/classic/galleria.classic.min.js', jQuery.browser.mobile);
 
 			if (responsiveDimensions.windowWidth < 700) {
 				google.maps.event.addListenerOnce(kml, 'defaultviewport_changed', function () {
