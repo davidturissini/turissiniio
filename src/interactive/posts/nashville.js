@@ -92,6 +92,9 @@ define(function (require) {
 			});
 
 
+			promises.push(defer.promise);
+
+
 			locationMarkers = mapDataMerge(markers, center);
 				
 
@@ -122,7 +125,9 @@ define(function (require) {
 			});
 
 
-			return defer.promise;
+			promises.push(carPromise);
+
+			return Q.all(promises);
 
 		},
 
