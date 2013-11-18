@@ -430,7 +430,7 @@ define(function (require) {
 		this.distanceSegments = distanceSegments;
 		this.kml = kml;
 		this.carSegments = carSegments;
-		this.carMarker = window.car = new Car('/images/car.png', map);
+		this.carMarker = window.car = new Car('http://turissini.io.s3.amazonaws.com/images/car.png', map);
 		fetchElements();
 	};
 
