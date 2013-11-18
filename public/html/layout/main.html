@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="{{bodyCSSClass}}">
+<html class="{{bodyCSSClass}} loading">
 	<head>
 		<title>{{title}}</title>
 		<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.12.0/build/cssreset/cssreset-min.css">
@@ -27,7 +27,7 @@
 				
 			</nav>
 		</header>
-		<section id="content" class="content dynamic loading">
+		<section id="content" class="content dynamic">
 			{{{html}}}
 		</section>
 		<footer></footer>
@@ -86,7 +86,8 @@
 				if (jQuery.browser.handheld !== true && (window.history && window.history.pushState)) {
 					require(['application/initializers/browser'], function () {});
 				} else {
-					jQuery('#content').removeClass('loading dynamic');
+					jQuery('#content').removeClass('dynamic');
+					jQuery('html').removeClass('loading');
 				}
 			});
 				

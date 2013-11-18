@@ -37,10 +37,13 @@ define(function (require) {
 		load: function (data, htmlContext) {
 			jqBody = jQuery(document);
 			var blogContent = jQuery('#blog-content', htmlContext);
+			var scrollToContinue = jQuery('<div id="scroll-to-continue" class="text-shadow scroll-to-continue vert-bottom text-white text-center">Scroll to take a drive<span class="caret">^</span><span class="caret">^</span></div>');
+
 			
 			jQuery('html').addClass('map');
 			blogContent.prepend('<div id="map" class="google-map"></div>');
 			blogContent.addClass('fixed-full');
+			jQuery('#content').addClass('fixed-full');
 
 			jQuery('#blog-header', htmlContext).addClass('full-height fixed-full');
 			jQuery('#blog-header .text', htmlContext).addClass('vert-center text-shadow');
@@ -49,6 +52,7 @@ define(function (require) {
 			jQuery('.trip-location .post-header .title', htmlContext).addClass('text-shadow');
 
 			jQuery('<div class="scroll"></div>').insertBefore(blogContent);
+			scrollToContinue.appendTo(blogContent);
 
 			jQuery('.trip-location', htmlContext).each(function (idx, elem) {
 				var cardEl = jQuery('<div class="card"></div>');
@@ -82,6 +86,8 @@ define(function (require) {
 
 
 			google.maps.event.addListenerOnce(map, 'tilesloaded', function () {
+				jQuery('html').addClass('map-ready');
+				jQuery('#content').removeClass('fixed-full');
 				defer.resolve();
 			});
 
@@ -136,10 +142,13 @@ define(function (require) {
 				card.collapse();
 			});
 
+
+
 			cards = null;
 		},
 
 		afterRemove: function () {
+			jQuery('html').removeClass('map-ready');
 			jQuery('html').removeClass('map');
 		}
 

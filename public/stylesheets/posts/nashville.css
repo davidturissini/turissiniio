@@ -14,8 +14,41 @@
 	position:relative;
 }
 
-.map .scroll {
+.map .vert-center {
+	position:absolute;
+	top:50%;
+	width:100%;
+	z-index:60;
+}
+
+
+.map.map-ready .scroll {
 	height:5350%;
+}
+
+.map .scroll-to-continue {
+	top:auto;
+	bottom:-140px;
+}
+
+
+@-webkit-keyframes scrolltocontinue {
+	0% {
+		opacity:1;
+		-webkit-transform:translateY(0) rotate(180deg) scaleX(2);
+	}
+
+	100% {
+		opacity:0;
+		-webkit-transform:translateY(10px) rotate(180deg) scaleX(2);
+	}
+}
+
+.map .scroll-to-continue .caret {
+	display:block;
+	margin-bottom:-9px;
+	-webkit-animation:scrolltocontinue 3s ease infinite;
+	-webkit-font-smoothing: subpixel-antialiased;
 }
 
 .map .google-map {
@@ -41,13 +74,6 @@
 	right:0;
 	bottom:0;
 	left:0;
-	z-index:60;
-}
-
-.map .vert-center {
-	position:absolute;
-	top:50%;
-	width:100%;
 	z-index:60;
 }
 

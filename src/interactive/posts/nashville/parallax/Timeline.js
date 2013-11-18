@@ -1,7 +1,6 @@
 define(function (require) {
 
 	var jQuery = require('jQuery');
-	var siteHeaderParallax = require('parallax/elements/siteHeader');
 	var calculateParallax = require('parallax/calculate');
 	var parallaxSection = require('interactive/posts/nashville/parallax/parallaxSection');
 	var panMap = require('interactive/posts/nashville/parallax/panMap');
@@ -17,6 +16,7 @@ define(function (require) {
 	var blogHeader = jQuery('#blog-header');
 	var blogHeaderText;
 	var blogHeaderOffset = blogHeader.offset();
+	var scrollToContinue;
 
 	var dashboardEl = jQuery('#dashboard');
 	var introEl = jQuery('#intro');
@@ -39,6 +39,7 @@ define(function (require) {
 		blogHeader = jQuery('#blog-header');
 		blogHeaderOffset = blogHeader.offset();
 		blogHeaderText = jQuery('.text', blogHeader);
+		scrollToContinue = jQuery('#scroll-to-continue');
 
 		dashboardEl = jQuery('#dashboard');
 		introEl = jQuery('#intro');
@@ -72,7 +73,6 @@ define(function (require) {
 			scrollY = 0;
 		}
 
-		siteHeaderParallax(scrollY);
 
 		calculateParallax(
 
@@ -90,7 +90,11 @@ define(function (require) {
 			function (e) {
 				blogHeaderText.css({
 					opacity:e.props.opacity.value
-				})
+				});
+
+				scrollToContinue.css({
+					opacity:e.props.opacity.value
+				});
 			}
 
 		);

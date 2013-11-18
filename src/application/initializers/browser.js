@@ -14,11 +14,14 @@ define(function (require) {
 	var currentInteractiveController = null;
 	jQuery('html').addClass('mobile');
 	var contentEl = jQuery('#content');
+	var htmlEl = jQuery('html');
 
 	application = init();
 
 	application.on('route:change', function () {
-		contentEl.addClass('loading');
+		if (htmlEl.hasClass('loading') === false) {
+			htmlEl.addClass('loading fixed-full');
+		}
 	});
 
 	application.on('route:html:load', function (evt) {
@@ -76,8 +79,8 @@ define(function (require) {
 				});
 
 				promise = promise.then(function () {
-					if (contentEl.hasClass('loading') === true) {
-						contentEl.removeClass('loading');
+					if (htmlEl.hasClass('loading') === true) {
+						htmlEl.removeClass('loading fixed-full');
 					}
 
 					currentInteractiveController = interactiveController;
