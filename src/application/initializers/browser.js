@@ -24,7 +24,11 @@ define(function (require) {
 	application.on('route:html:load', function (evt) {
 		var route = evt.target;
 		var className;
+
 		if (initialLoad === false) {
+			
+			_gaq.push(['_setAccount', 'UA-31293401-2']);
+        	_gaq.push(['_trackPageview', '/' + evt.target.path]);
 
 			document.title = evt.data.title;
 			jQuery('html').removeClass(previousClassName);
