@@ -1,7 +1,15 @@
-<h1>{{post.title}}</h1>
-<figure class="photo">
-	<img src="{{image_panorama_url}}" />
-	<figcaption>
-		{{post.summary}}
-	</figcaption>
-</figure>
+<article id="blog-content" class="blog takeover">
+	<header id="blog-header" class="blog-header">
+		<img src="{{post.hero_image}}" class="hero" alt="" />
+		<div class="text">
+			<h1 class="blog-title text-center">{{post.title}}</h1>
+		</div>
+	</header>
+	
+	<section class="clear-fix post trip-location {{position}}">
+		<div class="post-body clear-fix">
+			{{{post.body}}}
+		</div>
+	</section>
+	
+</article>

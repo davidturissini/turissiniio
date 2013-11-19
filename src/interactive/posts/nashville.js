@@ -57,10 +57,14 @@ define(function (require) {
 
 			jQuery('.trip-location', htmlContext).each(function (idx, elem) {
 				var cardEl = jQuery('<div class="card"></div>');
+				var location = data.trip.locations[idx];
+				var cardLink = jQuery('<a href="/posts/' + data.trip.slug + '/' + location.slug + '" data-behavior="push" rel="nofollow" class="card-link"></a>');
 				var el = jQuery(elem);
 				el.addClass('full-height transparent fixed-full');
 				el.removeClass('clear-fix');
 				cardEl.append(el.children()).appendTo(el);
+				cardEl.append(cardLink);
+
 				jQuery('<span class="expand">Click to expand</span>').prependTo(cardEl);
 			});
 
@@ -107,7 +111,7 @@ define(function (require) {
 			kml = kmlBuilder(nashville.maps[0].url);
 			cards = cardInitialize(jQuery('.trip-location', htmlContext));
 
-			if (responsiveDimensions.windowWidth < 700) {
+			if (responsiveDimensions.windowWidth <= 856) {
 				google.maps.event.addListenerOnce(kml, 'defaultviewport_changed', function () {
 					if (kml.getStatus() === 'OK') {
 						map.fitBounds(kml.getDefaultViewport());

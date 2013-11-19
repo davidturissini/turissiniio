@@ -21,6 +21,11 @@
 	"template":"posts/show/index.html",
 	"controller":"posts/show"
 },{
+	"path":"posts/nashville-tennessee-north-carolina-fall-road-trip/:locationSlug",
+	"name":"posts:location:show",
+	"template":"posts/show/index.html",
+	"controller":"location/show"
+},{
 	"path":"config/routes",
 	"name":"configRoutes",
 	"template":"./config/routes.json",

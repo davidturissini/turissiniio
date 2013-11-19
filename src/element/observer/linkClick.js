@@ -22,7 +22,7 @@ define(function (require) {
 
 	return function (router) {
 		var boundNavigate = navigate.bind(undefined, router);
-		jQuery(document).on('click', 'a:not([href^=http]), a:not([rel=nofollow])', boundNavigate);
+		jQuery(document).on('click', 'a:not([href^=http]), a:not([data-router=ignore])', boundNavigate);
 	}
 
 

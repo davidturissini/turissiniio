@@ -114,6 +114,8 @@ define(function (require) {
 				overflow:'inherit'
 			});
 
+			window.history.pushState({}, '', '/posts/nashville-tennessee-north-carolina-fall-road-trip/');
+
 
 			this._element.unbind('click', this._boundClickCollapse);
 			this._boundClickCollapse = null;
