@@ -6,7 +6,38 @@ define(function (require) {
 		scrollwheel:false,
 		disableDefaultUI:true,
 		disableDoubleClickZoom:true,
-		mapTypeId:google.maps.MapTypeId.SATELLITE
+		styles:[
+		  {
+		    "featureType": "landscape",
+		    "stylers": [
+		      { "hue": "#2bff00" },
+		      { "saturation": 33 },
+		      { "lightness": 100 },
+		      { "color": "#f6f4ef" }
+		    ]
+		  },{
+		    "featureType": "road",
+		    "elementType": "geometry",
+		    "stylers": [
+		      { "weight": 0.3 },
+		      { "color": "#afabbe" }
+		    ]
+		  },{
+		    "elementType": "labels",
+		    "stylers": [
+		      { "visibility": "on" }
+		    ]
+		  },{
+		    "featureType": "water",
+		    "stylers": [
+		      { "saturation": -39 },
+		      { "color": "#8ccccc" }
+		    ]
+		  },{
+		  },{
+		  },{
+		  }
+		]
 	};
 
 	return function (el, options) {

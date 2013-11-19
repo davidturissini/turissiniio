@@ -150,7 +150,7 @@ define(function (require) {
 			function (e) {
 				if (e.props.markers.value === 1 && markersAdded === false) {
 					map.setOptions({
-						mapTypeId:google.maps.MapTypeId.HYBRID
+						//mapTypeId:google.maps.MapTypeId.HYBRID
 					});
 					
 					kml.setMap(map);
@@ -166,7 +166,7 @@ define(function (require) {
 				} else if (e.props.markers.value === 0 && markersAdded === true) {
 					kml.setMap(null);
 					map.setOptions({
-						mapTypeId:google.maps.MapTypeId.SATELLITE
+						//mapTypeId:google.maps.MapTypeId.SATELLITE
 					});
 
 					locations.forEach(function (location) {
