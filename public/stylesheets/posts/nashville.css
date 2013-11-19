@@ -23,7 +23,7 @@
 
 
 .map.map-ready .scroll {
-	height:5350%;
+	height:5000%;
 }
 
 .map .scroll-to-continue {
@@ -106,7 +106,7 @@
 	-webkit-transition:opacity 200ms ease-out;
 	-moz-transform:translateZ(0);
 	-moz-transition:opacity 200ms ease-out;
-	opacity:0.2;
+	opacity:1;
 }
 
 .map .blog-title {
@@ -116,6 +116,7 @@
 
 .map .intro {
 	margin:0 auto;
+	max-width:820px;
 	width:80%;
 	color:#fff;
 }
@@ -211,14 +212,14 @@
 	position:absolute;
 	top:25%;
 	width:100%;
-	z-index:60;
+	z-index:100;
 }
 
 .posts-show-nashville .vert-bottom {
 	position:absolute;
 	bottom:5%;
 	width:100%;
-	z-index:60;
+	z-index:100;
 }
 
 
@@ -302,10 +303,6 @@
 	-moz-transition:letter-spacing 200ms ease-out;
 }
 
-.posts-show-nashville .card:hover .expand {
-	opacity:1;
-}
-
 .posts-show-nashville .card:hover .expand:before {
 	letter-spacing:0.3em;
 }
@@ -325,14 +322,14 @@
 }
 
 .posts-show-nashville .trip-location.expanded {
-	margin:38px auto 0;
+	margin:0 auto;
 	padding:0 40px;
 	overflow:auto;
 }
 
 .posts-show-nashville .trip-location.expanded .card {
-	top:40px;
-	margin:0 auto 120px;
+	top:0;
+	margin:0 auto;
 	padding-bottom:30px;
 	float:none;
 	height:auto;

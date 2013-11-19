@@ -25,6 +25,7 @@ define(function (require) {
 	var map;
 	var kml;
 	var onScroll;
+	var onKeyDown;
 	var onClickExpand;
 	var onClickCollapse;
 	var timeline;
@@ -46,9 +47,9 @@ define(function (require) {
 			jQuery('#content').addClass('fixed-full');
 
 			jQuery('#blog-header', htmlContext).addClass('full-height fixed-full');
-			jQuery('#blog-header .text', htmlContext).addClass('vert-center text-shadow');
+			jQuery('#blog-header .text', htmlContext).addClass('vert-one-quarter text-shadow');
 
-			jQuery('#intro', htmlContext).addClass('full-height vert-center text-shadow transparent fixed-full');
+			jQuery('#intro', htmlContext).remove();
 			jQuery('.trip-location .post-header .title', htmlContext).addClass('text-shadow');
 
 			jQuery('<div class="scroll"></div>').insertBefore(blogContent);
@@ -58,8 +59,9 @@ define(function (require) {
 				var cardEl = jQuery('<div class="card"></div>');
 				var el = jQuery(elem);
 				el.addClass('full-height transparent fixed-full');
+				el.removeClass('clear-fix');
 				cardEl.append(el.children()).appendTo(el);
-				jQuery('<span class="close">Close</span><span class="expand">Expand</span>').prependTo(cardEl);
+				jQuery('<span class="expand">Click to expand</span>').prependTo(cardEl);
 			});
 
 		},
@@ -83,6 +85,9 @@ define(function (require) {
 			map = mapBuilder(jQuery('#map', htmlContext).get(0), {
 				center:center
 			});
+
+
+
 
 
 			google.maps.event.addListenerOnce(map, 'tilesloaded', function () {
@@ -116,10 +121,17 @@ define(function (require) {
 				onScroll = scrollHandlerBuilder(timeline);
 				onClickCollapse = collapseCardHandler.bind(undefined, cards);
 				onClickExpand = expandCardHandler.bind(undefined, cards);
+				onKeyDown = function (e) {
+					if (e.keyCode === 27) {
+						cards.forEach(function (card) {
+							card.collapse();
+						});
+					}
+				}
 
 				jqBody.on('scroll', onScroll);
 				jqBody.on('click', '.trip-location:not(.expanded)', onClickExpand);
-				jqBody.on('click', '.trip-location.expanded .close', onClickCollapse);
+				jqBody.on('keyup', onKeyDown);
 
 
 			});
@@ -136,6 +148,7 @@ define(function (require) {
 			jqBody.off('scroll', onScroll);
 			jqBody.off('click', onClickCollapse);
 			jqBody.off('click', onClickExpand);
+			jqBody.off('keyup', onKeyDown);
 			onScroll = null;
 			onClickCollapse = null;
 			onClickExpand = null;

@@ -30,6 +30,7 @@ define(function (require) {
 	var proto = Card.prototype = {
 
 		_resize:null,
+		_boundCollapse:null,
 
 		minimizedImageHeight: function () {
 			return this._minimizedImageHeight;
@@ -87,7 +88,16 @@ define(function (require) {
 			jQuery(window).on('resize', this._resize);
 
 			galleriaBuilder(jQuery('.images', this._element), galleriaOptions, '../../vendor/galleria/themes/classic/galleria.classic.min.js')
+			
+			this._boundClickCollapse = function (e) {
+				if (e.target !== this._element.get(0)) {
+					return;
+				}
 
+				e.stopPropagation();
+				this.collapse();
+			}.bind(this);
+			this._element.bind('click', this._boundClickCollapse);
 
 			return defer.promise;
 
@@ -103,6 +113,10 @@ define(function (require) {
 			jQuery('#blog-content').css({
 				overflow:'inherit'
 			});
+
+
+			this._element.unbind('click', this._boundClickCollapse);
+			this._boundClickCollapse = null;
 
 			this._element.removeClass('expanded');
 			jQuery(window).off('resize', this._resize);
