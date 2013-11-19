@@ -26,6 +26,7 @@ define(function (require) {
 	var kml;
 	var onScroll;
 	var onKeyDown;
+	var onCardLinkClick;
 	var onClickExpand;
 	var onClickCollapse;
 	var timeline;
@@ -58,7 +59,7 @@ define(function (require) {
 			jQuery('.trip-location', htmlContext).each(function (idx, elem) {
 				var cardEl = jQuery('<div class="card"></div>');
 				var location = data.trip.locations[idx];
-				var cardLink = jQuery('<a href="/posts/' + data.trip.slug + '/' + location.slug + '" data-behavior="push" rel="nofollow" class="card-link"></a>');
+				var cardLink = jQuery('<a href="/posts/' + data.trip.slug + '/' + location.slug + '" data-behavior="ignore" class="card-link"></a>');
 				var el = jQuery(elem);
 				el.addClass('full-height transparent fixed-full');
 				el.removeClass('clear-fix');
@@ -133,9 +134,15 @@ define(function (require) {
 					}
 				}
 
+				onCardLinkClick = function (e) {
+					e.preventDefault();
+				};
+
 				jqBody.on('scroll', onScroll);
 				jqBody.on('click', '.trip-location:not(.expanded)', onClickExpand);
 				jqBody.on('keyup', onKeyDown);
+
+				jqBody.on('click', '.card-link', onCardLinkClick);
 
 
 			});
@@ -152,6 +159,7 @@ define(function (require) {
 			jqBody.off('scroll', onScroll);
 			jqBody.off('click', onClickCollapse);
 			jqBody.off('click', onClickExpand);
+			jqBody.on('click', onCardLinkClick);
 			jqBody.off('keyup', onKeyDown);
 			onScroll = null;
 			onClickCollapse = null;

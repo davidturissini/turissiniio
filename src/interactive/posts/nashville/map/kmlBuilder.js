@@ -5,7 +5,8 @@ define(function (require) {
 		return new google.maps.KmlLayer({
 			url:url,
 			preserveViewport:true,
-			screenOverlays:false
+			screenOverlays:false,
+			clickable:false
 		});
 	}
 

@@ -164,6 +164,7 @@
 }
 
 .map .card .card-link {
+	display:block;
 	position:absolute;
 	top:0;
 	left:0;
@@ -351,6 +352,10 @@
 	cursor:auto;
 }
 
+.posts-show-nashville .trip-location.expanded .card .card-link {
+	display:none;
+}
+
 .posts-show-nashville .trip-location.expanded .galleria-thumbnails-container,
 .posts-show-nashville .trip-location.expanded .galleria-image-nav,
 .posts-show-nashville .trip-location.expanded .location-facts {
@@ -371,7 +376,6 @@
 	color:#000;
 	text-shadow:none;
 	font-style:normal;
-	font-size:2.7em;
 }
 
 .posts-show-nashville .trip-location.expanded .post-header .image {
@@ -391,8 +395,8 @@
 .posts-show-nashville .trip-location.expanded .card .post-header .title {
 	position:static;
 	margin:20px auto;
-	padding:0 40px;
-	text-align:center;
+	padding:0 80px;
+	text-align:left;
 }
 
 .posts-show-nashville .trip-location.expanded .card .post-header .galleria-container {
@@ -408,6 +412,12 @@
 }
 
 @media (max-width:880px) {
+
+	.posts-show-nashville .trip-location.expanded .card .post-header .title {
+		padding:0 40px;
+	}
+
+	
 	.map .post-body {
 		margin:0;
 	}
@@ -419,6 +429,7 @@
 }
 
 @media (max-width:584px) {
+
 	.map .card .post-header .title {
 		font-size:1.5em;
 	}
