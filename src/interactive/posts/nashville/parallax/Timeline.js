@@ -245,7 +245,7 @@ define(function (require) {
 
 			function (e) {
 				dashboardEl.css({
-					transform:'scale(' + e.props.scale.value + ') translateY(' + e.props.top.value + 'px)'
+					transform:'scale(' + e.props.scale.value + ') translateY(' + e.props.top.value + 'px) translateZ(0)'
 				})
 			}
 
