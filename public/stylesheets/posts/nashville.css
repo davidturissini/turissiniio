@@ -92,6 +92,8 @@
 	display:block;
 	position:relative;
 	z-index:100;
+	font-family:"Helvetica Neue";
+	background:rgba(0, 0, 0, 0.7);
 }
 
 
