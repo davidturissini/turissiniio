@@ -173,7 +173,7 @@
 }
 
 
-.map .trip-location:not(.expanded) .card .post-header:hover .title {
+.map .trip-location:not(.expanded) .card:hover .title {
 	color:rgba(255, 255, 255, 0.7);
 	background:rgba(0, 0, 0, 0.4);
 }
