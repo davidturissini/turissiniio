@@ -39,7 +39,7 @@ define(function (require) {
 		load: function (data, htmlContext) {
 			jqBody = jQuery(document);
 			var blogContent = jQuery('#blog-content', htmlContext);
-			var scrollToContinue = jQuery('<div id="scroll-to-continue" class="text-shadow scroll-to-continue vert-bottom text-white text-center">Scroll to take a drive<span class="caret">^</span><span class="caret">^</span></div>');
+			var scrollToContinue = jQuery('<div id="scroll-to-continue" class="scroll-to-continue vert-bottom text-white text-center">Scroll to take a drive<span class="caret">^</span><span class="caret">^</span></div>');
 
 			
 			jQuery('html').addClass('map');
@@ -48,10 +48,9 @@ define(function (require) {
 			jQuery('#content').addClass('fixed-full');
 
 			jQuery('#blog-header', htmlContext).addClass('full-height fixed-full');
-			jQuery('#blog-header .text', htmlContext).addClass('vert-one-quarter text-shadow');
+			jQuery('#blog-header .text', htmlContext).addClass('vert-one-quarter');
 
 			jQuery('#intro', htmlContext).remove();
-			jQuery('.trip-location .post-header .title', htmlContext).addClass('text-shadow');
 
 			jQuery('<div class="scroll"></div>').insertBefore(blogContent);
 			scrollToContinue.appendTo(blogContent);
@@ -66,7 +65,6 @@ define(function (require) {
 				cardEl.append(el.children()).appendTo(el);
 				cardEl.append(cardLink);
 
-				jQuery('<span class="expand">Click to expand</span>').prependTo(cardEl);
 			});
 
 		},

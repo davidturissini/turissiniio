@@ -51,7 +51,7 @@ define(function (require) {
 			}];
 
 			//lookout mountain
-			trip.locations[2].initialPhoto = trip.locations[2].photos.splice(0, 1)[0];
+			trip.locations[2].initialPhoto = trip.locations[2].photos.splice(2, 1)[0];
 			trip.locations[2].facts = [{
 				text:'Elevation: 2,389 ft'
 			},{
