@@ -48,7 +48,7 @@ define(function (require) {
 			jQuery('#content').addClass('fixed-full');
 
 			jQuery('#blog-header', htmlContext).addClass('full-height fixed-full');
-			jQuery('#blog-header .text', htmlContext).addClass('vert-one-quarter');
+			jQuery('#blog-header .text', htmlContext).addClass('vert-center');
 
 			jQuery('#intro', htmlContext).remove();
 
