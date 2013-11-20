@@ -134,9 +134,10 @@ define(function (require) {
 				}
 			});
 
-			data.title = 'Trip report for Nashville, Tennessee and North Carolina Autumn - turissini.io';
-
-
+			
+			data.title = data.ogTitle = 'Trip report for Nashville, Tennessee and North Carolina Autumn - turissini.io';
+			data.ogDescription = 'Our first venture into the South outside of New Orleans. There is no better place to experience country music and no better time to experience the rich fall colors that blanket the region every October.';
+			data.ogImage = 'http://farm3.staticflickr.com/2824/10505814516_5040c94c1c_b.jpg';
 			return data;
 			
 		});

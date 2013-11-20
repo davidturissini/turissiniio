@@ -11,6 +11,7 @@ var Mustache = require('mustache');
 var Q = require('q');
 var init = require('application/init');
 var resourceFetch = require('resource/fetch');
+var _ = require('underscore');
 
 
 var port = process.env.PORT || 8888;
@@ -31,12 +32,12 @@ application.on('route:html:load', function (evt) {
 
 		resourceFetch('/html/layout/main.html')
 			.then(function (layout) {
-				
-				var renderedTemplate = Mustache.render(layout, {
+				var mustacheObject = _.extend({
 					html:htmlString,
-					title:data.title,
 					bodyCSSClass:evt.environment.bodyCSSClass
-				});
+				}, data);
+
+				var renderedTemplate = Mustache.render(layout, mustacheObject);
 
 				res.send(renderedTemplate);
 				res.end();
