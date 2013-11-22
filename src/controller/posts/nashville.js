@@ -2,10 +2,10 @@ define(function (require) {
 
 	var resourceFetch = require('resource/fetch');
 
-	return function (route, resourceConfig) {
+	return function (route) {
 		var resourcePath = 'trips/nashville-tennessee-north-carolina-fall-road-trip';
-
-		var promise = resourceFetch(resourceConfig.tripsDomain + resourcePath);
+		
+		var promise = resourceFetch(ENV.traveladdict_service_url + resourcePath);
 
 		var tripDistanceSegments = [73.2, 91, 169.7, 96.6, 92.1, 82.5, 294];
 

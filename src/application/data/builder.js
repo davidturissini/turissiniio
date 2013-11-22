@@ -18,7 +18,7 @@ define(function (require) {
 					['controller/' + route.controller],
 
 					function (controller) {
-						var controllerPromise = controller(route, JSON.parse(restConfig));
+						var controllerPromise = controller(route);
 
 						if (typeof controllerPromise.then === 'function') {
 							controllerPromise.then(defer.resolve.bind(defer));

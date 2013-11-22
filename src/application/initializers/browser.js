@@ -12,9 +12,10 @@ define(function (require) {
 	var router = routerFactory();
 	var application;
 	var currentInteractiveController = null;
-	jQuery('html').addClass('mobile');
 	var contentEl = jQuery('#content');
 	var htmlEl = jQuery('html');
+	
+	htmlEl.addClass('mobile');
 
 	application = init();
 
@@ -30,8 +31,7 @@ define(function (require) {
 
 		if (initialLoad === false) {
 			
-			_gaq.push(['_setAccount', 'UA-31293401-2']);
-        	_gaq.push(['_trackPageview', '/' + evt.target.path]);
+			trackPageview('/' + evt.target.path);
 
 			document.title = evt.data.title;
 			jQuery('html').removeClass(previousClassName);

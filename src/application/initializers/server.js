@@ -16,6 +16,9 @@ var _ = require('underscore');
 
 var port = process.env.PORT || 8888;
 var app = express();
+ENV = {
+	traveladdict_service_url:process.env['TRAVELADDICT_SERVICE_URL']
+}
 
 app.use(express.static(__dirname + '/../../../public'));
 
@@ -36,6 +39,9 @@ application.on('route:html:load', function (evt) {
 					html:htmlString,
 					bodyCSSClass:evt.environment.bodyCSSClass
 				}, data);
+
+				mustacheObject.environment = JSON.stringify(ENV);
+				console.log(mustacheObject.environment)
 
 				var renderedTemplate = Mustache.render(layout, mustacheObject);
 
