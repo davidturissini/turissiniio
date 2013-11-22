@@ -31,17 +31,16 @@ define(function (require) {
 
 		if (initialLoad === false) {
 			
-			trackPageview('/' + evt.target.path);
+			trackPageView('/' + evt.target.path);
 
 			document.title = evt.data.title;
-			jQuery('html').removeClass(previousClassName);
-			jQuery('html').addClass(evt.environment.bodyCSSClass);
+			htmlEl.removeClass(previousClassName);
+			htmlEl.addClass(evt.environment.bodyCSSClass);
 			previousClassName = evt.environment.bodyCSSClass;
 			window.scrollTo(0, 0);
-		} else {
-			
-			initialLoad = false;
 		}
+
+		nitialLoad = false;
 
 		require(
 			['interactive/' + route.controller],

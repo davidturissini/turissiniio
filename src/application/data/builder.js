@@ -12,24 +12,21 @@ define(function (require) {
 		
 		promise = defer.promise;
 
-		resourceFetch('/config/restDomains.json')
-			.then(function (restConfig) {
-				require(
-					['controller/' + route.controller],
+		require(
+			['controller/' + route.controller],
 
-					function (controller) {
-						var controllerPromise = controller(route);
+			function (controller) {
+				var controllerPromise = controller(route);
 
-						if (typeof controllerPromise.then === 'function') {
-							controllerPromise.then(defer.resolve.bind(defer));
-						} else {
+				if (typeof controllerPromise.then === 'function') {
+					controllerPromise.then(defer.resolve.bind(defer));
+				} else {
 
-							defer.resolve(controllerPromise);
-						}
+					defer.resolve(controllerPromise);
+				}
 
-					}
-				);
-			})
+			}
+		);
 
 
 		
