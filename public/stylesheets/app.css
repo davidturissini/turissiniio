@@ -184,14 +184,17 @@ a:hover {
 	margin:0 auto;
 }
 
-.blog-header {
+.blog-header,
+.mast {
+	display:block;
 	height:470px;
 	position:relative;
 	overflow:hidden;
 	color:#fff;
 }
 
-.blog-header .hero {
+.blog-header .hero,
+.mast .mast-image {
 	position:absolute;
 	left:0;
 	right:0;
@@ -202,7 +205,13 @@ a:hover {
 	min-height:100%;
 }
 
-.blog-header .text {
+.mast .mast-image.pin-top {
+	bottom:auto;
+	top:0;
+}
+
+.blog-header .text,
+.mast .mast-text {
 	position:absolute;
 	left:0;
 	right:0;
@@ -210,7 +219,8 @@ a:hover {
 	z-index:100;
 }
 
-.blog-title {
+.blog-title,
+.mast .mast-title {
 	font-size:2.7em;
 }
 
