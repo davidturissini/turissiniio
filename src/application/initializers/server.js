@@ -41,7 +41,6 @@ application.on('route:html:load', function (evt) {
 				}, data);
 
 				mustacheObject.environment = JSON.stringify(ENV);
-				console.log(mustacheObject.environment)
 
 				var renderedTemplate = Mustache.render(layout, mustacheObject);
 
