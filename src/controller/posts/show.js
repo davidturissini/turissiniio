@@ -23,8 +23,6 @@ define(function (require) {
 				text:'The subway first started regular service in 1910.'
 			},{
 				text:'1.7 billion people rode the New York subway in 2012, the highest total since 1950.'
-			},{
-				text:'There are no subways that run directly from Queens to Brooklyn.'
 			}];
 
 
