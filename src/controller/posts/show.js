@@ -10,10 +10,19 @@ define(function (require) {
 
 		promise = promise.then(function (e) {
 			var data = {};
+			var flickrImage;
 			data.post = JSON.parse(e);
+			flickrImage = data.post.photo;
 
-			data.post.hero_image = 'http://farm8.staticflickr.com/7395/11232485586_9a31f48487_b.jpg';
-			data.title = data.post.title;
+			data.post.hero_image = 'http://farm' + flickrImage.flickr_farm + '.staticflickr.com/' + flickrImage.flickr_server + '/' + flickrImage.flickr_id + '_' + flickrImage.flickr_secret + '_b.jpg';
+			data.title = data.post.title + ' - turissini.io';
+			data.post.facts = [{
+				text:'The subway first started regular service in 1910.'
+			},{
+				text:'1.7 billion people rode the New York subway in 2012, the highest total since 1950.'
+			},{
+				text:'There are no subways the run directly from Queens to Brooklyn.'
+			}];
 
 
 			return data;

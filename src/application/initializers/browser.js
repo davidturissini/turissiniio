@@ -40,7 +40,7 @@ define(function (require) {
 			window.scrollTo(0, 0);
 		}
 
-		nitialLoad = false;
+		initialLoad = false;
 
 		require(
 			['interactive/' + route.controller],

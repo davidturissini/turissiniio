@@ -1,13 +1,22 @@
 <article id="blog-content" class="blog takeover">
 	<header id="blog-header" class="blog-header">
-		<img src="{{post.hero_image}}" class="hero top-10" alt="" />
+		<img src="{{post.hero_image}}" class="hero" alt="" />
 		<div class="text">
 			<h1 class="blog-title text-center">{{post.title}}</h1>
+			<h2 class="text-center">{{post.publish_date}}</h2>
 		</div>
 	</header>
 	
 	<section class="clear-fix post trip-location {{position}}">
 		<div class="post-body clear-fix">
+			<aside class="location-facts fl-right text-small aside">
+				<h4 class="title">Fun Facts</h4>
+				<ul>
+					{{#post.facts}}
+						<li class="fact">{{text}}</li>
+					{{/post.facts}}
+				</ul>
+			</aside>
 			{{{post.body}}}
 		</div>
 	</section>
