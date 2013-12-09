@@ -21,7 +21,7 @@ define(function (require) {
 			},{
 				text:'1.7 billion people rode the New York subway in 2012, the highest total since 1950.'
 			},{
-				text:'There are no subways the run directly from Queens to Brooklyn.'
+				text:'There are no subways that run directly from Queens to Brooklyn.'
 			}];
 
 
