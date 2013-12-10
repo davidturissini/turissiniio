@@ -137,7 +137,7 @@ define(function (require) {
 			
 			data.title = 'Trip report for our fall road trip through Nashville, Tennessee and Blue Ridge Parkway, North Carolina - turissini.io';
 			data.ogTitle = data.title.replace(' - turissini.io', '');
-			data.ogDescription = 'Our first venture into the South outside of New Orleans. There is no better place to experience country music and no better time to experience the rich fall colors that blanket the region every October.';
+			data.ogDescription = data.description = 'Our first venture into the South outside of New Orleans. There is no better place to experience country music and no better time to experience the rich fall colors that blanket the region every October.';
 			data.ogImage = 'http://farm3.staticflickr.com/2824/10505814516_5040c94c1c_b.jpg';
 			return data;
 			

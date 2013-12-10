@@ -17,7 +17,7 @@ define(function (require) {
 			data.post.hero_image = 'http://farm' + flickrImage.flickr_farm + '.staticflickr.com/' + flickrImage.flickr_server + '/' + flickrImage.flickr_id + '_' + flickrImage.flickr_secret + '_b.jpg';
 			data.title = data.post.title + ' - turissini.io';
 			data.ogTitle = data.title.replace(' - turissini.io', '');
-			data.ogDescription = 'New York City is a great place to visit. Just beware of closing subway doors.';
+			data.ogDescription = data.description = 'New York City is a great place to visit. Just beware of closing subway doors.';
 			data.ogImage = data.post.hero_image;
 			data.post.facts = [{
 				text:'The subway first started regular service in 1910.'
