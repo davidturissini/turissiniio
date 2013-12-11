@@ -157,7 +157,7 @@ define(function (require) {
 
 					locations.forEach(function (location) {
 						if (location.marker) {
-							location.marker.setIcon('https://s3.amazonaws.com/traveladdict/images/maps/map_tack.png');
+							location.marker.setIcon('http://bytemagik.com/map_tack.png');
 							location.marker.setMap(map);
 						}
 					});
