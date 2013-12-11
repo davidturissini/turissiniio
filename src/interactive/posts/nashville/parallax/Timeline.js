@@ -374,7 +374,7 @@ define(function (require) {
 		this.distanceSegments = distanceSegments;
 		this.kml = kml;
 		this.carSegments = carSegments;
-		this.carMarker = new Car('http://turissini.io.s3.amazonaws.com/images/car.png', map);
+		this.carMarker = new Car('http://bytemagik.com/car.png', map);
 		fetchElements();
 	};
 
