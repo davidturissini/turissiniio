@@ -210,6 +210,8 @@ a:hover {
 	right:0;
 	top:200px;
 	z-index:100;
+	background:rgba(0, 0, 0, 0.5);
+	padding:20px;
 }
 
 .blog-title {
