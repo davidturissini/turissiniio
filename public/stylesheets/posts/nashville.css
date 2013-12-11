@@ -197,6 +197,11 @@
 .map .blog-header {
 	color:#fff;
 }
+.map .blog-header .hero {
+	min-height:100%;
+	min-width:100%;
+	height:auto;
+}
 
 .map .blog-header .text {
 	padding:20px 0;
