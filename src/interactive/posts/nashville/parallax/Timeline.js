@@ -157,7 +157,7 @@ define(function (require) {
 
 					locations.forEach(function (location) {
 						if (location.marker) {
-							location.marker.setIcon('https://s3.amazonaws.com/traveladdict/images/maps/map_tack.png');
+							location.marker.setIcon('http://bytemagik.com/map_tack.png');
 							location.marker.setMap(map);
 						}
 					});
@@ -374,7 +374,7 @@ define(function (require) {
 		this.distanceSegments = distanceSegments;
 		this.kml = kml;
 		this.carSegments = carSegments;
-		this.carMarker = new Car('http://turissini.io.s3.amazonaws.com/images/car.png', map);
+		this.carMarker = new Car('http://bytemagik.com/car.png', map);
 		fetchElements();
 	};
 

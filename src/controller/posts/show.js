@@ -1,19 +1,25 @@
 define(function (require) {
 
 	var resourceFetch = require('resource/fetch');
+	var Photo = require('model/Photo');
 
-	return function (route, resourceConfig) {
-		var resourcePath = 'trips/' + route.params.postSlug;
+	return function (route) {
+		var resourcePath = 'posts/' + route.params.postSlug;
 
-		var promise = resourceFetch(resourceConfig.tripsDomain + resourcePath);
+		var promise = resourceFetch(ENV.traveladdict_service_url + resourcePath);
 
 
 		promise = promise.then(function (e) {
 			var data = {};
+			var photo;
 			data.post = JSON.parse(e);
+			photo = new Photo(data.post.photo);
 
-			data.image_panorama_url = data.post.photo_url;
-			data.title = data.post.title;
+			data.post.hero_image = photo.getUrl('b');
+			data.title = data.post.title + ' - turissini.io';
+			data.ogTitle = data.title.replace(' - turissini.io', '');
+			data.ogDescription = data.description = data.post.description;
+			data.ogImage = data.post.hero_image;
 
 
 			return data;
