@@ -1,10 +1,18 @@
-<header href="/" class="mast">
-	<img src="http://farm8.staticflickr.com/7302/10989593716_2858a1c36e_b.jpg" class="mast-image pin-top" alt="" />
-	<div class="mast-text">
-		<h1 class="mast-title text-center text-bold">Travel, Outdoors, Adventure</h1>
+<header href="/" class="mast full-height">
+	<img src="http://farm4.staticflickr.com/3718/11428082086_93bc51451c_k.jpg" class="mast-image" alt="" />
+	<div class="homepage-mast-text overlay-bottom overlay-right black-highlight-darker">
+		<p class="text-right pad text-large">For the love of Travel, Outdoors, Adventure</p>
 	</div>
 </header>
+<section class="grid">
+	{{#posts}}
+		<a href="/posts/{{slug}}/" class="mast block grid-cell text-white" data-behavior="push">
+			<img src="{{hero_image}}" class="mast-image" alt="" />
+			<div class="grid-text text-white black-highlight-darker pad overlay-bottom overlay-full-span">
+				<h1>{{title}}</h1>
+			</div>
+		</a>
+	{{/posts}}
+</section>
 
-<a href="/posts/nashville-tennessee-north-carolina-fall-road-trip/" class="blog-header block" data-behavior="push">
-	<h1>Nashville, Tennessee and North Carolina Fall Road Trip</h1>
-</a>
+

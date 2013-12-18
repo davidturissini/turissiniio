@@ -4,7 +4,7 @@ define(function (require) {
 	var defaultBehavior = 'replace';
 
 	function navigate (router, e) {
-		var behavior = e.target.getAttribute('data-behavior');
+		var behavior = e.currentTarget.getAttribute('data-behavior');
 		var navigationOptions = {
 			trigger:true
 		}
