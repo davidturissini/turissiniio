@@ -428,7 +428,7 @@ a.text-white {
 
 .grid .grid-cell:nth-child(odd):last-child img {
 	height:auto;
-	width:100%;
+	width:101%;
 }
 
 
