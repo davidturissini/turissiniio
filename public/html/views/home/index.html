@@ -4,7 +4,13 @@
 		<p class="text-right pad text-large">For the love of Travel, Outdoors, Adventure</p>
 	</div>
 </header>
-<section class="grid">
+
+<section class="posts grid">
+	<section class="travel-goal grid-cell fl-right">
+		{{#states}}
+			{{.}}
+		{{/states}}
+	</section>
 	{{#posts}}
 		<a href="/posts/{{slug}}/" class="mast block grid-cell text-white" data-behavior="push">
 			<img src="{{hero_image}}" class="mast-image" alt="" />
@@ -13,6 +19,31 @@
 			</div>
 		</a>
 	{{/posts}}
+	{{#posts}}
+		<a href="/posts/{{slug}}/" class="mast block grid-cell text-white" data-behavior="push">
+			<img src="{{hero_image}}" class="mast-image" alt="" />
+			<div class="grid-text text-white black-highlight-darker pad overlay-bottom overlay-full-span">
+				<h1>{{title}}</h1>
+			</div>
+		</a>
+	{{/posts}}
+	{{#posts}}
+		<a href="/posts/{{slug}}/" class="mast block grid-cell text-white" data-behavior="push">
+			<img src="{{hero_image}}" class="mast-image" alt="" />
+			<div class="grid-text text-white black-highlight-darker pad overlay-bottom overlay-full-span">
+				<h1>{{title}}</h1>
+			</div>
+		</a>
+	{{/posts}}
+	{{#posts}}
+		<a href="/posts/{{slug}}/" class="mast block grid-cell text-white" data-behavior="push">
+			<img src="{{hero_image}}" class="mast-image" alt="" />
+			<div class="grid-text text-white black-highlight-darker pad overlay-bottom overlay-full-span">
+				<h1>{{title}}</h1>
+			</div>
+		</a>
+	{{/posts}}
+
 </section>
 
 

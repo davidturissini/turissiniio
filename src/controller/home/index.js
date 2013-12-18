@@ -1,12 +1,27 @@
 define(function (require) {
 
 	var resourceFetch = require('resource/fetch');
+	var Q = require('q');
+	var _ = require('underscore');
 
 	return function (route) {
-		var promise = resourceFetch(ENV.traveladdict_service_url + 'posts');
+		var promises = [];
+		promises.push(resourceFetch(ENV.traveladdict_service_url + 'posts'));
+		promises.push(resourceFetch(ENV.traveladdict_service_url + 'locations'));
 
-		return promise.then(function (posts) {
+		var promise = Q.spread(promises, function (posts, locations) {
+
 			var posts = JSON.parse(posts);
+			var locations = JSON.parse(locations);
+			var states = _.map(locations, function (location) {
+				if (location.state !== '' && location.country.name === 'United States') {
+					return location.state;
+				}
+			});
+
+			states = _.compact(states);
+			states = _.uniq(states);
+
 
 			posts.forEach(function (post) {
 				var photo = post.photo;
@@ -21,11 +36,15 @@ define(function (require) {
 				ogTitle:'title',
 				ogDescription:'desc',
 				title: 'turissini.io',
-				posts:posts
+				posts:posts,
+				locations:locations,
+				states:states
 			};
 
 			return data;
 		});
+
+		return promise;
 
 
 	}
