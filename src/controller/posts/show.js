@@ -15,7 +15,7 @@ define(function (require) {
 			data.post = JSON.parse(e);
 			photo = new Photo(data.post.photo);
 
-			data.post.hero_image = photo.getUrl('b');
+			data.post.hero_image = photo.getUrl('k');
 			data.title = data.post.title + ' - turissini.io';
 			data.ogTitle = data.title.replace(' - turissini.io', '');
 			data.ogDescription = data.description = data.post.description;
@@ -30,5 +30,5 @@ define(function (require) {
 		return promise;
 
 	}
-
+	
 });

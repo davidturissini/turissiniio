@@ -24,7 +24,7 @@ a:hover {
 }
 
 .loading {
-	background-image:url(http://turissini.io.s3.amazonaws.com/images/ajax-loader.gif);
+	background-image:url(http://bytemagik.com/ajax-loader.gif);
 	background-position:center center;
 	background-repeat:no-repeat;
 }
@@ -156,6 +156,11 @@ a:hover {
 
 /* SECTIONS */
 .site-header {
+	position:fixed;
+	top:0;
+	left:0;
+	right:0;
+	z-index:10000;
 	background:rgba(255, 255, 255, .9);
 }
 
@@ -186,8 +191,6 @@ a:hover {
 
 .blog-header,
 .mast {
-	display:block;
-	height:470px;
 	position:relative;
 	overflow:hidden;
 	color:#fff;
@@ -197,14 +200,28 @@ a:hover {
 .mast .mast-image {
 	position:absolute;
 	left:50%;
-	right:0;
-	bottom:0;
+	top:50%;
 	z-index:50;
-	min-width:100%;
-	min-height:100%;
-	-webkit-transform:translateX(-50%);
-	-moz-transform:translateX(-50%);
-	transform:translateX(-50%);
+	height:100%;
+	-webkit-transform:translateX(-50%) translateY(-50%);
+	-moz-transform:translateX(-50%) translateY(-50%);
+	transform:translateX(-50%) translateY(-50%);
+}
+
+@media (min-aspect-ratio: 16/9) {
+	.blog-header .hero {
+		height:auto;
+		width:100%;
+	}
+}
+
+@media (max-height:547px) {
+	.blog-header .hero {
+		top:0;
+		-webkit-transform:translateX(-50%) translateY(0);
+		-moz-transform:translateX(-50%) translateY(0);
+		transform:translateX(-50%) translateY(0);
+	}
 }
 
 .mast .mast-image.pin-top {
@@ -217,8 +234,13 @@ a:hover {
 	position:absolute;
 	left:0;
 	right:0;
-	top:200px;
+	top:50%;
 	z-index:100;
+	background:rgba(0, 0, 0, 0.5);
+	padding:20px;
+	-webkit-transform:translateY(-50%);
+	-moz-transform:translateY(-50%);
+	transform:translateY(-50%);
 }
 
 .blog-title,
@@ -304,8 +326,17 @@ a:hover {
 }
 
 @media (max-width:880px) {
+	body {
+		font-size:14px;
+	}
+
+	.blog .post {
+		padding:0 20px;
+	}
+
 	.post-body {
 		margin-right:0;
+		padding:0;
 	}
 
 	.post-body figure,
