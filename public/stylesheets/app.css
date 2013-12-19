@@ -403,7 +403,7 @@ a.text-white {
 
 .grid {
 	display: flex;
-	flex-flow: row-reverse wrap;
+	flex-flow: row wrap;
 	justify-content: space-around;
 }
 
@@ -417,7 +417,7 @@ a.text-white {
 }
 
 .grid .grid-cell:nth-child(2n) {
-	margin-right:0;
+	margin-left:0;
 }
 
 
