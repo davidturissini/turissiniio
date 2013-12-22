@@ -401,6 +401,7 @@ a.text-white {
 	z-index:100;
 }
 
+
 .grid {
 	display: flex;
 	flex-flow: row wrap;
@@ -455,5 +456,11 @@ a.text-white {
 
 .homepage-mast-text {
 	bottom:50px;
+}
+
+
+.list-item-title {
+	margin:5px 0;
+	font-weight:bold;
 }
 
