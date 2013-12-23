@@ -21,5 +21,17 @@
 	<p>I love sharing my adventures with other people, and hopefully my stories and experiences can be a resource for other people who share my interests.</p>
 </section>
 
+<ul id="posts">
+	{{#posts}}
+		<li>
+			<a href="/posts/{{slug}}" class="block">
+				<img src="{{hero_image}}" alt="" />
+				<h3 class="post-title">{{title}}</h3>
+			</a>
+		</li>
+	{{/posts}}
+</ul>
+
+
 
 
