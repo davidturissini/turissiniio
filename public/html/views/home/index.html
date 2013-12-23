@@ -1,37 +1,14 @@
-<header href="/" class="mast full-height">
-	<img src="http://farm4.staticflickr.com/3718/11428082086_93bc51451c_k.jpg" class="mast-image" alt="" />
-	<div class="homepage-mast-text overlay-bottom overlay-right black-highlight-darker">
-		<p class="text-right pad text-large">For the love of Travel, Outdoors, Adventure</p>
-	</div>
-</header>
+<div class="site-header-pad">
 
-
-<section id="meet-me">
-	<h1>Meet David</h1>
-	<p>Welcome to turissini.io. My name is David Turissini, and this is where I post my travels and adventures. I love travelling, hiking and backpacking. I recently got my PADI open water certification and I also occassionally dabble in mountaineering. I take any chance to experience the outdoors and live life to the fullest.</p>
-	<img src="http://farm4.staticflickr.com/3830/11446183365_7aea2c74cf_z.jpg" />
-</section>
-<section id="meet-travel-partner">
-	<h1>Meet Melissa</h1>
-	<p>Since Melissa and I met in 2011, we have been flying around the country together experiencing a lot of what this diverse nation has to offer. Melissa is currently a graduate student in Seattle but will be moving down to California in the next few months.</p>
-	<img src="http://farm8.staticflickr.com/7331/11446212324_33c07caac4_z.jpg" />
-</section>
-<section id="why">
-	<h1>Why a blog?</h1>
-	<p>I love sharing my adventures with other people, and hopefully my stories and experiences can be a resource for other people who share my interests.</p>
-</section>
-
-<ul id="posts">
-	{{#posts}}
-		<li>
-			<a href="/posts/{{slug}}" class="block">
-				<img src="{{hero_image}}" alt="" />
-				<h3 class="post-title">{{title}}</h3>
-			</a>
-		</li>
-	{{/posts}}
-</ul>
-
-
-
+	<ul class="posts">
+		{{#posts}}
+			<li>
+				<a href="/posts/{{slug}}" class="block post-link mast blog-header">
+					<img src="{{hero_image}}" alt="" class="mast-image" />
+					<h1 class="post-title mast-text black-highlight text text-white text-center">{{title}}</h1>
+				</a>
+			</li>
+		{{/posts}}
+	</ul>
+</div>
 

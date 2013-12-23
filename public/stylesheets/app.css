@@ -15,6 +15,10 @@ a:hover {
 	text-decoration:underline;
 }
 
+.site-header-pad {
+	padding-top:44px;
+}
+
 .block {
 	display:block;
 }
@@ -466,3 +470,8 @@ a.text-white {
 	font-weight:bold;
 }
 
+.post-link {
+	padding:30px;
+	border-top:1px solid #ccc;
+	height:400px;
+}
