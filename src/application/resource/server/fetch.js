@@ -1,9 +1,9 @@
-define(function (require) {
+
 	
 	var fsfetch = require('resource/fsfetch');
 	var urlfetch = require('resource/urlfetch');
 
-	return function resourceFetch (path) {
+	module.exports = function resourceFetch (path) {
 		
 		if (/http\:\/\//.test(path)) {
 			return urlfetch(path);
@@ -12,6 +12,3 @@ define(function (require) {
 			return fsfetch(path);
 		}
 	};
-
-
-});

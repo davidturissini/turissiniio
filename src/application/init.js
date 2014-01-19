@@ -1,11 +1,8 @@
-define(function (require) {
 
-	var Application = require('application/Application');
 
-	return function init(options) {
+	var Application = require('./Application.js');
+
+	module.exports = function init(options) {
 		return new Application(options);
 
 	}
-
-
-});

@@ -1,9 +1,9 @@
-define(function (require) {
+
 
 	var jQuery = require('jQuery');
 	var getCardById = require('interactive/posts/nashville/card/getCardById');
 
-	return function (cards, evt) {
+	module.exports = function (cards, evt) {
 		var blogSection = jQuery(evt.currentTarget);
 		
 		var id = blogSection.attr('id');
@@ -17,6 +17,3 @@ define(function (require) {
 		});
 
 	}
-
-
-});

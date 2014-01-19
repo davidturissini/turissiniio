@@ -1,4 +1,4 @@
-define(function (require) {
+
 	var jQuery = require('jQuery');
 
 	var defaultBehavior = 'replace';
@@ -24,10 +24,7 @@ define(function (require) {
 		router.navigate(e.currentTarget.getAttribute('href'), navigationOptions)
 	}
 
-	return function (router) {
+	module.exports = function (router) {
 		var boundNavigate = navigate.bind(undefined, router);
 		jQuery(document).on('click', 'a:not([href^=http]), a:not([data-router="ignore"])', boundNavigate);
 	}
-
-
-});

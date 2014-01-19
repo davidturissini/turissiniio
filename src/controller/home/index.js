@@ -1,10 +1,10 @@
-define(function (require) {
+
 
 	var resourceFetch = require('resource/fetch');
 	var Q = require('q');
 	var _ = require('underscore');
 
-	return function (route) {
+	module.exports = function (route) {
 		var promises = [];
 		promises.push(resourceFetch(ENV.traveladdict_service_url + 'posts'));
 		promises.push(resourceFetch(ENV.traveladdict_service_url + 'locations'));
@@ -48,5 +48,3 @@ define(function (require) {
 
 
 	}
-
-});

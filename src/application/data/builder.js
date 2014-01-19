@@ -1,9 +1,9 @@
-define(function (require) {
+
 
 	var Q = require('q');
-	var resourceFetch = require('resource/fetch');
+	var resourceFetch = require('./../resource/fetch.js');
 
-	return function dataBuilder (route) {
+	module.exports = function dataBuilder (route) {
 		var resourcePath = null;
 		var promise;
 		var defer;
@@ -34,5 +34,3 @@ define(function (require) {
 		return promise;
 
 	}
-
-});

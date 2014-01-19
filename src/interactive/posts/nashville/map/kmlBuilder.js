@@ -1,6 +1,6 @@
-define(function (require) {
 
-	return function (url) {
+
+	module.exports = function (url) {
 		
 		return new google.maps.KmlLayer({
 			url:url,
@@ -9,5 +9,3 @@ define(function (require) {
 			clickable:false
 		});
 	}
-
-});

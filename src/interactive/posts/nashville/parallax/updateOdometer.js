@@ -1,4 +1,4 @@
-define(function (require) {
+
 
 	var jQuery = require('jQuery');
 	var calculateParallax = require('parallax/calculate');
@@ -6,7 +6,7 @@ define(function (require) {
 	
 	var mapStartingCenter = null;
 
-	return function (map, from, to, scrollStart, scrollDistance, fill, scrollY, startDistance, distance) {
+	module.exports = function (map, from, to, scrollStart, scrollDistance, fill, scrollY, startDistance, distance) {
 		if (mapStartingCenter === null) {
 			mapStartingCenter = map.getCenter();
 		}
@@ -69,5 +69,3 @@ define(function (require) {
 
 		);
 	};
-
-});

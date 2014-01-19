@@ -1,4 +1,4 @@
-define(function (require) {
+
 
 	var Galleria = require('Galleria');
 	var dimensions = require('element/responsive/windowDimensions');
@@ -145,6 +145,4 @@ define(function (require) {
 		}
 	})
 
-	return Card;
-
-});
+	module.exports = Card;

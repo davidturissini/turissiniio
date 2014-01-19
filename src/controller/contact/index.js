@@ -1,11 +1,9 @@
-define(function (require) {
 
 
-	return function (route, util) {
+
+	module.exports = function (route, util) {
 		return {
 			title:'Contact'
 		};
 
 	}
-
-});

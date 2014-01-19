@@ -1,8 +1,8 @@
-define(function (require) {
+
 
 	var Card = require('interactive/posts/nashville/card/Card');
 
-	return function (elements) {
+	module.exports = function (elements) {
 		var cards = [];
 
 		elements.each(function (index, el) {
@@ -13,5 +13,3 @@ define(function (require) {
 
 		return cards;
 	}
-
-});

@@ -1,8 +1,6 @@
-define(function (require) {
 
 
-
-	return function fromLatLngList (latLngArray) {
+	module.exports = function fromLatLngList (latLngArray) {
 		var bounds = new google.maps.LatLngBounds();
 
 		latLngArray.forEach(function (latLng) {
@@ -12,6 +10,3 @@ define(function (require) {
 		return bounds;
 
 	};
-
-
-});

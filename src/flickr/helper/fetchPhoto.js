@@ -1,8 +1,8 @@
-define(function (require) {
+
 
 	var jQuery = require('jQuery');
 
-	return function (photoId) {
+	module.exports = function (photoId) {
 		
 		return jQuery.ajax({
 			url:'http://api.flickr.com/services/rest/',
@@ -19,5 +19,3 @@ define(function (require) {
 		});
 
 	};
-
-});

@@ -1,4 +1,4 @@
-define(function (require) {
+
 
 	var Galleria = require('Galleria');
 	var jQuery = require('jQuery');
@@ -8,7 +8,7 @@ define(function (require) {
 
 
 
-	return function (sectionEls, options, themeUrl) {
+	module.exports = function (sectionEls, options, themeUrl) {
 		if (loadedThemes[themeUrl] !== true) {
 			Galleria.loadTheme(themeUrl);
 			loadedThemes[themeUrl] = true;
@@ -19,5 +19,3 @@ define(function (require) {
 		});
 
 	};
-
-});

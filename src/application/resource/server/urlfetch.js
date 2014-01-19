@@ -1,9 +1,9 @@
-define(function (require) {
+
 
 	var Q = require('q');
 	var request = require('request');
 
-	return function (path) {
+	module.exports = function (path) {
 		var defer = Q.defer();
 
 		request(path, function (err, data) {
@@ -12,5 +12,3 @@ define(function (require) {
 
 		return defer.promise;
 	}
-
-});

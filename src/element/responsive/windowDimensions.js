@@ -1,4 +1,4 @@
-define(function (require) {
+
 
 	var jQuery = require('jQuery');
 	var dimensions = {}
@@ -14,6 +14,4 @@ define(function (require) {
 
 	jQuery(window).on('resize', refresh.bind(undefined));
 
-	return dimensions;
-
-});
+	module.exports = dimensions;

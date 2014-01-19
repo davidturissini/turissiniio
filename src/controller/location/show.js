@@ -1,8 +1,8 @@
-define(function (require) {
+
 
 	var resourceFetch = require('resource/fetch');
 
-	return function (route) {
+	module.exports = function (route) {
 		var resourcePath = '/trips/nashville-tennessee-north-carolina-fall-road-trip/locations/' + route.params.locationSlug;
 		var promise = resourceFetch(ENV.traveladdict_service_url + resourcePath);
 
@@ -72,5 +72,3 @@ define(function (require) {
 		return promise;
 
 	}
-
-});

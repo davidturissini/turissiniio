@@ -1,4 +1,4 @@
-define(function (require) {
+
 
 	function ResponsiveImage (element, options) {
 		this._element = element;
@@ -21,6 +21,4 @@ define(function (require) {
 
 	};
 
-	return ResponsiveImage;
-
-});
+	module.exports = ResponsiveImage;

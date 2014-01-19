@@ -1,4 +1,4 @@
-define(function (require) {
+
 
 	var jQuery = require('jQuery');
 	var calculateParallax = require('parallax/calculate');
@@ -385,6 +385,4 @@ define(function (require) {
 		}
 	};
 
-	return Timeline;
-
-});
+	module.exports = Timeline;

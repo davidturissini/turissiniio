@@ -1,4 +1,4 @@
-define(function (require) {
+
 
 	var Q = require('q');
 	var jQuery = require('jQuery');
@@ -15,7 +15,7 @@ define(function (require) {
 	}
 
 
-	return function (path) {
+	module.exports = function (path) {
 		var defer = Q.defer();
 
 	    browserFetch(defer, path);
@@ -23,4 +23,3 @@ define(function (require) {
 		return defer.promise;
 
 	}
-});

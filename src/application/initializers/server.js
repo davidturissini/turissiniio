@@ -1,11 +1,3 @@
-var require = require('requirejs');
-require.config({
-	baseUrl:'./src/',
-	paths:{
-		'resource':'application/resource/server/'
-	}
-});
-
 var express = require('express');
 var Mustache = require('mustache');
 var Q = require('q');

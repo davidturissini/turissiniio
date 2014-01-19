@@ -1,15 +1,10 @@
-define(function (require) {
+module.exports = {
+	load: function (data) {
+		
+		
+	},
 
-
-	return {
-		load: function (data) {
-			
-			
-		},
-
-		unload: function () {
-			
-		}
-	};
-
-});
+	unload: function () {
+		
+	}
+};

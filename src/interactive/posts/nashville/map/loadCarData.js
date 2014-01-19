@@ -1,8 +1,8 @@
-define(function (require) {
+
 
 	var resourceFetch = require('resource/fetch');
 
-	return function () {
+	module.exports = function () {
 
 		return resourceFetch('/kml/nashvilletolynchburg.kml')
 
@@ -41,5 +41,3 @@ define(function (require) {
 			});
 
 	};
-
-});

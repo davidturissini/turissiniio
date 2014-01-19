@@ -1,6 +1,6 @@
-define(function (require) {
 
-	return function buildOnScroll(timeline) {
+
+	module.exports = function buildOnScroll(timeline) {
 		var isTicking = false;
 
 		return function (evt) {
@@ -22,5 +22,3 @@ define(function (require) {
 			
 		};
 	};
-
-});

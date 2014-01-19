@@ -19,7 +19,8 @@
     "backbone": "x.x.x",
     "request": "x.x.x",
     "grunt-wrap": "x.x.x",
-    "grunt-text-replace": "x.x.x"
+    "grunt-text-replace": "x.x.x",
+    "jquery":"x.x.x"
   },
   "engines": {
     "node": "0.8.2",

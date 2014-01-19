@@ -1,9 +1,9 @@
-define(function (require) {
+
 
 	var resourceFetch = require('resource/fetch');
 	var Photo = require('model/Photo');
 
-	return function (route) {
+	module.exports = function (route) {
 		var resourcePath = 'posts/' + route.params.postSlug;
 
 		var promise = resourceFetch(ENV.traveladdict_service_url + resourcePath);
@@ -30,5 +30,3 @@ define(function (require) {
 		return promise;
 
 	}
-	
-});

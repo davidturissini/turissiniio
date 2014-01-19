@@ -1,14 +1,9 @@
-define(function (require) {
+module.exports = {
+	load: function (data) {
+		
+	},
 
+	unload: function () {
 
-	return {
-		load: function (data) {
-			
-		},
-
-		unload: function () {
-
-		}
-	};
-
-});
+	}
+};

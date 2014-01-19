@@ -1,4 +1,4 @@
-define(function (require) {
+
 
 	var jQuery = require('jQuery');
 
@@ -83,6 +83,4 @@ define(function (require) {
 	};
 
 
-	return Car;
-
-});
+	module.exports = Car;

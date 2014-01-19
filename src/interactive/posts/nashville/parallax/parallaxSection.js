@@ -1,11 +1,11 @@
-define(function (require) {
+
 
 	var jQuery = require('jQuery');
 	var _ = require('underscore');
 	var calculateParallax = require('parallax/calculate');
 
 
-	return function parallaxSection (jqEl, jqElOffset, scrollY, windowHeight, marker, map) {
+	module.exports = function parallaxSection (jqEl, jqElOffset, scrollY, windowHeight, marker, map) {
 		var fadeInStart = jqElOffset.top;
 		var fadeDistance = windowHeight;
 		var contentFadeDistance = fadeDistance;
@@ -54,5 +54,3 @@ define(function (require) {
 		);
 		
 	}
-
-});

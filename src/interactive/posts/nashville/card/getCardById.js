@@ -1,6 +1,6 @@
-define(function (require) {
 
-	return function getCardById (id, cards) {
+
+	module.exports = function getCardById (id, cards) {
 		var match;
 		cards.forEach(function (card) {
 			if (card.id === id) {
@@ -10,6 +10,3 @@ define(function (require) {
 
 		return match;
 	};
-
-
-});

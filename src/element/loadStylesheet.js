@@ -1,9 +1,9 @@
-define(function (require) {
+
 
 	var Q = require('q');
 	var jQuery = require('jQuery');
 
-	return function loadStylesheet (url) {
+	module.exports = function loadStylesheet (url) {
 		var defer = Q.defer();
 		var linkTag = document.createElement('link');
 		linkTag.setAttribute('rel', 'stylesheet');
@@ -15,5 +15,3 @@ define(function (require) {
 
 		return defer.promise;
 	};
-
-});

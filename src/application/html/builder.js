@@ -1,11 +1,11 @@
-define(function (require) {
+
 
 	var Q = require('q');
-	var resourceFetch = require('resource/fetch');
+	var resourceFetch = require('./../resource/fetch');
 	var Mustache = require('mustache');
 
 
-	return function (route) {
+	module.exports = function (route) {
 
 		var viewPath = route.template || route.name.split(':').join('/') + '.html';
 		var promises = [];
@@ -18,6 +18,3 @@ define(function (require) {
 		
 
 	}
-
-
-});

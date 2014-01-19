@@ -1,4 +1,4 @@
-define(function (require) {
+
 
 	var Q = require('q');
 	var fs = require('fs');
@@ -19,7 +19,7 @@ define(function (require) {
 
 	}
 
-	return function (path) {
+	module.exports = function (path) {
 		var defer = Q.defer();
 
 		nodeJSFetch(defer, path);
@@ -27,6 +27,4 @@ define(function (require) {
 		return defer.promise;
 
 	}
-
-});
 

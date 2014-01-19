@@ -1,4 +1,4 @@
-define(function (require) {
+
 
 	var jQuery = require('jQuery');
 
@@ -56,6 +56,4 @@ define(function (require) {
 	
 
 
-	return Label;
-
-});
+	module.exports = Label;

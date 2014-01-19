@@ -1,6 +1,6 @@
-define(function (require) {
 
-	return function (locationData, targetScroll) {
+
+	module.exports = function (locationData, targetScroll) {
 
 		if (locationData.handlerAdded !== true) {
 			locationData.handlerAdded = true;
@@ -8,5 +8,3 @@ define(function (require) {
 		}
 
 	}
-
-});

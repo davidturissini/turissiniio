@@ -1,11 +1,11 @@
-define(function (require) {
+
 
 	var Q = require('q');
 	var Backbone = require('backbone');
-	var linkClick = require('element/observer/linkClick');
-	var init = require('application/init');
-	var routerFactory = require('application/router/factory');
-	var jQuery = require('jQuery');
+	var linkClick = require('./../../element/observer/linkClick');
+	var init = require('./../init');
+	var routerFactory = require('./../router/factory.js');
+	var jQuery = require('jquery');
 	var initialLoad = true;
 	var previousClassName = '';
 
@@ -110,5 +110,3 @@ define(function (require) {
 	});
 
 	application.activate();
-
-});

@@ -1,6 +1,6 @@
-define(function (require) {
 
-	return function (locations) {
+
+	module.exports = function (locations) {
 		var markers = [];
 
 		locations.forEach(function (locationData) {
@@ -16,5 +16,3 @@ define(function (require) {
 		return markers;
 		
 	}
-
-});

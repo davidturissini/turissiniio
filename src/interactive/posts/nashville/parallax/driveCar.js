@@ -1,8 +1,8 @@
-define(function (require) {
+
 
 	var calculateParallax = require('parallax/calculate');
 
-	return function (carSegments, carMarker, scrollStart, scrollDistance, fill, scrollY) {
+	module.exports = function (carSegments, carMarker, scrollStart, scrollDistance, fill, scrollY) {
 
 		calculateParallax(
 
@@ -44,5 +44,3 @@ define(function (require) {
 
 		);
 	}
-
-});
