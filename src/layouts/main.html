@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html class="{{bodyCSSClass}} loading full-height">
+<html class="full-height">
 	<head>
-		<title>{{title}}</title>
+		<title></title>
 		<link href='http://fonts.googleapis.com/css?family=Arvo:400,700' rel='stylesheet' type='text/css' />
 		<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.12.0/build/cssreset/cssreset-min.css">
-		<link rel="stylesheet" type="text/css" href="/stylesheets/app.css" />
+		<link rel="stylesheet" type="text/css" href="/stylesheets/turissiniio.css" />
 		<link rel="stylesheet" type="text/css" href="/stylesheets/posts/nashville.css" />
 		<meta name="description" content="{{description}}" />
 		<meta name="og:title" content="{{ogTitle}}" />
@@ -12,7 +12,7 @@
 		<meta name="og:image" content="{{{ogImage}}}" />
 		<meta name="viewport" content="width=device-width">
 		<script type="text/javascript">
-
+		/*
 			window.ENV = JSON.parse('{{{environment}}}');
 
 
@@ -40,7 +40,7 @@
 				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 			})();
-
+		*/
 			
 
 		</script>
@@ -52,15 +52,17 @@
 				
 			</nav>
 		</header>
-		<section id="content" class="content dynamic full-height">
-			{{{html}}}
+		<section id="content" class="contents dynamic full-height" data-weld-type="html">
+			
 		</section>
 		<footer></footer>
-
+<!--
 		<script src="/scripts/vendor/polyfills.js"></script>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 		<script src="/scripts/vendor/detect_mobile.js"></script>
 		<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCY7Iz4DN0iYHwMgJCRp7pJQzIy3iG89Eo&sensor=false"></script>
-		<script src="/scripts/app.min.js"></script>
+	-->
+		<script src="/app.min.js"></script>
+
 	</body>
 </html>

@@ -1,4 +1,4 @@
-
+(function () {
 
 	var Q = require('q');
 	var Backbone = require('backbone');
@@ -14,7 +14,7 @@
 	var currentInteractiveController = null;
 	var contentEl = jQuery('#content');
 	var htmlEl = jQuery('html');
-	
+
 	htmlEl.addClass('mobile');
 
 	application = init();
@@ -95,6 +95,7 @@
 
 
 	application.on('route:load', function (evt) {
+
 		evt.routes.reverse().forEach(function (route) {
 			var boundApplicationOnChange = application._onRouteChange.bind(application, route);
 			router.route(route.path, '', boundApplicationOnChange);
@@ -110,3 +111,4 @@
 	});
 
 	application.activate();
+})();

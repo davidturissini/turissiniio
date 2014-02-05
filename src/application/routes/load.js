@@ -1,9 +1,7 @@
+var resourceFetch = require('./../resource/fetch');
 
+module.exports = function () {
+	var routesPath = '/config/routes.json';
 
-	var resourceFetch = require('./../resource/fetch');
-
-	module.exports = function () {
-		var routesPath = '/config/routes.json';
-
-		return resourceFetch(routesPath);
-	}
+	return resourceFetch(routesPath);
+}

@@ -1,14 +1,12 @@
-
+module.exports = function resourceFetch (path) {
 	
-	var fsfetch = require('resource/fsfetch');
-	var urlfetch = require('resource/urlfetch');
+	var fsfetch = require('./fsfetch');
+	var urlfetch = require('./urlfetch');
 
-	module.exports = function resourceFetch (path) {
-		
-		if (/http\:\/\//.test(path)) {
-			return urlfetch(path);
-		} else {
+	if (/http\:\/\//.test(path)) {
+		return urlfetch(path);
+	} else {
 
-			return fsfetch(path);
-		}
-	};
+		return fsfetch(path);
+	}
+};

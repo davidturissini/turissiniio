@@ -1,5 +1,5 @@
 var Backbone = require('backbone');
-var FlickrImage = require('model/FlickrImage');
+var FlickrImage = require('./FlickrImage');
 
 
 var Photo = Backbone.Model.extend({

@@ -1,25 +1,23 @@
+var Q = require('q');
+var jQuery = require('jquery');
 
 
-	var Q = require('q');
-	var jQuery = require('jQuery');
+function browserFetch (defer, path) {
+
+	jQuery.ajax({
+		url:path,
+		dataType:'text'
+	})
+
+	.then(defer.resolve.bind(defer));
+}
 
 
-	function browserFetch (defer, path) {
+module.exports = function (path) {
+	var defer = Q.defer();
 
-		jQuery.ajax({
-			url:path,
-			dataType:'text'
-		})
+    browserFetch(defer, path);
 
-		.then(defer.resolve.bind(defer));
-	}
+	return defer.promise;
 
-
-	module.exports = function (path) {
-		var defer = Q.defer();
-
-	    browserFetch(defer, path);
-
-		return defer.promise;
-
-	}
+}

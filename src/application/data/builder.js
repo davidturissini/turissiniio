@@ -1,36 +1,29 @@
+var Q = require('q');
+var resourceFetch = require('./../resource/fetch.js');
 
+module.exports = function dataBuilder (route) {
+	var resourcePath = null;
+	var promise;
+	var defer;
 
-	var Q = require('q');
-	var resourceFetch = require('./../resource/fetch.js');
+	defer = Q.defer();
+	
+	promise = defer.promise;
 
-	module.exports = function dataBuilder (route) {
-		var resourcePath = null;
-		var promise;
-		var defer;
+	var controller = require('./../../controller/' + route.controller);
+	var controllerPromise = controller(route);
 
-		defer = Q.defer();
-		
-		promise = defer.promise;
+	if (typeof controllerPromise.then === 'function') {
+		controllerPromise.then(defer.resolve.bind(defer));
+	} else {
 
-		require(
-			['controller/' + route.controller],
-
-			function (controller) {
-				var controllerPromise = controller(route);
-
-				if (typeof controllerPromise.then === 'function') {
-					controllerPromise.then(defer.resolve.bind(defer));
-				} else {
-
-					defer.resolve(controllerPromise);
-				}
-
-			}
-		);
-
-
-		
-
-		return promise;
-
+		defer.resolve(controllerPromise);
 	}
+
+
+
+	
+
+	return promise;
+
+}

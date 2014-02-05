@@ -1,5 +1,5 @@
 {
-  "name": "TravelAddict",
+  "name": "turissini.io",
   "description": "Personal blog",
   "version": "0.0.1",
   "private": true,
@@ -11,16 +11,14 @@
     "express": "3.0.6",
     "q": "0.8.12",
     "promised-io": "0.3.3",
-    "mongodb": "1.1.11",
-    "mongoose": "x.x.x",
-    "mustache": "x.x.x",
-    "requirejs": "x.x.x",
     "underscore": "x.x.x",
     "backbone": "x.x.x",
     "request": "x.x.x",
-    "grunt-wrap": "x.x.x",
-    "grunt-text-replace": "x.x.x",
-    "jquery":"x.x.x"
+    "jquery":"x.x.x",
+    "tls":"x.x.x",
+    "stateless":"git://github.com/davidturissini/stateless.git",
+    "pigeon":"git://github.com/davidturissini/pigeon.git",
+    "transparency":"0.9.14"
   },
   "engines": {
     "node": "0.8.2",

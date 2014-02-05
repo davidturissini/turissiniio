@@ -1,8 +1,5 @@
+var Backbone = require('backbone');
 
-
-	var Backbone = require('backbone');
-	var router = new Backbone.Router();
-
-	module.exports = function () {
-		return router;
-	}
+module.exports = function () {
+	return new Backbone.Router();;
+}
