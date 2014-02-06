@@ -276,7 +276,7 @@ stateless
 		onLoad: function (data) {
 
 			nashville.load(data, window.document);
-			nashville.afterAppend(data, window.document);
+			return nashville.afterAppend(data, window.document);
 		},
 
 		onUnload: function () {
