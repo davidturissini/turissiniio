@@ -5,6 +5,7 @@ var pigeon = require('pigeon');
 var _ = require('underscore');
 var transparency = require('transparency');
 var Photo = require('./model/Photo');
+var jquery = require('jquery');
 var nashville;
 if(process.browser === true) {
 	nashville = require('./interactive/posts/nashville');
@@ -274,13 +275,15 @@ stateless
 		},
 
 		onLoad: function (data) {
-
+			jquery('html').addClass('posts-show-nashville');
 			nashville.load(data, window.document);
 			return nashville.afterAppend(data, window.document);
 		},
 
 		onUnload: function () {
 			nashville.unload();
+			nashville.afterRemove();
+			jquery('html').removeClass('posts-show-nashville');
 		}
 
 	},{
