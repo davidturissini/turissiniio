@@ -1,15 +1,14 @@
+var jQuery = require('jquery');
+var Card = require('./Card');
 
+module.exports = function (elements) {
+	var cards = [];
 
-	var Card = require('interactive/posts/nashville/card/Card');
+	elements.each(function (index, el) {
+		var element = jQuery(el);
+		var card = new Card(element.attr('id'), element);
+		cards.push(card);
+	});
 
-	module.exports = function (elements) {
-		var cards = [];
-
-		elements.each(function (index, el) {
-			var element = jQuery(el);
-			var card = new Card(element.attr('id'), element);
-			cards.push(card);
-		});
-
-		return cards;
-	}
+	return cards;
+}

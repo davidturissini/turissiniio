@@ -1,56 +1,73 @@
+var jQuery = require('jquery');
+var Galleria = require('./../galleria/Galleria');
+var dimensions = require('./../../../../element/responsive/windowDimensions');
+var jqBody;
+var Q = require('q');
+var ResponsiveImage = require('./../../../../element/layout/ResponsiveImage');
+var galleriaBuilder = require('./../../nashville/galleria/builder');
+
+var galleriaOptions = {
+	imagePosition:'center',
+	imageCrop:false,
+	thumbnailCrop:false,
+	initialTransition:false,
+	showCounter:false,
+	debug:false
+};
+
+function Card (id, el, options) {
+	jqBody = jQuery(document.body);
+	this._element = el;
+	this.id = id;
+	this._cardElement = jQuery('.card', this._element);
+	this._headerElement = jQuery('.header', this._element);
+	this._isExpanded = false;
+
+	this._minimizedImageHeight = jQuery('.image', this._element).height();
+};
 
 
-	var Galleria = require('Galleria');
-	var dimensions = require('element/responsive/windowDimensions');
-	var jqBody = jQuery(document.body);
-	var Q = require('q');
-	var ResponsiveImage = require('element/layout/ResponsiveImage');
-	var galleriaBuilder = require('interactive/posts/nashville/galleria/builder');
+var proto = Card.prototype = {
 
-	var galleriaOptions = {
-		imagePosition:'center',
-		imageCrop:false,
-		thumbnailCrop:false,
-		initialTransition:false,
-		showCounter:false,
-		debug:false
-	};
+	_resize:null,
+	_boundCollapse:null,
 
-	function Card (id, el, options) {
-		this._element = el;
-		this.id = id;
-		this._cardElement = jQuery('.card', this._element);
-		this._headerElement = jQuery('.header', this._element);
-		this._isExpanded = false;
+	minimizedImageHeight: function () {
+		return this._minimizedImageHeight;
+	},
 
-		this._minimizedImageHeight = jQuery('.image', this._element).height();
-	};
+	isExpanded: function () {
+		return this._isExpanded;
+	},
 
+	expand: function (imageWidth, imageHeight) {
+		var defer = Q.defer();
+		var ratio = 531 / 800;
+		
 
-	var proto = Card.prototype = {
+		this._isExpanded = true;
+		jqBody.css({
+			overflow:'hidden'
+		});
 
-		_resize:null,
-		_boundCollapse:null,
+		this._element.addClass('expanded');
+		var width = this._cardElement.width();
+		var height = width * ratio;
 
-		minimizedImageHeight: function () {
-			return this._minimizedImageHeight;
-		},
+		if (height > dimensions.windowHeight * 0.8) {
+			height = dimensions.windowHeight * 0.8;
+		}
 
-		isExpanded: function () {
-			return this._isExpanded;
-		},
+		galleriaOptions.width = width;
+		galleriaOptions.height = height;
 
-		expand: function (imageWidth, imageHeight) {
-			var defer = Q.defer();
-			var ratio = 531 / 800;
+		jQuery('#blog-content').css({
+			overflow:'auto'
+		});
+
+		this._resize = function () {
 			
-
-			this._isExpanded = true;
-			jqBody.css({
-				overflow:'hidden'
-			});
-
-			this._element.addClass('expanded');
+			this._cardElement.get(0).offsetHeight;
 			var width = this._cardElement.width();
 			var height = width * ratio;
 
@@ -58,91 +75,74 @@
 				height = dimensions.windowHeight * 0.8;
 			}
 
-			galleriaOptions.width = width;
-			galleriaOptions.height = height;
+			var galleria = jQuery('.images', this._element).data('galleria');
 
-			jQuery('#blog-content').css({
-				overflow:'auto'
-			});
+			window.setTimeout(function () {
+				galleria.resize({
+					width:width,
+					height:height
+				})
+			}, 100);
 
-			this._resize = function () {
-				
-				this._cardElement.get(0).offsetHeight;
-				var width = this._cardElement.width();
-				var height = width * ratio;
+		}.bind(this);
+		jQuery(window).on('resize', this._resize);
 
-				if (height > dimensions.windowHeight * 0.8) {
-					height = dimensions.windowHeight * 0.8;
-				}
+		galleriaBuilder(jQuery('.images', this._element), galleriaOptions, '../../vendor/galleria/themes/classic/galleria.classic.min.js')
+		
+		this._boundClickCollapse = function (e) {
+			if (e.target !== this._element.get(0)) {
+				return;
+			}
 
-				var galleria = jQuery('.images', this._element).data('galleria');
+			e.stopPropagation();
+			this.collapse();
+		}.bind(this);
+		this._element.bind('click', this._boundClickCollapse);
 
-				window.setTimeout(function () {
-					galleria.resize({
-						width:width,
-						height:height
-					})
-				}, 100);
+		return defer.promise;
 
-			}.bind(this);
-			jQuery(window).on('resize', this._resize);
+	},
 
-			galleriaBuilder(jQuery('.images', this._element), galleriaOptions, '../../vendor/galleria/themes/classic/galleria.classic.min.js')
-			
-			this._boundClickCollapse = function (e) {
-				if (e.target !== this._element.get(0)) {
-					return;
-				}
+	collapse: function () {
+		var defer = Q.defer();
+		var galleria = jQuery('.images', this._element).data('galleria');
+		jqBody.css({
+			overflow:'auto'
+		});
+		
+		jQuery('#blog-content').css({
+			overflow:'inherit'
+		});
+		
+		this._element.unbind('click', this._boundClickCollapse);
+		this._boundClickCollapse = null;
 
-				e.stopPropagation();
-				this.collapse();
-			}.bind(this);
-			this._element.bind('click', this._boundClickCollapse);
+		this._element.removeClass('expanded');
+		jQuery(window).off('resize', this._resize);
 
-			return defer.promise;
+		if(galleria && typeof galleria.destroy === 'function') {
+			galleria.destroy();
+		}
 
+
+		this._isExpanded = false;
+		defer.resolve();
+
+		return defer.promise;
+	}
+
+};
+
+Object.defineProperties(proto, {
+	'element': {
+		get: function () {
+			return this._element;
 		},
 
-		collapse: function () {
-			var defer = Q.defer();
-			var galleria = jQuery('.images', this._element).data('galleria');
-			jqBody.css({
-				overflow:'auto'
-			});
-			
-			jQuery('#blog-content').css({
-				overflow:'inherit'
-			});
-			
-			this._element.unbind('click', this._boundClickCollapse);
-			this._boundClickCollapse = null;
-
-			this._element.removeClass('expanded');
-			jQuery(window).off('resize', this._resize);
-
-			if(galleria && typeof galleria.destroy === 'function') {
-				galleria.destroy();
-			}
-
-
-			this._isExpanded = false;
-			defer.resolve();
-
-			return defer.promise;
+		set: function (el) {
+			this._element = el;
 		}
+	}
+})
 
-	};
-
-	Object.defineProperties(proto, {
-		'element': {
-			get: function () {
-				return this._element;
-			},
-
-			set: function (el) {
-				this._element = el;
-			}
-		}
-	})
-
-	module.exports = Card;
+module.exports = Card;

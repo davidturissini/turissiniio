@@ -1,23 +1,23 @@
 var Q = require('q');
-var jQuery = require('jQuery');
+var jQuery = require('jquery');
 var _ = require('underscore');
-var GoogleMapsLabel = require('googleMaps/overlay/Label');
-var loadStylesheet = require('element/loadStylesheet');
-var googleMapsBoundsFromLatLng = require('googleMaps/bounds/fromLatLngList');
-var loadCarData = require('interactive/posts/nashville/map/loadCarData');
+var GoogleMapsLabel = require('./../../googleMaps/overlay/Label');
+var loadStylesheet = require('./../../element/loadStylesheet');
+var googleMapsBoundsFromLatLng = require('./../../googleMaps/bounds/fromLatLngList');
+var loadCarData = require('./nashville/map/loadCarData');
 
-var cardInitialize = require('interactive/posts/nashville/card/initialize');
-var expandCardHandler = require('interactive/posts/nashville/card/expandHandler');
-var collapseCardHandler = require('interactive/posts/nashville/card/collapseHandler');
+var cardInitialize = require('./nashville/card/initialize');
+var expandCardHandler = require('./nashville/card/expandHandler');
+var collapseCardHandler = require('./nashville/card/collapseHandler');
 
-var responsiveDimensions = require('element/responsive/windowDimensions');
-var mapBuilder = require('interactive/posts/nashville/map/builder');
-var kmlBuilder = require('interactive/posts/nashville/map/kmlBuilder');
-var markersBuilder = require('interactive/posts/nashville/map/markersBuilder');
-var mapDataMerge = require('interactive/posts/nashville/map/mergeData');
+var responsiveDimensions = require('./../../element/responsive/windowDimensions');
+var mapBuilder = require('./nashville/map/builder');
+var kmlBuilder = require('./nashville/map/kmlBuilder');
+var markersBuilder = require('./nashville/map/markersBuilder');
+var mapDataMerge = require('./nashville/map/mergeData');
 
-var Timeline = require('interactive/posts/nashville/parallax/Timeline');
-var scrollHandlerBuilder = require('interactive/posts/nashville/scroll/handlerBuilder');
+var Timeline = require('./nashville/parallax/Timeline');
+var scrollHandlerBuilder = require('./nashville/scroll/handlerBuilder');
 
 
 var map;
@@ -63,7 +63,10 @@ module.exports = {
 			cardEl.append(el.children()).appendTo(el);
 			cardEl.append(cardLink);
 
+
 		});
+
+
 
 	},
 
@@ -71,6 +74,7 @@ module.exports = {
 	afterAppend: function (data, htmlContext) {
 		var promises = [];
 		var defer = Q.defer();
+
 
 		var nashville = data.trip;
 		var distanceSegments = data.tripDistanceSegments;
@@ -103,9 +107,12 @@ module.exports = {
 
 		locationMarkers = mapDataMerge(markers, center);
 			
+		
 
 
 		kml = kmlBuilder(nashville.maps[0].url);
+
+
 		cards = cardInitialize(jQuery('.trip-location', htmlContext));
 
 		if (responsiveDimensions.windowWidth <= 856) {
@@ -115,7 +122,6 @@ module.exports = {
 				}
 			});
 		}
-
 		var carPromise = loadCarData().then(function (carSegments) {
 			timeline = new Timeline(map, locationMarkers, distanceSegments, kml, carSegments);
 

@@ -1,24 +1,23 @@
+module.exports = function (timeline) {
+	var isTicking = false;
+
+	return function (evt) {
+		var scrollY;
+		
+		if (isTicking === true) {
+			return;
+		}
 
 
-	module.exports = function buildOnScroll(timeline) {
-		var isTicking = false;
+		scrollY = window.scrollY;
+		isTicking = true;
 
-		return function (evt) {
-			var scrollY;
+		window.requestAnimationFrame(function () {
+			timeline.advance(scrollY);
 
-			if (isTicking === true) {
-				return;
-			}
+			isTicking = false;
 
-			scrollY = window.scrollY;
-			isTicking = true;
-
-			window.requestAnimationFrame(function () {
-				timeline.advance(scrollY);
-
-				isTicking = false;
-
-			});
-			
-		};
+		});
+		
 	};
+};

@@ -1,7 +1,7 @@
 
 
 	var jQuery = require('jQuery');
-	var getCardById = require('interactive/posts/nashville/card/getCardById');
+	var getCardById = require('./getCardById');
 
 	module.exports = function (cards, evt) {
 		var blogSection = jQuery(evt.currentTarget);

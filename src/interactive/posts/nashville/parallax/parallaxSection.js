@@ -1,56 +1,54 @@
+var jQuery = require('jQuery');
+var _ = require('underscore');
+var calculateParallax = require('./../../../../parallax/calculate');
 
 
-	var jQuery = require('jQuery');
-	var _ = require('underscore');
-	var calculateParallax = require('parallax/calculate');
+module.exports = function parallaxSection (jqEl, jqElOffset, scrollY, windowHeight, marker, map) {
+	var fadeInStart = jqElOffset.top;
+	var fadeDistance = windowHeight;
+	var contentFadeDistance = fadeDistance;
 
+	calculateParallax(
 
-	module.exports = function parallaxSection (jqEl, jqElOffset, scrollY, windowHeight, marker, map) {
-		var fadeInStart = jqElOffset.top;
-		var fadeDistance = windowHeight;
-		var contentFadeDistance = fadeDistance;
+		[{
+			name:'visible',
+			from:0, 
+			to:1, 
+			scrollStart:fadeInStart, 
+			scrollDistance:fadeDistance,
+			fill:'both'
+		}], 
 
-		calculateParallax(
+		scrollY, 
 
-			[{
-				name:'visible',
-				from:0, 
-				to:1, 
-				scrollStart:fadeInStart, 
-				scrollDistance:fadeDistance,
-				fill:'both'
-			}], 
-
-			scrollY, 
-
-			function (e) {
-				if (e.props.visible.value === 0 || e.props.visible.value === 1) {
-					
-					if (jqEl.hasClass('active')) {
-						jqEl.one('transitionend', function () {
-							jqEl.css({
-								zIndex:0,
-								top:'500%'
-							})
-						});
-
-						jqEl.removeClass('active');
-					}
-
-				} else {
-
-					if (!jqEl.hasClass('active')) {
+		function (e) {
+			if (e.props.visible.value === 0 || e.props.visible.value === 1) {
+				
+				if (jqEl.hasClass('active')) {
+					jqEl.one('transitionend', function () {
 						jqEl.css({
-							zIndex:1000,
-							top:0
-						});
-						jqEl.get(0).offsetHeight;
+							zIndex:0,
+							top:'500%'
+						})
+					});
 
-						jqEl.addClass('active');
-					}
+					jqEl.removeClass('active');
+				}
+
+			} else {
+
+				if (!jqEl.hasClass('active')) {
+					jqEl.css({
+						zIndex:1000,
+						top:0
+					});
+					jqEl.get(0).offsetHeight;
+
+					jqEl.addClass('active');
 				}
 			}
+		}
 
-		);
-		
-	}
+	);
+	
+}
