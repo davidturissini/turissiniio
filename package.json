@@ -18,7 +18,8 @@
     "tls":"x.x.x",
     "stateless":"git://github.com/davidturissini/stateless.git",
     "pigeon":"git://github.com/davidturissini/pigeon.git",
-    "transparency":"0.9.14"
+    "transparency":"0.9.14",
+    "everytrail":"git://github.com/davidturissini/everytrail.git"
   },
   "engines": {
     "node": "0.8.2",

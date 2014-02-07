@@ -7,12 +7,21 @@ var transparency = require('transparency');
 var Photo = require('./model/Photo');
 var jquery = require('jquery');
 var nashville;
+var everytrail = require('everytrail');
+var everytrailApiKey = 'b4698addce8098c96300da620996c899';
+var everytrailSecret = '03ff2a1c38a05a65';
+var Backbone = require('backbone');
 if(process.browser === true) {
 	nashville = require('./interactive/posts/nashville');
 }
 
 var traveladdict_service_url = 'http://local.traveladdict.me:3000/dave-and-melissa/';
-
+everytrail.configure({
+	protocol:'http',
+	domain:'www.everytrail.bytemagik.com',
+	key:everytrailApiKey,
+	secret:everytrailSecret
+});
 
 stateless
 	
@@ -71,7 +80,11 @@ stateless
 		},
 
 		onLoad: function () {
-			
+			everytrail.get('/api/user/trips', {user_id:'2185111'})
+				.then(function (u) {
+					console.log(u);
+				});
+
 		},
 
 		onUnload: function () {
@@ -258,9 +271,9 @@ stateless
 
 				tripLocationEl.parentNode.removeChild(tripLocationEl);
 
-				/*
-				data.title = 'Trip report for our fall road trip through Nashville, Tennessee and Blue Ridge Parkway, North Carolina - turissini.io';
-				data.ogTitle = data.title.replace(' - turissini.io', '');
+				
+				document.title = 'Trip report for our fall road trip through Nashville, Tennessee and Blue Ridge Parkway, North Carolina - turissini.io';
+				/*data.ogTitle = data.title.replace(' - turissini.io', '');
 				data.ogDescription = data.description = 'Our first venture into the South outside of New Orleans. There is no better place to experience country music and no better time to experience the rich fall colors that blanket the region every October.';
 				data.ogImage = 'http://farm3.staticflickr.com/2824/10505814516_5040c94c1c_b.jpg';
 				return data;
