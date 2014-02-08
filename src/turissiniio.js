@@ -101,17 +101,19 @@ stateless
 					hikesUl.appendChild(clone);
 				});
 
+				document.querySelector('html').className = 'home';
+
 
 			});
 
 		},
 
 		onLoad: function () {
-			jquery('html').addClass('home');
+			
 		},
 
 		onUnload: function () {
-			jquery('html').removeClass('home');
+
 		}
 
 	},{
@@ -365,6 +367,8 @@ stateless
 						transparency.render(clone, fact);
 						facts.appendChild(clone);
 					});
+
+					document.querySelector('html').className = 'post-show';
 
 
 				});
