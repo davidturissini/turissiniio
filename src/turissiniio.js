@@ -26,7 +26,7 @@ everytrail.configure({
 
 stateless
 	
-	.setPort(process.env.PORT || 8888)
+	.setPort(process.env.PORT || 5000)
 	.setServerRoot(staticDir)
 	.setLayoutsDirectory('/layouts')
 	.setDefaultLayoutFile('main.html')
@@ -41,7 +41,7 @@ stateless
 			var promises = [];
 			promises.push(pigeon.get(traveladdict_service_url + 'posts'));
 			promises.push(pigeon.get(traveladdict_service_url + 'locations'));
-			promises.push(everytrail.get('/api/user/trips', {user_id:'2185111'}));
+			promises.push(everytrail.get('/api/user/trips', {user_id:'2185111', sort:'trip_date', limit:6}));
 
 			return Q.spread(promises, function (postsData, locationsData, trailsData) {
 				
@@ -56,6 +56,10 @@ stateless
 				
 				states = _.compact(states);
 				states = _.uniq(states);
+
+				transparency.render(document.getElementById('travel-stats'), {
+					'states-count':states.length
+				});
 
 				var postsSection = document.querySelector('.posts');
 				var ul = postsSection.querySelector('ul');

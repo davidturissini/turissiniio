@@ -406,10 +406,10 @@ a.text-white {
 
 
 .grid {
-	display: flex;
-	flex-flow: row wrap;
+	display: -webkit-flex;
+	-webkit-flex-flow: row wrap;
 }
 
 .grid .grid-cell {
-	flex: 1 40%;
+	-webkit-flex: 1 40%;
 }

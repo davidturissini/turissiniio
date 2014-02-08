@@ -27,17 +27,23 @@
 }
 
 .home .grid > .grid-cell {
-	flex:3 5 auto;
+	-webkit-flex:3 5 auto;
 }
 
 .home .grid > .grid-cell:nth-of-type(2) {
 	border-left:6px double #ccc;
-	width:200px;
+	width:20%;
 }
 
 .home .grid > .grid-cell:first-child {
 	padding-right:20px;
-	flex:3 1 50%;
+	-webkit-flex:3 1 50%;
+}
+
+.home h3 {
+	font-size: 1.2em;
+	font-weight: bold;
+	padding-bottom:20px;
 }
 
 .home .hero {
@@ -59,7 +65,8 @@
 }
 
 .home .hero h3 {
-	font-size:1.4em;
+	padding-bottom:0;
+	font-weight:normal;
 }
 
 .home .hero img {
@@ -67,18 +74,22 @@
 }
 
 .home .hikes {
-	padding:0 20px 20px;
+	padding:0 0 20px;
+	border-bottom:1px dashed #ccc;
+	margin-bottom:20px;
+	margin-left:20px;
 }
 
-.home .hikes h3 {
-	font-size: 1.2em;
-	font-weight: bold;
-	padding-bottom:20px;
-}
+
 
 .home .hikes .hike {
 	padding:10px 0;
 }
+
+.home .travel-stats {
+	margin-left:20px;
+}
+
 
 .home .posts .post {
 	padding-right:10px;
@@ -99,4 +110,29 @@
 .home .posts .image {
 	display:block;
 	width:100%;
+}
+
+
+@media (max-width:768px) {
+
+	.home .grid > .grid-cell:first-child {
+		padding-right:0;
+	}
+
+	.home .grid > .grid-cell:nth-of-type(2) {
+		padding-left:0;
+		border-left:0;
+		width:100%;
+	}
+
+	.home .hikes {
+		margin-left:0;
+		padding-top:20px;
+		border-top:1px dashed #ccc;
+	}
+
+	.home .travel-stats {
+		margin-left:0;
+	}
+
 }
