@@ -1,0 +1,90 @@
+.home .content {
+	margin:0 auto;
+	max-width:1000px;
+}
+
+.home .page-header {
+	margin-bottom:20px;
+	padding-bottom:20px;
+	border-bottom:6px double #ccc;
+	text-align:center;
+}
+
+.home .page-header .profile-pic {
+	border-radius:40px;
+}
+
+.home .page-header .social img {
+	vertical-align:middle;
+}
+
+.home .page-header p {
+	font-family: Argo;
+	font-size:1.4em;
+	font-weight:bold;
+	padding:20px 0;
+}
+
+.home .grid > .grid-cell {
+	flex:3 5 auto;
+}
+
+.home .grid > .grid-cell:nth-of-type(2) {
+	border-left:6px double #ccc;
+	width:200px;
+}
+
+.home .grid > .grid-cell:first-child {
+	padding-right:20px;
+	flex:3 1 50%;
+}
+
+.home .hero {
+	padding-bottom:20px;
+	border-bottom:2px dashed #ccc;
+	margin-bottom:20px;
+	text-align:center;
+}
+
+.home .hero a {
+	color:#333;
+}
+
+.home .hero h2 {
+	font-family: Argo;
+	padding:10px 0;
+	font-weight:bold;
+	font-size:2.1em;
+}
+
+.home .hero h3 {
+	font-size:1.4em;
+}
+
+.home .hero img {
+	width:100%;
+}
+
+.home .hikes {
+	padding:20px;
+}
+
+.home .hikes .hike {
+	padding:10px 0;
+}
+
+.home .posts .post {
+	padding-right:10px;
+	box-sizing:border-box;
+	width:50%;
+}
+
+.home .posts .post:nth-of-type(2) {
+	padding-right:0;
+	padding-left:10px;
+}
+
+.home .posts .image {
+	display:block;
+	width:100%;
+}

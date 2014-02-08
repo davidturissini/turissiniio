@@ -6,6 +6,7 @@ var _ = require('underscore');
 var transparency = require('transparency');
 var Photo = require('./model/Photo');
 var jquery = require('jquery');
+var Photo = require('./model/Photo');
 var nashville;
 var everytrail = require('everytrail');
 var everytrailApiKey = 'b4698addce8098c96300da620996c899';
@@ -56,7 +57,8 @@ stateless
 				states = _.compact(states);
 				states = _.uniq(states);
 
-				var ul = document.querySelector('.posts');
+				var postsSection = document.querySelector('.posts');
+				var ul = postsSection.querySelector('ul');
 				var li = ul.querySelector('.post');
 				ul.removeChild(li);
 				
@@ -64,6 +66,13 @@ stateless
 					var clone = li.cloneNode(true);
 
 					transparency.render(clone, post, {
+						'image':{
+							src:function (params) {
+								var photo = new Photo(post.photo);
+								return photo.getUrl('k');
+							}
+						},
+
 						'post-link':{
 							href:function (params) {
 								return '/posts/' + post.slug;
@@ -75,11 +84,11 @@ stateless
 
 				});
 
-				var hikesUl = document.querySelector('.hikes');
+				var hikesSection = document.querySelector('.hikes');
+				var hikesUl = hikesSection.querySelector('ul');
 				var hikesLi = hikesUl.querySelector('li');
 				hikesUl.removeChild(hikesLi);
 				trailsData.forEach(function (hike) {
-					console.log(hike)
 					var clone = hikesLi.cloneNode(true);
 					transparency.render(clone, hike, {
 						'hike-link':{
