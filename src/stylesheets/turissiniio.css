@@ -3,7 +3,8 @@ html {
 }
 
 body {
-	font-family:Arvo, Helvetica, Arial, sans-serif;
+	padding-top:45px;
+	font-family:'Helvetica Neue', Arial, sans-serif;
 }
 
 a, a:visited {
@@ -211,10 +212,6 @@ a.text-white {
 	STATIC
 
 */
-
-.content {
-	margin:0 auto;
-}
 
 .blog-header,
 .mast {
@@ -472,6 +469,5 @@ a.text-white {
 
 .post-link {
 	padding:30px;
-	border-top:1px solid #ccc;
 	height:400px;
 }

@@ -40,8 +40,9 @@ stateless
 			var promises = [];
 			promises.push(pigeon.get(traveladdict_service_url + 'posts'));
 			promises.push(pigeon.get(traveladdict_service_url + 'locations'));
+			promises.push(everytrail.get('/api/user/trips', {user_id:'2185111'}));
 
-			return Q.spread(promises, function (postsData, locationsData) {
+			return Q.spread(promises, function (postsData, locationsData, trailsData) {
 				
 				var posts = JSON.parse(postsData);
 				var locations = JSON.parse(locationsData);
@@ -74,21 +75,34 @@ stateless
 
 				});
 
+				var hikesUl = document.querySelector('.hikes');
+				var hikesLi = hikesUl.querySelector('li');
+				hikesUl.removeChild(hikesLi);
+				trailsData.forEach(function (hike) {
+					console.log(hike)
+					var clone = hikesLi.cloneNode(true);
+					transparency.render(clone, hike, {
+						'hike-link':{
+							href: function (params) {
+								return 'http://www.everytrail.com/view_trip.php?trip_id=' + this.id;
+							}
+						}
+					});
+
+					hikesUl.appendChild(clone);
+				});
+
 
 			});
 
 		},
 
 		onLoad: function () {
-			everytrail.get('/api/user/trips', {user_id:'2185111'})
-				.then(function (u) {
-					console.log(u);
-				});
-
+			jquery('html').addClass('home');
 		},
 
 		onUnload: function () {
-
+			jquery('html').removeClass('home');
 		}
 
 	},{
