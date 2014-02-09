@@ -1,11 +1,10 @@
 var stateless = require('stateless');
-var staticDir = process.browser ? '' : __dirname;
+var staticDir = process.browser ? '' : __dirname + '/../';
 var Q = require('q');
 var pigeon = require('pigeon');
 var _ = require('underscore');
 var transparency = require('transparency');
 var Photo = require('./model/Photo');
-var jquery = require('jquery');
 var Photo = require('./model/Photo');
 var everytrail = require('everytrail');
 var everytrailApiKey = 'b4698addce8098c96300da620996c899';
@@ -28,14 +27,14 @@ stateless
 	
 	.setPort(process.env.PORT || 5000)
 	.setServerRoot(staticDir)
-	.setLayoutsDirectory('/layouts')
+	.setLayoutsDirectory('/html/layouts')
 	.setDefaultLayoutFile('main.html')
 
 	.setRoutes([{
 
 		path:"/",
 
-		template:staticDir + '/views/home/index.html',
+		template:staticDir + '/html/views/home/index.html',
 		
 		action:function (document, routeData) {
 			var promises = [];
@@ -126,7 +125,7 @@ stateless
 
 		path:"/posts/nashville-tennessee-north-carolina-fall-road-trip",
 
-		template:staticDir + '/views/posts/nashville.html',
+		template:staticDir + '/html/views/posts/nashville.html',
 
 		action: function (document, routeData) {
 			var resourcePath = 'trips/nashville-tennessee-north-carolina-fall-road-trip';
@@ -346,7 +345,7 @@ stateless
 
 		path:"/posts/:post_id",
 
-		template:staticDir + '/views/posts/show.html',
+		template:staticDir + '/html/views/posts/show.html',
 
 		action: function (document, routeData) {
 
