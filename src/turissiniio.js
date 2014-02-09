@@ -7,13 +7,13 @@ var transparency = require('transparency');
 var Photo = require('./model/Photo');
 var jquery = require('jquery');
 var Photo = require('./model/Photo');
-var nashville;
 var everytrail = require('everytrail');
 var everytrailApiKey = 'b4698addce8098c96300da620996c899';
 var everytrailSecret = '03ff2a1c38a05a65';
+var interactiveControllers;
 
 if(process.browser === true) {
-	nashville = require('./interactive/posts/nashville');
+	interactiveControllers = require('./interactive/controllers');
 }
 
 var traveladdict_service_url = 'http://traveladdict.me/dave-and-melissa/';
@@ -319,15 +319,25 @@ stateless
 		},
 
 		onLoad: function (data) {
-			jquery('html').addClass('posts-show-nashville');
-			nashville.load(data, window.document);
-			return nashville.afterAppend(data, window.document);
+			document.querySelector('html').className = 'posts-show-nashville';
+			
+			if('ontouchstart' in window) {
+				return;
+			}
+			
+			interactiveControllers['/posts/nashville-tennessee-north-carolina-fall-road-trip'].load(data, window.document);
+			return interactiveControllers['/posts/nashville-tennessee-north-carolina-fall-road-trip'].afterAppend(data, window.document);
 		},
 
 		onUnload: function () {
-			nashville.unload();
-			nashville.afterRemove();
-			jquery('html').removeClass('posts-show-nashville');
+
+			if('ontouchstart' in window) {
+				return;
+			}
+
+			interactiveControllers['/posts/nashville-tennessee-north-carolina-fall-road-trip'].unload();
+			interactiveControllers['/posts/nashville-tennessee-north-carolina-fall-road-trip'].afterRemove();
+			
 		}
 
 	},{

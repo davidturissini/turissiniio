@@ -11,7 +11,6 @@
 }
 
 .map body {
-	padding:0;
 	position:relative;
 }
 
@@ -194,19 +193,25 @@
 
 
 
-.map .blog-header {
+.posts-show-nashville .blog-header {
+	height:100%;
 	color:#fff;
 }
-.map .blog-header .hero {
+.posts-show-nashville .blog-header .hero {
 	min-height:100%;
 	min-width:100%;
 	height:auto;
 }
 
-.map .blog-header .text {
+.posts-show-nashville .blog-header .text {
 	padding:20px 0;
 	color:rgba(255, 255, 255, 0.8);
 	background:rgba(0, 0, 0, 0.5);
+}
+
+.map .site-header {
+	position:relative;
+	z-index:500;
 }
 
 .map .galleria-thumbnails-container,
@@ -230,10 +235,12 @@
 	CONTAINERS
 
 */
-.posts-show-nashville .site-header {
-	position:relative;
-	z-index:500;
+
+.posts-show-nashville body {
+	padding:0;
 }
+
+
 
 
 
@@ -423,9 +430,21 @@
 	display:block;
 }
 
+.posts-show-nashville .post .post-header .title {
+	padding:0;
+}
+
+.map .post .post-header .title {
+	padding:0 75px;
+}
+
 @media (max-width:880px) {
 
 	.posts-show-nashville .trip-location.expanded .card .post-header .title {
+		padding:0 40px;
+	}
+
+	.map .post-body {
 		padding:0 40px;
 	}
 
@@ -442,5 +461,38 @@
 @media (max-width:584px) {
 	.map .trip-location:not(.expanded) .card .post-header .title {
 		font-size:1em;
+	}
+}
+
+@media (max-width:484px) {
+	.map .trip-location:not(.expanded) .card .post-header .title span {
+		padding:0;
+	}
+}
+
+@media (max-width:320px) {
+
+	.posts-show-nashville .post .post-header .title {
+		font-size:1.7em;
+	}
+
+	.posts-show-nashville .post .post-header .title {
+		margin:20px auto;
+	}
+
+	.posts-show-nashville .post {
+		margin:20px auto 0;
+	}
+
+	.posts-show-nashville .intro {
+		display:none;
+	}
+
+	.posts-show-nashville .post .post-body p:last-child {
+		margin-bottom:20px;
+	}
+
+	.posts-show-nashville .dashboard + .post {
+		margin-top:0;
 	}
 }
