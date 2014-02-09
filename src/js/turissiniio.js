@@ -6,6 +6,7 @@ var _ = require('underscore');
 var transparency = require('transparency');
 var Photo = require('./model/Photo');
 var everytrail = require('./everytrail/init')();
+var googleAnalytics = require('./analytics/google');
 
 var interactiveControllers;
 
@@ -22,6 +23,7 @@ stateless
 	.setServerRoot(staticDir)
 	.setLayoutsDirectory('/html/layouts')
 	.setDefaultLayoutFile('main.html')
+	.setAnalytics(googleAnalytics)
 
 	.setRoutes([{
 
