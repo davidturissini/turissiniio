@@ -2,7 +2,7 @@ if (process.browser === true) {
 
 	function trackPageView(path) {
 		if (!/turissini\.io/.test(window.location.href)) {
-		//	return;
+			return;
 		}
 
 		var pageView = ['_trackPageview'];
