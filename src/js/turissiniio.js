@@ -5,10 +5,8 @@ var pigeon = require('pigeon');
 var _ = require('underscore');
 var transparency = require('transparency');
 var Photo = require('./model/Photo');
-var Photo = require('./model/Photo');
-var everytrail = require('everytrail');
-var everytrailApiKey = 'b4698addce8098c96300da620996c899';
-var everytrailSecret = '03ff2a1c38a05a65';
+var everytrail = require('./everytrail/init')();
+
 var interactiveControllers;
 
 if(process.browser === true) {
@@ -16,12 +14,7 @@ if(process.browser === true) {
 }
 
 var traveladdict_service_url = 'http://traveladdict.me/dave-and-melissa/';
-everytrail.configure({
-	protocol:'http',
-	domain:'www.everytrail.bytemagik.com',
-	key:everytrailApiKey,
-	secret:everytrailSecret
-});
+
 
 stateless
 	
