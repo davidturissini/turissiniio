@@ -120,6 +120,10 @@
 	width:auto;
 }
 
+.posts-show-nashville .post-body {
+	padding:0;
+}
+
 .map .trip-location {
 	padding:0;
 	margin:0;
@@ -204,7 +208,7 @@
 }
 
 .posts-show-nashville .blog-header .text {
-	padding:20px 0;
+	padding:20px;
 	color:rgba(255, 255, 255, 0.8);
 	background:rgba(0, 0, 0, 0.5);
 }
@@ -438,10 +442,34 @@
 	padding:0 75px;
 }
 
-@media (max-width:880px) {
+@media (max-width:768px) {
 
 	.posts-show-nashville .trip-location.expanded .card .post-header .title {
 		padding:0 40px;
+	}
+
+	.posts-show-nashville .post .post-header .title {
+		font-size:1.7em;
+	}
+
+	.posts-show-nashville .post .post-header .title {
+		margin:20px auto;
+	}
+
+	.posts-show-nashville .post {
+		margin:20px auto 0;
+	}
+
+	.posts-show-nashville .intro {
+		display:none;
+	}
+
+	.posts-show-nashville .post .post-body p:last-child {
+		margin-bottom:20px;
+	}
+
+	.posts-show-nashville .dashboard + .post {
+		margin-top:0;
 	}
 
 	.map .post-body {
@@ -467,32 +495,5 @@
 @media (max-width:484px) {
 	.map .trip-location:not(.expanded) .card .post-header .title span {
 		padding:0;
-	}
-}
-
-@media (max-width:320px) {
-
-	.posts-show-nashville .post .post-header .title {
-		font-size:1.7em;
-	}
-
-	.posts-show-nashville .post .post-header .title {
-		margin:20px auto;
-	}
-
-	.posts-show-nashville .post {
-		margin:20px auto 0;
-	}
-
-	.posts-show-nashville .intro {
-		display:none;
-	}
-
-	.posts-show-nashville .post .post-body p:last-child {
-		margin-bottom:20px;
-	}
-
-	.posts-show-nashville .dashboard + .post {
-		margin-top:0;
 	}
 }

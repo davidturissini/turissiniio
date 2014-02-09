@@ -34,7 +34,7 @@ a:hover {
 	background-repeat:no-repeat;
 }
 
-.body.loading {
+body.loading {
 	padding-top:0;
 	height:100%;
 	overflow:hidden;
@@ -353,7 +353,7 @@ a.text-white {
 	height:350px;
 }
 
-@media (max-width:880px) {
+@media (max-width:768px) {
 	body {
 		font-size:14px;
 	}

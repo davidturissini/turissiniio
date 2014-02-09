@@ -310,6 +310,8 @@ stateless
 				document.querySelector('meta[name="description"]').setAttribute('content', description);
 				document.querySelector('meta[name="og:image"]').setAttribute('content', 'http://farm3.staticflickr.com/2824/10505814516_5040c94c1c_b.jpg');
 
+				document.querySelector('html').className = 'posts-show-nashville';
+
 				return data;
 				
 			}.bind(this));
@@ -319,7 +321,7 @@ stateless
 		},
 
 		onLoad: function (data) {
-			document.querySelector('html').className = 'posts-show-nashville';
+			
 			
 			if('ontouchstart' in window) {
 				return;
