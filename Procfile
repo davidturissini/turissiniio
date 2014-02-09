@@ -1,1 +1,1 @@
-web: node src/js/turissiniio.js
+web: node src/js/server.js
