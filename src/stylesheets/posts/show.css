@@ -6,12 +6,17 @@
 	padding:0;
 }
 
+.post-body .list-item-title {
+	font-size:1.2em;
+	font-weight:bold;
+	margin-bottom:10px;
+}
+
 @media (max-width:980px) {
 
 	.post .post-body {
 		margin:0;
 	}
-
 
 	.post .post-body figure,
 	.post .location-facts {

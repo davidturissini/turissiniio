@@ -9,9 +9,15 @@ var action = function (document, routeData) {
 			var post = JSON.parse(postData);
 			var element = document.querySelector('#blog-content');
 			var photo = new Photo(post.photo);
-			var factEl = document.querySelector('#blog-content .fact');
-			var facts = factEl.parentNode;
-			facts.removeChild(factEl);
+			var factsSection = document.querySelector('#facts');
+			var factEl;
+			var facts;
+
+			if(factsSection) {
+				factEl = factsSection.querySelector('.fact');
+				facts = factEl.parentNode;
+				facts.removeChild(factEl);
+			}
 
 			document.title = post.title + ' - turissini.io';
 
@@ -36,11 +42,17 @@ var action = function (document, routeData) {
 
 			});
 
-			post.facts.forEach(function (fact) {
-				var clone = factEl.cloneNode(true);
-				transparency.render(clone, fact);
-				facts.appendChild(clone);
-			});
+			if (post.facts.length > 0) {
+
+				post.facts.forEach(function (fact) {
+					var clone = factEl.cloneNode(true);
+					transparency.render(clone, fact);
+					facts.appendChild(clone);
+				});
+
+			} else if(factsSection) {
+				factsSection.parentNode.removeChild(factsSection);
+			}
 
 			document.querySelector('html').className = 'post-show';
 
