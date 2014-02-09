@@ -1,1 +1,1 @@
-web: node src/application/initializers/server.js
+web: node src/turissiniio.js

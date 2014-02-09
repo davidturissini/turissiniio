@@ -11,12 +11,12 @@ var nashville;
 var everytrail = require('everytrail');
 var everytrailApiKey = 'b4698addce8098c96300da620996c899';
 var everytrailSecret = '03ff2a1c38a05a65';
-var Backbone = require('backbone');
+
 if(process.browser === true) {
 	nashville = require('./interactive/posts/nashville');
 }
 
-var traveladdict_service_url = 'http://local.traveladdict.me:3000/dave-and-melissa/';
+var traveladdict_service_url = 'http://traveladdict.me/dave-and-melissa/';
 everytrail.configure({
 	protocol:'http',
 	domain:'www.everytrail.bytemagik.com',
@@ -42,6 +42,8 @@ stateless
 			promises.push(pigeon.get(traveladdict_service_url + 'posts'));
 			promises.push(pigeon.get(traveladdict_service_url + 'locations'));
 			promises.push(everytrail.get('/api/user/trips', {user_id:'2185111', sort:'trip_date', limit:6}));
+
+			document.title = 'Musings on travel, the outdoors, and life - turissini.io';
 
 			return Q.spread(promises, function (postsData, locationsData, trailsData) {
 				
@@ -300,13 +302,13 @@ stateless
 
 				tripLocationEl.parentNode.removeChild(tripLocationEl);
 
-				
-				document.title = 'Trip report for our fall road trip through Nashville, Tennessee and Blue Ridge Parkway, North Carolina - turissini.io';
-				/*data.ogTitle = data.title.replace(' - turissini.io', '');
-				data.ogDescription = data.description = 'Our first venture into the South outside of New Orleans. There is no better place to experience country music and no better time to experience the rich fall colors that blanket the region every October.';
-				data.ogImage = 'http://farm3.staticflickr.com/2824/10505814516_5040c94c1c_b.jpg';
-				return data;
-				*/
+				var title = 'Trip report for our fall road trip through Nashville, Tennessee and Blue Ridge Parkway, North Carolina - turissini.io';
+				var description = 'Our first venture into the South outside of New Orleans. There is no better place to experience country music and no better time to experience the rich fall colors that blanket the region every October.';
+				document.title = title;
+				document.querySelector('meta[name="og:title"]').setAttribute('content', title.replace(' - turissini.io', ''));
+				document.querySelector('meta[name="og:description"]').setAttribute('content', description);
+				document.querySelector('meta[name="description"]').setAttribute('content', description);
+				document.querySelector('meta[name="og:image"]').setAttribute('content', 'http://farm3.staticflickr.com/2824/10505814516_5040c94c1c_b.jpg');
 
 				return data;
 				
@@ -344,6 +346,8 @@ stateless
 					var factEl = document.querySelector('#blog-content .fact');
 					var facts = factEl.parentNode;
 					facts.removeChild(factEl);
+
+					document.title = post.title + ' - turissini.io';
 
 					transparency.render(element, post, {
 						'hero':{

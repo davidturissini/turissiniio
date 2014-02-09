@@ -1,14 +1,17 @@
-var Backbone = require('backbone');
 
 
-var FlickrImage = Backbone.Model.extend({
+var FlickrImage = function (attributes) {
+	this._attributes = attributes;
+}
+
+FlickrImage.prototype = {
 
 	url: function (size) {
 		size = size ? "_" + size : ""
-		return "http://farm" + this.get("farm") + ".static.flickr.com/" + this.get("server") + "/" + this.get("id") + "_" + this.get("secret") + size + ".jpg"
+		return "http://farm" + this._attributes.farm + ".static.flickr.com/" + this._attributes.server + "/" + this._attributes.id + "_" + this._attributes.secret + size + ".jpg"
 	}
 
-});
+};
 
 
 FlickrImage.fromUrl = function (url) {
