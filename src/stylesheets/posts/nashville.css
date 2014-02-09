@@ -118,6 +118,7 @@
 .map .post-body {
 	display:none;
 	width:auto;
+	padding:0 75px;
 }
 
 
@@ -435,8 +436,36 @@
 	padding:0;
 }
 
+
+
+
 .map .post .post-header .title {
 	padding:0 75px;
+}
+
+@media (max-width:980px) {
+
+	.posts-show-nashville .post .post-body figure {
+		display:block;
+		padding-bottom:60px;
+		float:none;
+		margin:0;
+		width:100%;
+
+	}
+
+	.posts-show-nashville .post .post-body figure img {
+		width:100%;
+	}
+
+	.posts-show-nashville .post .post-body {
+		margin-right:0;
+	}
+
+	.posts-show-nashville .post .post-body .location-facts {
+		display:none;
+	}
+
 }
 
 @media (max-width:768px) {
@@ -471,11 +500,6 @@
 
 	.map .post-body {
 		padding:0 40px;
-	}
-
-	.map .post-body figure,
-	.map .location-facts {
-		display:none !important;
 	}
 
 	.map .trip-location:not(.expanded) .card .post-header .title {

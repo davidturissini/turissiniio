@@ -3,6 +3,7 @@ html {
 }
 
 body {
+	font-size:14px;
 	padding-top:65px;
 	font-family:'Helvetica Neue', Arial, sans-serif;
 }
@@ -294,7 +295,6 @@ a.text-white {
 }
 
 .post .post-header .title {
-	margin:65px auto 55px;
 	padding:0 75px;
 	font-size:2.7em;
 }
@@ -304,7 +304,6 @@ a.text-white {
 }
 
 .post-body {
-	padding:0 75px;
 	margin-right:325px;
 }
 
@@ -353,10 +352,9 @@ a.text-white {
 	height:350px;
 }
 
+
+
 @media (max-width:768px) {
-	body {
-		font-size:14px;
-	}
 
 	.blog .post {
 		padding:0 20px;
@@ -367,10 +365,6 @@ a.text-white {
 		padding:0;
 	}
 
-	.post-body figure,
-	.location-facts {
-		display:none;
-	}
 }
 
 .text-shadow {

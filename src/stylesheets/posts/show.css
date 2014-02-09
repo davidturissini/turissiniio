@@ -1,3 +1,20 @@
+.post-body {
+	padding:0;
+}
+
 .post-show body {
 	padding:0;
+}
+
+@media (max-width:980px) {
+
+	.post .post-body {
+		margin:0;
+	}
+
+
+	.post .post-body figure,
+	.post .location-facts {
+		display:none;
+	}
 }
