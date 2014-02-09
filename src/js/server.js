@@ -1,3 +1,7 @@
+if (process.browser === true) {
+	require('./util/polyfills');
+}
+
 var stateless = require('stateless');
 var staticDir = process.browser ? '' : __dirname + '/../';
 var googleAnalytics = require('./analytics/google');

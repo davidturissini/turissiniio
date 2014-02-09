@@ -34035,7 +34035,11 @@ exports.template = '/html/views/posts/show.html';
 
 exports.action = action;
 },{"./../../model/Photo":168,"./../../services/traveladdict":175,"transparency":131}],173:[function(require,module,exports){
-(function (process,__dirname){var stateless = require('stateless');
+(function (process,__dirname){if (process.browser === true) {
+	require('./util/polyfills');
+}
+
+var stateless = require('stateless');
 var staticDir = process.browser ? '' : __dirname + '/../';
 var googleAnalytics = require('./analytics/google');
 
@@ -34064,7 +34068,7 @@ stateless
 	.setAnalytics(googleAnalytics)
 	.setRoutes(routes)
 	.activate();}).call(this,require("/Users/davidturissini/Sites/traveladdict-client/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"),"/")
-},{"./analytics/google":140,"./routes/home/index":170,"./routes/posts/nashville":171,"./routes/posts/show":172,"/Users/davidturissini/Sites/traveladdict-client/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":61,"stateless":129}],174:[function(require,module,exports){
+},{"./analytics/google":140,"./routes/home/index":170,"./routes/posts/nashville":171,"./routes/posts/show":172,"./util/polyfills":176,"/Users/davidturissini/Sites/traveladdict-client/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":61,"stateless":129}],174:[function(require,module,exports){
 var everytrail = require('everytrail');
 var everytrailApiKey = 'b4698addce8098c96300da620996c899';
 var everytrailSecret = '03ff2a1c38a05a65';
@@ -34085,4 +34089,30 @@ var traveladdict_service_url = 'http://traveladdict.me/dave-and-melissa/';
 exports.get = function (path, params) {
 	return pigeon.get(traveladdict_service_url + path, params);
 };
-},{"pigeon":98}]},{},[173])
+},{"pigeon":98}],176:[function(require,module,exports){
+// requestAnimationFrame
+(function() {
+    var lastTime = 0;
+    var vendors = ['webkit', 'moz'];
+    for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+        window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
+        window.cancelAnimationFrame =
+          window[vendors[x]+'CancelAnimationFrame'] || window[vendors[x]+'CancelRequestAnimationFrame'];
+    }
+
+    if (!window.requestAnimationFrame)
+        window.requestAnimationFrame = function(callback, element) {
+            var currTime = new Date().getTime();
+            var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+            var id = window.setTimeout(function() { callback(currTime + timeToCall); },
+              timeToCall);
+            lastTime = currTime + timeToCall;
+            return id;
+        };
+
+    if (!window.cancelAnimationFrame)
+        window.cancelAnimationFrame = function(id) {
+            clearTimeout(id);
+        };
+}());
+},{}]},{},[173])
