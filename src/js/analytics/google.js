@@ -2,7 +2,7 @@ if (process.browser === true) {
 
 	function trackPageView(path) {
 		if (!/turissini\.io/.test(window.location.href)) {
-			return;
+		//	return;
 		}
 
 		var pageView = ['_trackPageview'];
@@ -15,7 +15,7 @@ if (process.browser === true) {
 		
 	};
 
-	var _gaq = _gaq || [];
+	window._gaq = window._gaq || [];
 	_gaq.push(['_setAccount', 'UA-31293401-2']);
 	trackPageView();
 
