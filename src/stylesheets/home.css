@@ -33,7 +33,7 @@
 
 .home .grid > .grid-cell:nth-of-type(2) {
 	border-left:6px double #ccc;
-	width:20%;
+	width:15%;
 }
 
 .home .grid > .grid-cell:first-child {
