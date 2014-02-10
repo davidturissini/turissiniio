@@ -7,20 +7,20 @@
 }
 
 .post-body .list-item-title {
-	font-size:1.2em;
+	font-size:1.1em;
 	font-weight:bold;
 	margin-bottom:10px;
 }
 
 .post-show .suggested {
 	margin:20px 40px;
-	padding:20px 0;
-	border-top:2px dashed #ccc;
+	padding:40px 0 20px;
+	border-top:6px double #ccc;
 }
 
 .post-show .suggested h4 {
 	font-weight:bold;
-	font-size:1.2em;
+	font-size:1.3em;
 	padding-bottom:20px;
 }
 
