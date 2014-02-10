@@ -23,8 +23,7 @@ exports.action = function (document, routeData) {
 	});
 
 
-	promise = promise.then(function (e) {
-		var trip = JSON.parse(e);
+	promise = promise.then(function (trip) {
 		var data = {
 			trip: trip,
 			tripDistance: tripDistance,

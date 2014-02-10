@@ -10,6 +10,11 @@ module.exports = function(grunt) {
 		    files: ['./src/js/**/*.js'],
 		    tasks: ['default']
 		  },
+
+		  b:{
+		  	files: ['./src/js/**/*.js', '!./src/js/turissiniio.js'],
+		  	tasks:['b']
+		  }
 		},
 
 		browserify: {
@@ -42,5 +47,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-copy');
 
 	grunt.registerTask('default', ['browserify', 'uglify', 'copy']);
+	grunt.registerTask('b', ['browserify', 'copy']);
 
 }

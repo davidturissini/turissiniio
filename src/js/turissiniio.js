@@ -472,8 +472,8 @@ request.jar = function () {
 request.cookie = function (str) {
   return cookies.parse(str);
 }
-}).call(this,require("/Users/davidturissini/Sites/traveladdict-client/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"))
-},{"./lib/cookies":4,"./lib/copy":5,"./request":14,"/Users/davidturissini/Sites/traveladdict-client/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":61}],4:[function(require,module,exports){
+}).call(this,require("/Users/davidturissini/Sites/turissiniio/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"))
+},{"./lib/cookies":4,"./lib/copy":5,"./request":14,"/Users/davidturissini/Sites/turissiniio/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":61}],4:[function(require,module,exports){
 var optional = require('./optional')
   , tough = optional('tough-cookie')
   , Cookie = tough && tough.Cookie
@@ -528,8 +528,8 @@ function debug () {
   if (/\brequest\b/.test(process.env.NODE_DEBUG))
     console.error('REQUEST %s', util.format.apply(util, arguments))
 }
-}).call(this,require("/Users/davidturissini/Sites/traveladdict-client/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"))
-},{"/Users/davidturissini/Sites/traveladdict-client/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":61,"util":80}],7:[function(require,module,exports){
+}).call(this,require("/Users/davidturissini/Sites/turissiniio/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"))
+},{"/Users/davidturissini/Sites/turissiniio/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":61,"util":80}],7:[function(require,module,exports){
 // Safe toJSON
 module.exports =
 function getSafe (self, uuid) {
@@ -848,8 +848,8 @@ mime.charsets = {
 };
 
 module.exports = mime;
-}).call(this,require("/Users/davidturissini/Sites/traveladdict-client/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"),"/../../node_modules/everytrail/node_modules/pigeon/node_modules/request/node_modules/mime")
-},{"/Users/davidturissini/Sites/traveladdict-client/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":61,"fs":47,"path":65}],12:[function(require,module,exports){
+}).call(this,require("/Users/davidturissini/Sites/turissiniio/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"),"/../../node_modules/everytrail/node_modules/pigeon/node_modules/request/node_modules/mime")
+},{"/Users/davidturissini/Sites/turissiniio/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":61,"fs":47,"path":65}],12:[function(require,module,exports){
 (function (Buffer){//     uuid.js
 //
 //     Copyright (c) 2010-2012 Robert Kieffer
@@ -2714,7 +2714,7 @@ Request.prototype.toJSON = toJSON
 
 
 module.exports = Request
-}).call(this,require("/Users/davidturissini/Sites/traveladdict-client/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"),require("buffer").Buffer)
+}).call(this,require("/Users/davidturissini/Sites/turissiniio/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"),require("buffer").Buffer)
 },{"./lib/cookies":4,"./lib/copy":5,"./lib/debug":6,"./lib/getSafe":7,"./lib/optional":8,"crypto":49,"forever-agent":9,"http":55,"json-stringify-safe":10,"mime":11,"node-uuid":12,"qs":13,"querystring":69,"stream":71,"url":78,"util":80}],15:[function(require,module,exports){
 module.exports = {
 	get:require('./resource/fetch').fetch
@@ -2743,8 +2743,8 @@ exports.fetch = function (path, params) {
 	module.exports = require('./server/fetch');
 } else {
 	module.exports = require('./browser/browserfetch');
-}}).call(this,require("/Users/davidturissini/Sites/traveladdict-client/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"))
-},{"./browser/browserfetch":16,"./server/fetch":18,"/Users/davidturissini/Sites/traveladdict-client/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":61}],18:[function(require,module,exports){
+}}).call(this,require("/Users/davidturissini/Sites/turissiniio/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"))
+},{"./browser/browserfetch":16,"./server/fetch":18,"/Users/davidturissini/Sites/turissiniio/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":61}],18:[function(require,module,exports){
 var fsfetch = require('./fsfetch').fetch;
 var urlfetch = require('./urlfetch').fetch;
 
@@ -4740,8 +4740,8 @@ var qEndingLine = captureLine();
 return Q;
 
 });
-}).call(this,require("/Users/davidturissini/Sites/traveladdict-client/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"))
-},{"/Users/davidturissini/Sites/traveladdict-client/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":61}],22:[function(require,module,exports){
+}).call(this,require("/Users/davidturissini/Sites/turissiniio/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"))
+},{"/Users/davidturissini/Sites/turissiniio/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":61}],22:[function(require,module,exports){
 // Generated by CoffeeScript 1.6.3
 (function() {
   var xml2js;
@@ -5192,8 +5192,8 @@ return Q;
   };
 
 }).call(this);
-}).call(this,require("/Users/davidturissini/Sites/traveladdict-client/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"))
-},{"./bom":22,"./processors":23,"/Users/davidturissini/Sites/traveladdict-client/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":61,"events":54,"sax":25,"xmlbuilder":42}],25:[function(require,module,exports){
+}).call(this,require("/Users/davidturissini/Sites/turissiniio/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"))
+},{"./bom":22,"./processors":23,"/Users/davidturissini/Sites/turissiniio/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":61,"events":54,"sax":25,"xmlbuilder":42}],25:[function(require,module,exports){
 (function (Buffer){// wrapper for non-node envs
 ;(function (sax) {
 
@@ -11072,8 +11072,8 @@ var substr = 'ab'.substr(-1) === 'b'
         return str.substr(start, len);
     }
 ;
-}).call(this,require("/Users/davidturissini/Sites/traveladdict-client/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"))
-},{"/Users/davidturissini/Sites/traveladdict-client/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":61}],66:[function(require,module,exports){
+}).call(this,require("/Users/davidturissini/Sites/turissiniio/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"))
+},{"/Users/davidturissini/Sites/turissiniio/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":61}],66:[function(require,module,exports){
 (function (global){/*! http://mths.be/punycode v1.2.3 by @mathias */
 ;(function(root) {
 
@@ -12944,8 +12944,8 @@ function indexOf (xs, x) {
   }
   return -1;
 }
-}).call(this,require("/Users/davidturissini/Sites/traveladdict-client/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"))
-},{"./index.js":71,"/Users/davidturissini/Sites/traveladdict-client/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":61,"buffer":62,"events":54,"inherits":60,"process/browser.js":72,"string_decoder":77}],75:[function(require,module,exports){
+}).call(this,require("/Users/davidturissini/Sites/turissiniio/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"))
+},{"./index.js":71,"/Users/davidturissini/Sites/turissiniio/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":61,"buffer":62,"events":54,"inherits":60,"process/browser.js":72,"string_decoder":77}],75:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -14959,8 +14959,8 @@ exports._extend = function(origin, add) {
 function hasOwnProperty(obj, prop) {
   return Object.prototype.hasOwnProperty.call(obj, prop);
 }
-}).call(this,require("/Users/davidturissini/Sites/traveladdict-client/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./support/isBuffer":79,"/Users/davidturissini/Sites/traveladdict-client/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":61,"inherits":60}],81:[function(require,module,exports){
+}).call(this,require("/Users/davidturissini/Sites/turissiniio/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{"./support/isBuffer":79,"/Users/davidturissini/Sites/turissiniio/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":61,"inherits":60}],81:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.1.0
  * http://jquery.com/
@@ -24081,15 +24081,15 @@ module.exports=require(1)
 module.exports=require(2)
 },{}],85:[function(require,module,exports){
 module.exports=require(21)
-},{"/Users/davidturissini/Sites/traveladdict-client/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":61}],86:[function(require,module,exports){
+},{"/Users/davidturissini/Sites/turissiniio/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":61}],86:[function(require,module,exports){
 arguments[4][3][0].apply(exports,arguments)
-},{"./lib/cookies":87,"./lib/copy":88,"./request":97,"/Users/davidturissini/Sites/traveladdict-client/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":61}],87:[function(require,module,exports){
+},{"./lib/cookies":87,"./lib/copy":88,"./request":97,"/Users/davidturissini/Sites/turissiniio/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":61}],87:[function(require,module,exports){
 module.exports=require(4)
 },{"./optional":91}],88:[function(require,module,exports){
 module.exports=require(5)
 },{}],89:[function(require,module,exports){
 module.exports=require(6)
-},{"/Users/davidturissini/Sites/traveladdict-client/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":61,"util":80}],90:[function(require,module,exports){
+},{"/Users/davidturissini/Sites/turissiniio/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":61,"util":80}],90:[function(require,module,exports){
 module.exports=require(7)
 },{}],91:[function(require,module,exports){
 module.exports=require(8)
@@ -24212,8 +24212,8 @@ mime.charsets = {
 };
 
 module.exports = mime;
-}).call(this,require("/Users/davidturissini/Sites/traveladdict-client/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"),"/../../node_modules/pigeon/node_modules/request/node_modules/mime")
-},{"/Users/davidturissini/Sites/traveladdict-client/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":61,"fs":47,"path":65}],95:[function(require,module,exports){
+}).call(this,require("/Users/davidturissini/Sites/turissiniio/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"),"/../../node_modules/pigeon/node_modules/request/node_modules/mime")
+},{"/Users/davidturissini/Sites/turissiniio/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":61,"fs":47,"path":65}],95:[function(require,module,exports){
 module.exports=require(12)
 },{"buffer":62,"crypto":49}],96:[function(require,module,exports){
 module.exports=require(13)
@@ -24225,7 +24225,7 @@ arguments[4][15][0].apply(exports,arguments)
 arguments[4][16][0].apply(exports,arguments)
 },{"component-ajax":83,"q":85}],100:[function(require,module,exports){
 arguments[4][17][0].apply(exports,arguments)
-},{"./browser/browserfetch":99,"./server/fetch":101,"/Users/davidturissini/Sites/traveladdict-client/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":61}],101:[function(require,module,exports){
+},{"./browser/browserfetch":99,"./server/fetch":101,"/Users/davidturissini/Sites/turissiniio/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":61}],101:[function(require,module,exports){
 arguments[4][18][0].apply(exports,arguments)
 },{"./fsfetch":102,"./urlfetch":103}],102:[function(require,module,exports){
 module.exports=require(19)
@@ -25801,8 +25801,8 @@ function nodeify(promise, nodeback) {
 var qEndingLine = captureLine();
 
 });
-}).call(this,require("/Users/davidturissini/Sites/traveladdict-client/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"))
-},{"/Users/davidturissini/Sites/traveladdict-client/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":61}],105:[function(require,module,exports){
+}).call(this,require("/Users/davidturissini/Sites/turissiniio/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"))
+},{"/Users/davidturissini/Sites/turissiniio/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":61}],105:[function(require,module,exports){
 //     Backbone.js 1.1.0
 
 //     (c) 2010-2011 Jeremy Ashkenas, DocumentCloud Inc.
@@ -27391,15 +27391,15 @@ module.exports=require(1)
 module.exports=require(2)
 },{}],108:[function(require,module,exports){
 module.exports=require(21)
-},{"/Users/davidturissini/Sites/traveladdict-client/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":61}],109:[function(require,module,exports){
+},{"/Users/davidturissini/Sites/turissiniio/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":61}],109:[function(require,module,exports){
 arguments[4][3][0].apply(exports,arguments)
-},{"./lib/cookies":110,"./lib/copy":111,"./request":120,"/Users/davidturissini/Sites/traveladdict-client/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":61}],110:[function(require,module,exports){
+},{"./lib/cookies":110,"./lib/copy":111,"./request":120,"/Users/davidturissini/Sites/turissiniio/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":61}],110:[function(require,module,exports){
 module.exports=require(4)
 },{"./optional":114}],111:[function(require,module,exports){
 module.exports=require(5)
 },{}],112:[function(require,module,exports){
 module.exports=require(6)
-},{"/Users/davidturissini/Sites/traveladdict-client/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":61,"util":80}],113:[function(require,module,exports){
+},{"/Users/davidturissini/Sites/turissiniio/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":61,"util":80}],113:[function(require,module,exports){
 module.exports=require(7)
 },{}],114:[function(require,module,exports){
 module.exports=require(8)
@@ -27522,8 +27522,8 @@ mime.charsets = {
 };
 
 module.exports = mime;
-}).call(this,require("/Users/davidturissini/Sites/traveladdict-client/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"),"/../../node_modules/stateless/node_modules/pigeon/node_modules/request/node_modules/mime")
-},{"/Users/davidturissini/Sites/traveladdict-client/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":61,"fs":47,"path":65}],118:[function(require,module,exports){
+}).call(this,require("/Users/davidturissini/Sites/turissiniio/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"),"/../../node_modules/stateless/node_modules/pigeon/node_modules/request/node_modules/mime")
+},{"/Users/davidturissini/Sites/turissiniio/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":61,"fs":47,"path":65}],118:[function(require,module,exports){
 module.exports=require(12)
 },{"buffer":62,"crypto":49}],119:[function(require,module,exports){
 module.exports=require(13)
@@ -27535,7 +27535,7 @@ arguments[4][15][0].apply(exports,arguments)
 arguments[4][16][0].apply(exports,arguments)
 },{"component-ajax":106,"q":108}],123:[function(require,module,exports){
 arguments[4][17][0].apply(exports,arguments)
-},{"./browser/browserfetch":122,"./server/fetch":124,"/Users/davidturissini/Sites/traveladdict-client/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":61}],124:[function(require,module,exports){
+},{"./browser/browserfetch":122,"./server/fetch":124,"/Users/davidturissini/Sites/turissiniio/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":61}],124:[function(require,module,exports){
 arguments[4][18][0].apply(exports,arguments)
 },{"./fsfetch":125,"./urlfetch":126}],125:[function(require,module,exports){
 module.exports=require(19)
@@ -29477,8 +29477,8 @@ var qEndingLine = captureLine();
 return Q;
 
 });
-}).call(this,require("/Users/davidturissini/Sites/traveladdict-client/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"))
-},{"/Users/davidturissini/Sites/traveladdict-client/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":61}],128:[function(require,module,exports){
+}).call(this,require("/Users/davidturissini/Sites/turissiniio/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"))
+},{"/Users/davidturissini/Sites/turissiniio/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":61}],128:[function(require,module,exports){
 var Backbone = require('backbone');
 var _ = require('underscore');
 var jquery = require('jquery');
@@ -29491,13 +29491,13 @@ var defaultBehavior = 'push';
 var defaultLayoutFileName = 'main.html';
 var pigeon = require('pigeon');
 var currentLayoutPath = '';
-var previousTemplate = '';
 var previousLayout = '';
 var previousData = {};
 var currentRoute;
 var bodyEl;
 var contentEl;
 var analytics;
+var templateCache = {};
 
 function navigate (router, e) {
 	var behavior = e.currentTarget.getAttribute('data-behavior');
@@ -29540,10 +29540,9 @@ function parseRouteArguments (path, routeArgs) {
 }
 
 
-function renderHTML (params, htmlString) {
-	if (htmlString) {
-		contentEl.html(htmlString);
-	}
+function renderHTML (params, documentFragment) {
+	contentEl.innerHTML = '';
+	contentEl.appendChild(documentFragment);
 
 
 	this.action(window.document, params)
@@ -29579,6 +29578,7 @@ function onRouteChange () {
 	if (bodyEl.hasClass('loading') === false) {
 		bodyEl.addClass('loading');
 	}
+	window.scrollTo(0, 0);
 	
 	var params = parseRouteArguments(this.path, Array.prototype.slice.call(arguments));
 
@@ -29643,10 +29643,28 @@ var backboneServer = {
 		var defer = Q.defer();
 		var promise = defer.promise;
 
-		if (previousTemplate !== templatePath) {
-			promise = pigeon.get(templatePath);
+		if (templateCache[templatePath] === undefined) {
+			promise = pigeon.get(templatePath)
+				.then(function (responseHTML) {
+					var parser = new DOMParser();
+					var parsedContents = parser.parseFromString(responseHTML, 'text/html');
+					var fragment = new DocumentFragment();
+					var children = Array.prototype.slice.call(parsedContents.body.children);
+
+					for(var i = 0; i < children.length; i += 1) {
+						fragment.appendChild(children[i]);
+					}
+
+					templateCache[templatePath] = fragment.cloneNode(true);
+
+					return fragment;
+
+				});
+
 		} else {
-			defer.resolve();
+
+			defer.resolve(templateCache[templatePath].cloneNode(true));
+
 		}
 
 		previousTemplate = templatePath;
@@ -29681,10 +29699,9 @@ var backboneServer = {
 
 	activate: function () {
 		var router = new Backbone.Router();
-		var server = this;
 
 		bodyEl = jquery('body');
-		contentEl = jquery('.content');
+		contentEl = document.querySelector('.content');
 		
 		
 		routes.reverse().forEach(function (routeData) {
@@ -29757,8 +29774,8 @@ var stateless = {
 }
 
 
-module.exports = stateless;}).call(this,require("/Users/davidturissini/Sites/traveladdict-client/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"))
-},{"./server/backbone":128,"/Users/davidturissini/Sites/traveladdict-client/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":61,"q":127}],130:[function(require,module,exports){
+module.exports = stateless;}).call(this,require("/Users/davidturissini/Sites/turissiniio/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"))
+},{"./server/backbone":128,"/Users/davidturissini/Sites/turissiniio/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":61,"q":127}],130:[function(require,module,exports){
 var bind = Function.prototype.bind,
     slice = Array.prototype.slice,
     toString = Object.prototype.toString;
@@ -32105,8 +32122,8 @@ if (typeof define !== "undefined" && define !== null ? define.amd : void 0) {
 	})();
 
 	exports.track = trackPageView;
-}}).call(this,require("/Users/davidturissini/Sites/traveladdict-client/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"))
-},{"/Users/davidturissini/Sites/traveladdict-client/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":61}],141:[function(require,module,exports){
+}}).call(this,require("/Users/davidturissini/Sites/turissiniio/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"))
+},{"/Users/davidturissini/Sites/turissiniio/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":61}],141:[function(require,module,exports){
 
 
 	function ResponsiveImage (element, options) {
@@ -33679,10 +33696,8 @@ exports.action = function (document, routeData) {
 
 	document.title = 'Musings on travel, the outdoors, and life - turissini.io';
 
-	return Q.spread(promises, function (postsData, locationsData, trailsData) {
+	return Q.spread(promises, function (posts, locations, trailsData) {
 		
-		var posts = JSON.parse(postsData);
-		var locations = JSON.parse(locationsData);
 		var states = _.map(locations, function (location) {
 			if (location.state !== '' && location.country.name === 'United States') {
 				return location.state;
@@ -33773,8 +33788,7 @@ exports.action = function (document, routeData) {
 	});
 
 
-	promise = promise.then(function (e) {
-		var trip = JSON.parse(e);
+	promise = promise.then(function (trip) {
 		var data = {
 			trip: trip,
 			tripDistance: tripDistance,
@@ -33967,28 +33981,25 @@ exports.onUnload = function () {
 
 	interactiveController.unload();
 	interactiveController.afterRemove();
-};}).call(this,require("/Users/davidturissini/Sites/traveladdict-client/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"))
-},{"./../../interactive/posts/nashville":146,"./../../services/traveladdict":175,"/Users/davidturissini/Sites/traveladdict-client/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":61,"transparency":131}],172:[function(require,module,exports){
+};}).call(this,require("/Users/davidturissini/Sites/turissiniio/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"))
+},{"./../../interactive/posts/nashville":146,"./../../services/traveladdict":175,"/Users/davidturissini/Sites/turissiniio/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":61,"transparency":131}],172:[function(require,module,exports){
 var transparency = require('transparency');
 var Photo = require('./../../model/Photo');
 var traveladdict = require('./../../services/traveladdict');
+var _ = require('underscore');
+var Q = require('q');
 
 var action = function (document, routeData) {
+	var promises = [];
 
-	return traveladdict.get('posts/' + routeData.post_id)
-		.then(function (postData) {
-			var post = JSON.parse(postData);
+	promises.push(traveladdict.get('posts/' + routeData.post_id));
+	promises.push(traveladdict.get('posts', {limit:2, exclude:routeData.post_id}));
+
+	return Q.spread(promises, function(post, suggestedPosts) {
 			var element = document.querySelector('#blog-content');
 			var photo = new Photo(post.photo);
 			var factsSection = document.querySelector('#facts');
-			var factEl;
-			var facts;
-
-			if(factsSection) {
-				factEl = factsSection.querySelector('.fact');
-				facts = factEl.parentNode;
-				facts.removeChild(factEl);
-			}
+			
 
 			document.title = post.title + ' - turissini.io';
 
@@ -34013,15 +34024,38 @@ var action = function (document, routeData) {
 
 			});
 
+			var suggestedPostsSection = document.querySelector('#suggested .posts');
+			transparency.render(suggestedPostsSection, _.map(suggestedPosts, function (post) {
+				return {
+					post:post
+				};
+			}), {
+
+				'suggested-link':{
+					href:function () {
+						return '/posts/' + this.post.slug;
+					}
+				},
+
+				'image':{
+					src:function () {
+						var photo = new Photo(this.post.photo);
+						return photo.getUrl('k');
+					}
+				}
+
+			});
+
+
 			if (post.facts.length > 0) {
+				transparency.render(factsSection, _.map(post.facts, function (fact) {
+					return {
+						fact:fact
+					};
+				}))
+				
 
-				post.facts.forEach(function (fact) {
-					var clone = factEl.cloneNode(true);
-					transparency.render(clone, fact);
-					facts.appendChild(clone);
-				});
-
-			} else if(factsSection) {
+			} else {
 				factsSection.parentNode.removeChild(factsSection);
 			}
 
@@ -34034,7 +34068,7 @@ var action = function (document, routeData) {
 exports.template = '/html/views/posts/show.html';
 
 exports.action = action;
-},{"./../../model/Photo":168,"./../../services/traveladdict":175,"transparency":131}],173:[function(require,module,exports){
+},{"./../../model/Photo":168,"./../../services/traveladdict":175,"q":104,"transparency":131,"underscore":139}],173:[function(require,module,exports){
 (function (process,__dirname){if (process.browser === true) {
 	require('./util/polyfills');
 }
@@ -34067,8 +34101,8 @@ stateless
 	.setDefaultLayoutFile('main.html')
 	.setAnalytics(googleAnalytics)
 	.setRoutes(routes)
-	.activate();}).call(this,require("/Users/davidturissini/Sites/traveladdict-client/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"),"/")
-},{"./analytics/google":140,"./routes/home/index":170,"./routes/posts/nashville":171,"./routes/posts/show":172,"./util/polyfills":176,"/Users/davidturissini/Sites/traveladdict-client/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":61,"stateless":129}],174:[function(require,module,exports){
+	.activate();}).call(this,require("/Users/davidturissini/Sites/turissiniio/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"),"/")
+},{"./analytics/google":140,"./routes/home/index":170,"./routes/posts/nashville":171,"./routes/posts/show":172,"./util/polyfills":176,"/Users/davidturissini/Sites/turissiniio/node_modules/grunt-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":61,"stateless":129}],174:[function(require,module,exports){
 var everytrail = require('everytrail');
 var everytrailApiKey = 'b4698addce8098c96300da620996c899';
 var everytrailSecret = '03ff2a1c38a05a65';
@@ -34087,7 +34121,10 @@ var pigeon = require('pigeon');
 var traveladdict_service_url = 'http://traveladdict.me/dave-and-melissa/';
 
 exports.get = function (path, params) {
-	return pigeon.get(traveladdict_service_url + path, params);
+	return pigeon.get(traveladdict_service_url + path, params)
+		.then(function (e) {
+			return JSON.parse(e);
+		});
 };
 },{"pigeon":98}],176:[function(require,module,exports){
 // requestAnimationFrame

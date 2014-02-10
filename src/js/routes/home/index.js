@@ -18,10 +18,8 @@ exports.action = function (document, routeData) {
 
 	document.title = 'Musings on travel, the outdoors, and life - turissini.io';
 
-	return Q.spread(promises, function (postsData, locationsData, trailsData) {
+	return Q.spread(promises, function (posts, locations, trailsData) {
 		
-		var posts = JSON.parse(postsData);
-		var locations = JSON.parse(locationsData);
 		var states = _.map(locations, function (location) {
 			if (location.state !== '' && location.country.name === 'United States') {
 				return location.state;
